@@ -19,6 +19,8 @@ TagManager:
   - Item
   - P1Item
   - P2Item
+  - Stage
+  - StageBall
   layers:
   - Default
   - TransparentFX
