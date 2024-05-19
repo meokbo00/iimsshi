@@ -21,6 +21,15 @@ TagManager:
   - P2Item
   - Stage
   - StageBall
+  - StageDeadZone
+  - SDZ_Top
+  - SDZ_Bottom
+  - SDZ_Left
+  - SDZ_Right
+  - Item_Random_skill
+  - Item_Five_Round
+  - Item_Plus2
+  - EnemyBall
   layers:
   - Default
   - TransparentFX
