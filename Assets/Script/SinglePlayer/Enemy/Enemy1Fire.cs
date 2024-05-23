@@ -1,33 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy1Fire : MonoBehaviour
 {
-    public GameObject enemyBulletPrefab;
-    public static float ShotPower;
-    public static Vector3 ShotDirection;
-    void Start()
-    {
-        StartCoroutine(SpawnBullets());
-    }
-    private IEnumerator SpawnBullets()
-    {
-        while (true)
-        {
-            float waitTime = Random.Range(4f, 7f);
-            yield return new WaitForSeconds(waitTime);
-            Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
+    public GameObject[] enemyBulletPrefabs; // 여러 총알 프리팹을 담는 배열
+    public float MinPower;
+    public float MaxPower;
 
-            CalculateRandomShot();
-        }
-    }
-    private void CalculateRandomShot()
+    public void SpawnBullet()
     {
-        ShotPower = Random.Range(4f, 8f);
-        float x = Random.Range(0f, 360f);
-        float y = Random.Range(0f, 360f);
-        ShotDirection = new Vector3(0, -1, 0).normalized;
+            // 배열에서 무작위로 총알 프리팹 선택
+            GameObject selectedBulletPrefab = enemyBulletPrefabs[Random.Range(0, enemyBulletPrefabs.Length)];
+            GameObject bullet = Instantiate(selectedBulletPrefab, transform.position, Quaternion.identity);
+            Vector2 shotDirection = -transform.up;
+            float shotPower = Random.Range(MinPower, MaxPower);
+            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            bulletRigidbody.velocity = shotDirection * shotPower;
     }
 }

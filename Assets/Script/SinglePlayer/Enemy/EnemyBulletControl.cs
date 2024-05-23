@@ -15,12 +15,13 @@ public class EnemyBulletControl : MonoBehaviour
     private int randomNumber;
     private TextMeshPro textMesh;
     private bool hasBeenReleased = false;
+    private float rotationAngle = 0f; // 회전 각도를 저장할 변수
 
+    public float fontsize;
     public int BallMinHP = 1;
     public int BallMaxHP = 6;
     //public AudioSource HitSound;
     //public AudioSource SwellSound;
-
 
     private void Start()
     {
@@ -30,18 +31,22 @@ public class EnemyBulletControl : MonoBehaviour
         textMesh = textObject.AddComponent<TextMeshPro>();
         randomNumber = Random.Range(BallMinHP, BallMaxHP);
         textMesh.text = randomNumber.ToString();
-        textMesh.fontSize = 2;
+        textMesh.fontSize = fontsize;
         textMesh.alignment = TextAlignmentOptions.Center;
         textMesh.autoSizeTextContainer = true;
         textMesh.rectTransform.localPosition = Vector3.zero;
         textMesh.sortingOrder = 1;
-        LaunchBall();
     }
 
     private void Update()
     {
         Move();
         expand();
+    }
+
+    public void SetRotationAngle(float angle)
+    {
+        rotationAngle = angle;
     }
 
     void Move()
@@ -57,6 +62,7 @@ public class EnemyBulletControl : MonoBehaviour
             StartCoroutine(DestroyRigidbodyDelayed());
         }
     }
+
     void expand()
     {
         if (rigid == null || iscolliding) return;
@@ -69,7 +75,6 @@ public class EnemyBulletControl : MonoBehaviour
         //}
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
-
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -94,11 +99,11 @@ public class EnemyBulletControl : MonoBehaviour
         {
             Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
             if (rigid != null)
-                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // �������� �ʰ� �ݻ縸 ����
+                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // 벡터 값이 음수가 되지 않게 함
         }
         this.iscolliding = true;
-
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         this.iscolliding = false;
@@ -109,13 +114,5 @@ public class EnemyBulletControl : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         if (rigid != null)
             Destroy(rigid);
-    }
-    public void LaunchBall()
-    {
-        if (rigid != null && !hasBeenReleased)
-        {
-            rigid.velocity = Enemy1Fire.ShotDirection * Enemy1Fire.ShotPower;
-            hasBeenReleased = true;
-        }
     }
 }

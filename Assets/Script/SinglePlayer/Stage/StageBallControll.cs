@@ -47,6 +47,7 @@ public class StageBallController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log("빠져나가지 못하도록 위치 조절합니다");
         switch (collision.gameObject.tag)
         {
             case "StageDeadZone":
@@ -62,10 +63,10 @@ public class StageBallController : MonoBehaviour
                 transform.Translate(0, -390, 0);
                 break;
             case "SDZ_Left":
-                transform.Translate(350, 0, 0);
+                transform.Translate(470, 0, 0);
                 break;
             case "SDZ_Right":
-                transform.Translate(-350, 0, 0);
+                transform.Translate(-470, 0, 0);
                 break;
         }
     }

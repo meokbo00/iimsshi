@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SPGameManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class SPGameManager : MonoBehaviour
     public static float shotDistance;
     public static Vector3 shotDirection;
 
-    public bool P1FireMode = true;
+    //public bool P1FireMode = true;
     private void Start()
     {
         P1firezone.gameObject.SetActive(true);
@@ -44,15 +45,15 @@ public class SPGameManager : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapPointAll(clickPosition);
             foreach (Collider2D collider in colliders)
             {
-                if (P1FireMode && collider.gameObject == P1firezone)
+                if (collider.gameObject == P1firezone)
                 {
                     if (fireitem != null)
                     {
-                        fireitem.gameObject.tag = "P1Item";
+                        //fireitem.gameObject.tag = "P1Item";
                         Instantiate(fireitem, clickPosition, Quaternion.identity);
                         Debug.Log("P1이 아이템을 사용하였습니다");
                         Debug.Log("아이템의 이름은 " + fireitem.gameObject.name + "입니다");
-                        P1FireMode = false;
+                        //P1FireMode = false;
                         isDragging = true;
                         fireitem = null;
                         break;
@@ -61,7 +62,7 @@ public class SPGameManager : MonoBehaviour
                     {
                         Instantiate(P1ballPrefab, clickPosition, Quaternion.identity);
                         Debug.Log("P1이 기본구체를 날렸습니다");
-                        P1FireMode = false;
+                        //P1FireMode = false;
                         isDragging = true;
                         break;
                     }
@@ -77,6 +78,14 @@ public class SPGameManager : MonoBehaviour
             Vector3 dragDirection = (currentPosition - clickPosition).normalized;
             GameManager.shotDirection = -dragDirection;
             isDragging = false;
+        }
+
+        int totalBalls = GameObject.FindGameObjectsWithTag("EnemyBall").Length +
+                       GameObject.FindGameObjectsWithTag("P1ball").Length;
+        if (totalBalls > 12)
+        {
+            Debug.Log("총알의 개수 총합이 12개를 넘겼습니다");
+            SceneManager.LoadScene("Fail");
         }
     }
 
