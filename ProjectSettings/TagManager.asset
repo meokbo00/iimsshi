@@ -15,12 +15,20 @@ TagManager:
   - Item_Random_number
   - Item_Reduction
   - Item_BlackHole
-  - Item_Plus1
   - Item
   - P1Item
   - P2Item
   - Stage
   - StageBall
+  - StageDeadZone
+  - SDZ_Top
+  - SDZ_Bottom
+  - SDZ_Left
+  - SDZ_Right
+  - EnemyBall
+  - Enemy
+  - EnemyCenter
+  - Gojung
   layers:
   - Default
   - TransparentFX
