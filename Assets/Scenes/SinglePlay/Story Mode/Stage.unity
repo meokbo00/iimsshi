@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 1555069169}
+  StartButton: {fileID: 1408715654}
   stagenum: 0
 --- !u!1 &380759948
 GameObject:
@@ -2075,6 +2076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 1555069169}
+  StartButton: {fileID: 1408715654}
   stagenum: 0
 --- !u!1 &816121384
 GameObject:
@@ -2415,6 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 1555069169}
+  StartButton: {fileID: 1408715654}
   stagenum: 0
 --- !u!1 &912586865
 GameObject:
@@ -4915,6 +4918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 1555069169}
+  StartButton: {fileID: 1408715654}
   stagenum: 0
 --- !u!1 &1916537969
 GameObject:
@@ -5184,6 +5188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 1555069169}
+  StartButton: {fileID: 1408715654}
   stagenum: 0
 --- !u!1 &1948934585
 GameObject:
@@ -5489,7 +5494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d080cc2a0477f4b9323aef3278e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageClearID: 4
+  StageClearID: 2
   isDragging: 0
 --- !u!4 &2105216457
 Transform:

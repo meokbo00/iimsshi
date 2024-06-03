@@ -11,7 +11,7 @@ public class StageGoBtn : MonoBehaviour
         this.GoBtn.onClick.AddListener(() =>
         {
             // 씬을 로드하기 전에 chooseStage 값을 저장
-            GlobalData.SelectedStage = StageBallController.chooseStage;
+            GlobalData.SelectedStage = StageState.chooseStage;
             SceneManager.LoadScene("Story-InGame");
         });
     }

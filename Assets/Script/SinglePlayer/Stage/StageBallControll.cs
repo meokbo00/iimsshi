@@ -54,9 +54,6 @@ public class StageBallController : MonoBehaviour
             case "StageDeadZone":
                 rigid.velocity = Vector2.zero;
                 break;
-            case "Stage":
-                StageStart.gameObject.SetActive(true);
-                break;
             case "SDZ_Bottom":
                 transform.Translate(0, 620, 0);
                 break;
@@ -70,23 +67,6 @@ public class StageBallController : MonoBehaviour
                 transform.Translate(-610, 0, 0);
                 break;
         }
-
-        if (collision.gameObject.name.StartsWith("Stage"))
-        {
-            string stageNumber = collision.gameObject.name.Substring(5); // "Stage" 이후의 문자열을 추출
-            if (int.TryParse(stageNumber, out int stageIndex))
-            {
-                chooseStage = stageIndex;
-                Debug.Log($"chooseStage 값이 {chooseStage}로 설정되었습니다.");
-                FindObjectOfType<ShowStageBox>().UpdateStageInfo(chooseStage);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Stage")
-            StageStart.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
