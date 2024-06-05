@@ -30,7 +30,6 @@ public class StageGameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (IsPointerOverUIObject())
         {
             return;

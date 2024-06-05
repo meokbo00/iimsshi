@@ -21,6 +21,7 @@ public class SPGameManager : MonoBehaviour
     private void Start()
     {
         P1firezone.gameObject.SetActive(true);
+        Debug.Log(StageState.chooseStage);
     }
     public void PrintDestroyedicontag(string icontag)
     {
@@ -90,7 +91,10 @@ public class SPGameManager : MonoBehaviour
         if (totalenemy <= 0)
         {
             gameManager = FindObjectOfType<StageGameManager>();
-            gameManager.StageClearID += 1;
+            if (gameManager.StageClearID == StageState.chooseStage)
+            {
+                gameManager.StageClearID += 1;
+            }
             SceneManager.LoadScene("Clear");
         }
     }

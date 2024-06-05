@@ -12,7 +12,8 @@ public class StageState : MonoBehaviour
 
     void Start()
     {
-        this.stagenum = int.Parse(gameObject.name[5].ToString());
+        string namePart = gameObject.name.Substring(5, 2); // 6번째와 7번째 글자 가져오기
+        this.stagenum = int.Parse(namePart);
         gameManager = StageGameManager.instance;
         int stageClearID = gameManager.StageClearID;
 
@@ -50,7 +51,7 @@ public class StageState : MonoBehaviour
             }
         }
         chooseStage = stagenum;
-        Debug.Log(chooseStage);
+        Debug.Log("chooseStage : " + chooseStage);
         FindObjectOfType<ShowStageBox>().UpdateStageInfo(chooseStage);
     }
 
