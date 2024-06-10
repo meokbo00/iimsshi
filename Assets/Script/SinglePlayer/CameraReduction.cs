@@ -1,23 +1,36 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CameraReduction : MonoBehaviour
 {
     private Camera mainCamera;
     private int currentIndex = 0;
-    private float[] sizes = { 15f, 30f, 45f };
+    private float[] sizes;
     private string[] sizeTexts = { "100%", "75%", "50%" };
 
-    public TextMeshProUGUI buttonText; // ¹öÆ° ÅØ½ºÆ® ÂüÁ¶
+    public TextMeshProUGUI buttonText; 
 
     void Start()
     {
         mainCamera = Camera.main;
         if (mainCamera == null)
         {
-            Debug.LogError("Main Camera not found!");
+            Debug.LogError("ë©”ì¸ ì¹´ë©”ë¼ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
+            return;
         }
-        UpdateButtonText(); // ÃÊ±â ÅØ½ºÆ® ¼³Á¤
+
+        // í˜„ì¬ ì”¬ì— ë”°ë¼ sizes ë°°ì—´ ì„¤ì •
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Stage")
+        {
+            sizes = new float[] { 15f, 30f, 45f };
+        }
+        else if (currentSceneName == "Main Stage")
+        {
+            sizes = new float[] { 3f, 7f, 13f };
+        }
+        UpdateButtonText(); // ì´ˆê¸° í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸
     }
 
     public void ChangeCameraSize()
@@ -25,7 +38,7 @@ public class CameraReduction : MonoBehaviour
         if (mainCamera != null)
         {
             currentIndex = (currentIndex + 1) % sizes.Length;
-            mainCamera.orthographicSize = sizes[currentIndex]; // Ä«¸Ş¶ó Å©±â Áï½Ã º¯°æ
+            mainCamera.orthographicSize = sizes[currentIndex]; // ì¹´ë©”ë¼ í¬ê¸° ë³€ê²½
             UpdateButtonText();
         }
     }

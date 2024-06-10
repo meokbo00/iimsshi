@@ -225,7 +225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038146973, y: -32}
+  m_AnchoredPosition: {x: 0.000038146973, y: 233}
   m_SizeDelta: {x: 1080, y: 1336.5642}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335500803
@@ -252,7 +252,8 @@ MonoBehaviour:
     by macrovector</a> on Freepik\n\n<a href=\"https://www.flaticon.com/kr/free-icons/\"
     title=\"\uC6B0\uC8FC \uC544\uC774\uCF58\">\uC6B0\uC8FC \uC544\uC774\uCF58 \uC81C\uC791\uC790:
     Icongeek26 - Flaticon</a>\n\n<a href=\"https://kr.freepik.com/free-vector/dark-set-game-button-elements-progress-bar-bright-different-forms-buttons-games-app_13466781.htm#fromView=search&page=5&position=47&uuid=b4f2896a-ee4d-422b-83ba-187d623b3b19\">\uC791\uAC00
-    jcomp \uCD9C\uCC98 Freepik</a>"
+    jcomp \uCD9C\uCC98 Freepik</a>\n\n<a href=\"https://kr.freepik.com/free-vector/vector-game-template-gui-kit_15637405.htm#query=%EA%B2%8C%EC%9E%84%20ui%20%EB%94%94%EC%9E%90%EC%9D%B8&position=28&from_view=keyword&track=ais_user&uuid=c234bd91-88a4-45ad-a3e0-0fb1e20674da\">\uC791\uAC00
+    jcomp</a> \uCD9C\uCC98 Freepik\n\n\uCD9C\uCC98 <a href=\"https://kr.freepik.com/free-vector/flat-twitch-panels_20952890.htm#query=%EA%B2%8C%EC%9E%84%20ui%20%EB%94%94%EC%9E%90%EC%9D%B8&position=44&from_view=keyword&track=ais_user&uuid=c234bd91-88a4-45ad-a3e0-0fb1e20674da\">Freepik</a>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 064928367d0872b4da7404799e8eeb6f, type: 2}
   m_sharedMaterial: {fileID: 4496936557231279810, guid: 064928367d0872b4da7404799e8eeb6f, type: 2}
@@ -279,8 +280,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32.19
+  m_fontSizeBase: 32.19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

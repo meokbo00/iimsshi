@@ -3,7 +3,6 @@
       "id": 1,
       "enemies": [
          {"type": "Enemy1", "x": 1.3, "y": 1.3},
-         {"type": "Enemy1", "x": -1.3, "y": -1.3},
          {"type": null, "x": 2, "y": 2}
       ]
    },

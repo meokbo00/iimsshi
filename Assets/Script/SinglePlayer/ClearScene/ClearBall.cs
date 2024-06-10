@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClearBall : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class ClearBall : MonoBehaviour
         float y = Random.Range(1, 5);
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        rb.velocity = new Vector2(x,y) * 5;
+        rb.velocity = new Vector2(x, y) * 5;
     }
 
     void FixedUpdate()
@@ -27,5 +28,10 @@ public class ClearBall : MonoBehaviour
         Vector2 reflectDirection = Vector2.Reflect(lastVelocity.normalized, normal);
 
         rb.velocity = reflectDirection * 5;
+    }
+
+    void OnMouseDown()
+    {
+        SceneManager.LoadScene("Stage");
     }
 }

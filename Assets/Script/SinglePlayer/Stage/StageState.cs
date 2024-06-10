@@ -12,7 +12,7 @@ public class StageState : MonoBehaviour
 
     void Start()
     {
-        string namePart = gameObject.name.Substring(5, 2); // 6¹øÂ°¿Í 7¹øÂ° ±ÛÀÚ °¡Á®¿À±â
+        string namePart = gameObject.name.Substring(5, 2); // 6ï¿½ï¿½Â°ï¿½ï¿½ 7ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         this.stagenum = int.Parse(namePart);
         gameManager = StageGameManager.instance;
         int stageClearID = gameManager.StageClearID;

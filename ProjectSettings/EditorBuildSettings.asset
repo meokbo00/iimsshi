@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SinglePlay/Story Mode/Stage.unity
     guid: fb0a5be2dff4fd74e801fbebefa867f7
   - enabled: 1
+    path: Assets/Scenes/SinglePlay/Story Mode/Main Stage.unity
+    guid: b525ced0b57d1864fb0f6c9d13b2bbac
+  - enabled: 1
     path: Assets/Scenes/SinglePlay/Story Mode/Fail.unity
     guid: 4ec78cc7bb2545f4d91d5837ecc4c014
   - enabled: 1
