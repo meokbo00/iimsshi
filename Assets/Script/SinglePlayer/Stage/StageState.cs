@@ -4,6 +4,7 @@ public class StageState : MonoBehaviour
 {
     public GameObject StageStart;
     public GameObject StartButton;
+    public GameObject Clearhere; // Clearhere 오브젝트를 public으로 추가
     public int stagenum;
     public static int chooseStage;
     private bool isclear;
@@ -12,7 +13,7 @@ public class StageState : MonoBehaviour
 
     void Start()
     {
-        string namePart = gameObject.name.Substring(5, 2); // 6��°�� 7��° ���� ��������
+        string namePart = gameObject.name.Substring(5, 2); // 6번째와 7번째 문자를 추출
         this.stagenum = int.Parse(namePart);
         gameManager = StageGameManager.instance;
         int stageClearID = gameManager.StageClearID;
@@ -22,17 +23,22 @@ public class StageState : MonoBehaviour
         if (stageClearID < this.stagenum)
         {
             isclear = false;
-            spriteRenderer.color = new Color32(73, 73, 73, 255);
+            spriteRenderer.color = new Color32(50, 50, 50, 255);
         }
         else if (stageClearID == this.stagenum)
         {
             isclear = true;
-            spriteRenderer.color = new Color32(255, 61, 61, 255);
+            spriteRenderer.color = new Color32(50, 50, 50, 255);
+
+            if (Clearhere != null)
+            {
+                Instantiate(Clearhere, transform.position, Quaternion.identity, transform);
+            }
         }
         else
         {
             isclear = true;
-            spriteRenderer.color = new Color32(69, 155, 255, 255);
+            spriteRenderer.color = new Color32(255, 255, 255, 255);
         }
     }
 
@@ -40,14 +46,15 @@ public class StageState : MonoBehaviour
     {
         if (collision.gameObject.tag == "StageBall")
         {
+            Debug.Log("스테이지 플레이창을 띄웁니다");
             StageStart.gameObject.SetActive(true);
-            if(!isclear)
+            if (!isclear)
             {
                 StartButton.gameObject.SetActive(false);
             }
-            else if(isclear)
+            else if (isclear)
             {
-                StartButton.gameObject.SetActive(true) ;
+                StartButton.gameObject.SetActive(true);
             }
         }
         chooseStage = stagenum;
