@@ -28,7 +28,7 @@ public class CameraReduction : MonoBehaviour
         }
         else if (currentSceneName == "Main Stage")
         {
-            sizes = new float[] { 3f, 7f, 13f };
+            sizes = new float[] { 4f, 7f, 15f };
         }
         UpdateButtonText(); // 초기 텍스트 업데이트
     }

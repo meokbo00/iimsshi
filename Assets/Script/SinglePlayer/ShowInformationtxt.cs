@@ -4,13 +4,21 @@ using TMPro;
 
 public class ShowInformationtxt : MonoBehaviour
 {
-    public TextAsset JsonFile; // JSON ÆÄÀÏÀ» ÀúÀåÇÒ º¯¼ö
-    public TMP_Text informationText; // Á¤º¸¸¦ Ãâ·ÂÇÒ TextMesh
+    public TextAsset JsonFile;
+    public TMP_Text informationText;
+    public TextMeshProUGUI stageTitleText;
+
+    private Information[] stageInfos;
 
     private void Start()
     {
-        // ÃÊ±âÈ­ÇÒ ¶§´Â ¾Æ¹« Á¤º¸µµ Ãâ·ÂÇÏÁö ¾Êµµ·Ï ÇÕ´Ï´Ù.
+        // JSON íŒŒì¼ì—ì„œ ë°ì´í„° ë¡œë“œ
+        string jsonString = JsonFile.text;
+        stageInfos = JsonConvert.DeserializeObject<Information[]>(jsonString);
+
+        // ì´ˆê¸° í…ìŠ¤íŠ¸ ì„¤ì •
         informationText.text = "";
+        stageTitleText.text = "";
     }
 
     private void Update()
@@ -22,14 +30,12 @@ public class ShowInformationtxt : MonoBehaviour
     {
         StageGameManager gameManager = FindObjectOfType<StageGameManager>();
 
-        string jsonString = JsonFile.text;
-        Information[] stageInfos = JsonConvert.DeserializeObject<Information[]>(jsonString);
-
         int stageID = StageState.chooseStage;
         int stageClearID = gameManager.StageClearID;
 
-        // stageID¿¡ ÇØ´çÇÏ´Â String °¡Á®¿À±â
         string stageString = "";
+        string stageTitle = "";
+
         foreach (Information info in stageInfos)
         {
             if (info.id == stageID)
@@ -37,17 +43,20 @@ public class ShowInformationtxt : MonoBehaviour
                 if (stageClearID < stageID)
                 {
                     stageString = "<size=20>???</size>";
+                    stageTitle = "<size=12>???</size>";
                 }
                 else
                 {
                     stageString = info.String;
+                    stageTitle = info.StageTitle;
                 }
-                Debug.Log(info.id + "¹ø ¼³¸íÀÔ´Ï´Ù");
+                Debug.Log(info.id + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½");
                 break;
             }
         }
 
         informationText.text = stageString;
+        stageTitleText.text = stageTitle;
     }
 }
 
@@ -55,5 +64,6 @@ public class ShowInformationtxt : MonoBehaviour
 public class Information
 {
     public int id;
+    public string StageTitle;
     public string String;
 }

@@ -12,10 +12,7 @@ public class SpawnGojungAndBack : MonoBehaviour
     {
         public int id;
         public int Gojungnum;
-        public float R;
-        public float G;
-        public float B;
-        public float A;
+        public string Color;
     }
 
     void Start()
@@ -30,49 +27,51 @@ public class SpawnGojungAndBack : MonoBehaviour
 
             if (colorData != null)
             {
-                float r = colorData.R / 255f;
-                float g = colorData.G / 255f;
-                float b = colorData.B / 255f;
-                float a = colorData.A / 255f;
-
-                GameObject backgroundObject = GameObject.Find("BackGround");
-
-                if (backgroundObject != null)
+                if (ColorUtility.TryParseHtmlString("#" + colorData.Color, out Color color))
                 {
-                    SpriteRenderer spriteRenderer = backgroundObject.GetComponent<SpriteRenderer>();
+                    GameObject backgroundObject = GameObject.Find("BackGround");
 
-                    if (spriteRenderer != null)
+                    if (backgroundObject != null)
                     {
-                        spriteRenderer.color = new Color(r, g, b, a);
+                        SpriteRenderer spriteRenderer = backgroundObject.GetComponent<SpriteRenderer>();
+
+                        if (spriteRenderer != null)
+                        {
+                            spriteRenderer.color = color;
+                        }
+                        else
+                        {
+                            Debug.LogError("SpriteRenderer ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+                        }
                     }
                     else
                     {
-                        Debug.LogError("SpriteRenderer ÄÄÆ÷³ÍÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+                        Debug.LogError("\"BackGround\"ë¼ëŠ” ì´ë¦„ì˜ ë°°ê²½ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+                    }
+
+                    // Gojungnumì— í•´ë‹¹í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ìŠ¤í°í•©ë‹ˆë‹¤.
+                    if (colorData.Gojungnum > 0 && colorData.Gojungnum <= Gojungtype.Length)
+                    {
+                        Instantiate(Gojungtype[colorData.Gojungnum - 1], new Vector3(0, 0, 0), Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.LogError("Gojungnum ê°’ì´ ë°°ì—´ ë²”ìœ„ë¥¼ ë²—ì–´ë‚©ë‹ˆë‹¤.");
                     }
                 }
                 else
                 {
-                    Debug.LogError("\"BackGround\"¶ó´Â ÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
-                }
-
-                // Gojungnum¿¡ ÇØ´çÇÏ´Â ¿ÀºêÁ§Æ®¸¦ »ý¼ºÇÕ´Ï´Ù.
-                if (colorData.Gojungnum > 0 && colorData.Gojungnum <= Gojungtype.Length)
-                {
-                    Instantiate(Gojungtype[colorData.Gojungnum - 1], new Vector3(0, 0, 0), Quaternion.identity);
-                }
-                else
-                {
-                    Debug.LogError("Gojungnum °ªÀÌ ¹è¿­ ¹üÀ§¸¦ ¹þ¾î³µ½À´Ï´Ù.");
+                    Debug.LogError("ìœ íš¨í•˜ì§€ ì•Šì€ ìƒ‰ìƒ ì½”ë“œìž…ë‹ˆë‹¤: " + colorData.Color);
                 }
             }
             else
             {
-                Debug.LogError($"ID°¡ {stage}ÀÎ µ¥ÀÌÅÍ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+                Debug.LogError($"IDê°€ {stage}ì¸ ë°ì´í„°ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             }
         }
         else
         {
-            Debug.LogError("JSON ÆÄÀÏÀÌ ÁöÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            Debug.LogError("JSON íŒŒì¼ì´ í• ë‹¹ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
         }
     }
 }

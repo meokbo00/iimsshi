@@ -13,7 +13,6 @@ public class ShowStageBox : MonoBehaviour
     {
         public int id;
         public string StageTitle;
-        public string StageDetail;
     }
 
     private List<Stage> stages;
@@ -29,7 +28,6 @@ public class ShowStageBox : MonoBehaviour
         if (selectedStage != null)
         {
             stageTitleText.text = selectedStage.StageTitle;
-            Debug.Log($"Stage {chooseStage} 정보가 업데이트되었습니다: {selectedStage.StageTitle} - {selectedStage.StageDetail}");
         }
         else
         {
