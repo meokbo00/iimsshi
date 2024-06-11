@@ -23,12 +23,12 @@ public class StageState : MonoBehaviour
         if (stageClearID < this.stagenum)
         {
             isclear = false;
-            spriteRenderer.color = new Color32(50, 50, 50, 255);
+            spriteRenderer.color = new Color32(100, 100, 100, 255);
         }
         else if (stageClearID == this.stagenum)
         {
             isclear = true;
-            spriteRenderer.color = new Color32(50, 50, 50, 255);
+            spriteRenderer.color = new Color32(100, 100, 100, 255);
 
             if (Clearhere != null)
             {

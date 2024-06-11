@@ -8,7 +8,6 @@ public class ShowStageBox : MonoBehaviour
 {
     public TextAsset stageDataFile;
     public TextMeshProUGUI stageTitleText;
-    public TextMeshProUGUI stageExplainText;
 
     public class Stage
     {
@@ -30,7 +29,6 @@ public class ShowStageBox : MonoBehaviour
         if (selectedStage != null)
         {
             stageTitleText.text = selectedStage.StageTitle;
-            stageExplainText.text = selectedStage.StageDetail;
             Debug.Log($"Stage {chooseStage} 정보가 업데이트되었습니다: {selectedStage.StageTitle} - {selectedStage.StageDetail}");
         }
         else

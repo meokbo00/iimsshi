@@ -67,7 +67,9 @@ public class SpawnEnemy : MonoBehaviour
         int index = GetEnemyIndex(enemyType);
         if (index >= 0 && index < Enemy.Length)
         {
-            Instantiate(Enemy[index], new Vector3(x, y, 0), Quaternion.identity);
+            // Instantiate the enemy and set its position correctly
+            GameObject newEnemy = Instantiate(Enemy[index], new Vector3(x, y, 0), Quaternion.identity);
+            Debug.Log($"Instantiated {enemyType} at position ({x}, {y})");
         }
     }
 
@@ -81,7 +83,25 @@ public class SpawnEnemy : MonoBehaviour
             case "Enemy4": return 3;
             case "Enemy5": return 4;
             case "Enemy6": return 5;
-            case "Enemy7": return 6;
+            case "HEnemy1": return 6;
+            case "HEnemy2": return 7;
+            case "SEnemy1": return 8;
+            case "SEnemy2": return 9;
+            case "SEnemy3": return 10;
+            case "TEnemy1": return 11;
+            case "TEnemy2": return 12;
+            case "XEnemy1": return 13;
+            case "XEnemy2": return 14;
+            case "XEnemy3": return 15;
+            case "YEnemy2": return 16;
+            case "ZEnemy1": return 17;
+            case "ZEnemy2": return 18;
+            case "ZEnemy3": return 19;
+            case "ZEnemy4": return 20;
+            case "ZEnemy5": return 21;
+            case "ZEnemy6": return 22;
+            case "ZEnemy7": return 23;
+
             default: return -1;
         }
     }

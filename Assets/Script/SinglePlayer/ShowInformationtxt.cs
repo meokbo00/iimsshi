@@ -20,10 +20,13 @@ public class ShowInformationtxt : MonoBehaviour
 
     public void UpdateStageInfo()
     {
+        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+
         string jsonString = JsonFile.text;
         Information[] stageInfos = JsonConvert.DeserializeObject<Information[]>(jsonString);
 
         int stageID = StageState.chooseStage;
+        int stageClearID = gameManager.StageClearID;
 
         // stageID에 해당하는 String 가져오기
         string stageString = "";
@@ -31,7 +34,15 @@ public class ShowInformationtxt : MonoBehaviour
         {
             if (info.id == stageID)
             {
-                stageString = info.String;
+                if (stageClearID < stageID)
+                {
+                    stageString = "<size=20>???</size>";
+                }
+                else
+                {
+                    stageString = info.String;
+                }
+                Debug.Log(info.id + "번 설명입니다");
                 break;
             }
         }

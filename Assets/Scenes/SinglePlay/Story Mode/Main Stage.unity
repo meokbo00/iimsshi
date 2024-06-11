@@ -770,7 +770,7 @@ RectTransform:
   m_GameObject: {fileID: 659657433}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36363634, y: 0.36363634, z: 2}
+  m_LocalScale: {x: 0.3636363, y: 0.3636363, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1539269153}
@@ -2170,6 +2170,7 @@ GameObject:
   - component: {fileID: 1269243145}
   - component: {fileID: 1269243147}
   - component: {fileID: 1269243146}
+  - component: {fileID: 1269243148}
   m_Layer: 5
   m_Name: StageExplain
   m_TagString: Untagged
@@ -2193,7 +2194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11.1}
+  m_AnchoredPosition: {x: 0, y: 16.4}
   m_SizeDelta: {x: 154.39053, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269243146
@@ -2216,12 +2217,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<\uC6B0\uC8FC\uC758 \uC624\uC544\uC2DC\uC2A4>\\n \uC6B0\uC8FC\uC5D0\uC11C
-    \uAC00\uC7A5 \uD070 \uBB3C \uC800\uC7A5\uC18C\uB294 \uC6B0\uB9AC\uB85C\uBD80\uD130\\n120\uC5B5
-    \uAD11\uB144 \uB5A8\uC5B4\uC838 \uC788\uB294 \uD018\uC774\uC0AC\uC758 \uC911\uC2EC\uBD80
-    \uCD08\uC9C8\uB7C9\\n\uBE14\uB799\uD640\uC785\uB2C8\uB2E4. \uC218\uBC31 \uAD11\uB144\uC744
-    \uB36E\uACE0 \uC138\uACC4 \uBC14\uB2E4\uBCF4\uB2E4\\n140\uC870 \uBC30\uB098 \uB9CE\uC740
-    \uBB3C\uC744 \uD3EC\uD568\uD558\uACE0 \uC788\uB294 \uAD6C\uB984\uC785\uB2C8\uB2E4"
+  m_text: "<0.2%>\\n\\n \uADF8\uB3D9\uC548\uC758 \uBE14\uB799\uD640 \uAD00\uCE21
+    \uB370\uC774\uD130\uB97C \uC885\uD569\uD558\uBA74\\n\uC740\uD558 \uC911\uC2EC
+    \uBE14\uB799\uD640\uC758 \uC9C8\uB7C9\uC740 \uC740\uD558 \uC804\uCCB4 \uC9C8\uB7C9\uC758\\n0.2%\uB85C
+    \uB298 \uC77C\uC815\uD558\uAC8C \uB098\uD0C0\uB09C\uB2E4\uACE0 \uD569\uB2C8\uB2E4.\\n\uC740\uD558
+    \uADDC\uBAA8\uAC00 \uD06C\uAC74 \uC791\uAC74 \uBE14\uB799\uD640 \uC9C8\uB7C9\uACFC
+    \uADF8 \uBE44\uC728\uC774\\n\u20181000 \uB300 2\u2019\uB85C \uB300\uCCB4\uB85C
+    \uC720\uC9C0\uB41C\uB2E4\uB294 \uAC70\uC8E0.\\n0.2%\uB77C\uB294 \uC22B\uC790\uB294
+    \uC5B4\uB5A4 \uC758\uBBF8\uC77C\uAE4C\uC694?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 064928367d0872b4da7404799e8eeb6f, type: 2}
   m_sharedMaterial: {fileID: 4496936557231279810, guid: 064928367d0872b4da7404799e8eeb6f, type: 2}
@@ -2284,7 +2287,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.5688705, y: -32.67902, z: -1.8737183, w: -32.874306}
+  m_margin: {x: -1.5688705, y: -34.49283, z: -1.8737183, w: -36.048443}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2298,6 +2301,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269243144}
   m_CullTransparentMesh: 1
+--- !u!114 &1269243148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269243144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d4e58c9d1295d49a45907dc93642ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JsonFile: {fileID: 4900000, guid: 464033c43d443f9479ce8aa183441646, type: 3}
+  informationText: {fileID: 1269243146}
 --- !u!1 &1274795330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 84}
+  m_AnchoredPosition: {x: 0, y: 562}
   m_SizeDelta: {x: 178.8942, y: 168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539269154
@@ -2629,7 +2646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDataFile: {fileID: 4900000, guid: bbd95f871d91df94cb8d7e25d517dadc, type: 3}
   stageTitleText: {fileID: 892007781}
-  stageExplainText: {fileID: 1269243146}
 --- !u!1 &1544020299
 GameObject:
   m_ObjectHideFlags: 0
