@@ -14,10 +14,11 @@ public class SingleStageStopBtn : MonoBehaviour
 
     public GameObject Stop_Channel;
     public AudioSource ButtonAudio;
-
+    StageGameManager StageGameManager;
     bool ispause;
     void Start()
     {
+        StageGameManager = FindObjectOfType<StageGameManager>();
         ispause = false;
         this.Stopbtn.onClick.AddListener(() =>
         {
@@ -53,7 +54,14 @@ public class SingleStageStopBtn : MonoBehaviour
             Time.timeScale = 1;
             ispause = false;
 
-            SceneManager.LoadScene("Stage");
+            if (StageGameManager.StageClearID <= 5)
+            {
+                SceneManager.LoadScene("Stage");
+            }
+            else if(StageGameManager.StageClearID >= 6)
+            {
+                SceneManager.LoadScene("Main Stage");
+            }
         });
         this.Main_menu.onClick.AddListener(() =>
         {
@@ -62,7 +70,6 @@ public class SingleStageStopBtn : MonoBehaviour
 
             Time.timeScale = 1;
             ispause = false;
-
             SceneManager.LoadScene("Start Scene");
         });
     }

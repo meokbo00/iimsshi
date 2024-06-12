@@ -28,12 +28,12 @@ public class MovingSphere : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("Start Scene");
     }
 
     private void SetRandomDirection()
     {
-        float randomAngle = Random.Range(0f, 360f); 
+        float randomAngle = Random.Range(0f, 360f);
         moveDirection = Quaternion.Euler(0, 0, randomAngle) * Vector2.right;
     }
 }

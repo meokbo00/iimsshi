@@ -1,6 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json;
 using TMPro;
+using System.Collections.Generic;
 
 public class ShowInformationtxt : MonoBehaviour
 {
@@ -59,7 +60,6 @@ public class ShowInformationtxt : MonoBehaviour
         stageTitleText.text = stageTitle;
     }
 }
-
 [System.Serializable]
 public class Information
 {

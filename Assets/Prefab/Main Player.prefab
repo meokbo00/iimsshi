@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6879346292803803877}
   - component: {fileID: 5103949075740025544}
   - component: {fileID: 7387887998377467258}
-  - component: {fileID: 569950362156945474}
   - component: {fileID: 376975165297101481}
+  - component: {fileID: -6198327690369867523}
   m_Layer: 0
   m_Name: Main Player
   m_TagString: StageBall
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0074663516, w: 0.99997216}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6816568e52f7fd14f8d2991b888743ce, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 8fbbfabf999dfd149b77a13e237fe5a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +114,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &569950362156945474
+--- !u!114 &376975165297101481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977937362943864785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b995457abeb994cac158627ffa52e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageStart: {fileID: 0}
+  LineBox: {fileID: 0}
+--- !u!58 &-6198327690369867523
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,20 +160,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02431366, y: -0.08976563}
   serializedVersion: 2
-  m_Radius: 0.24585521
---- !u!114 &376975165297101481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977937362943864785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b995457abeb994cac158627ffa52e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageStart: {fileID: 0}
-  LineBox: {fileID: 0}
+  m_Radius: 2.0856884

@@ -1,11 +1,81 @@
 [
    {
+      "id":1,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":2,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":3,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":4,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":5,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":6,
+      "Gojungnum":1,
+      "Color":"94BBDB"
+   },
+   {
+      "id":7,
+      "Gojungnum":1,
+      "Color":"E69B96"
+   },
+   {
       "id":8,
       "Gojungnum":1,
-      "Color":"29B0F6"
+      "Color":"56C6FF"
    },
    {
       "id":9,
+      "Gojungnum":1,
+      "Color":"8B94B5"
+   },
+   {
+      "id":10,
+      "Gojungnum":1,
+      "Color":"AB2B2B"
+   },
+   {
+      "id":11,
+      "Gojungnum":1,
+      "Color":"D9A775"
+   },
+   {
+      "id":12,
+      "Gojungnum":1,
+      "Color":"FFD3A6"
+   },
+   {
+      "id":13,
+      "Gojungnum":1,
+      "Color":"49BDDE"
+   },
+   {
+      "id":14,
+      "Gojungnum":1,
+      "Color":"4A9BF1"
+   },
+   {
+      "id":15,
+      "Gojungnum":1,
+      "Color":"FFFFFF"
+   },
+   {
+      "id":16,
       "Gojungnum":2,
       "Color":"813AE7"
    }

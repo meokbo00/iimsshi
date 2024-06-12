@@ -15,6 +15,6 @@ public class PracticeSceneBtn : MonoBehaviour
     void BackClicked()
     {
         //ButtonAudio.Play();
-        SceneManager.LoadScene("Stage");
+        SceneManager.LoadScene("Start Scene");
     }
 }

@@ -6,6 +6,7 @@ public class SPFailSceneManager : MonoBehaviour
 {
     void Update()
     {
+        StageGameManager stageGameManager = FindObjectOfType<StageGameManager>();
         int randomnumber = Random.Range(1, 6);
 
         if (Input.GetMouseButtonDown(0))
@@ -14,7 +15,14 @@ public class SPFailSceneManager : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.name == "GoStage")
             {
-                SceneManager.LoadScene("Stage");
+                if (stageGameManager.StageClearID <= 5)
+                {
+                    SceneManager.LoadScene("Stage");
+                }
+                else if (stageGameManager.StageClearID >= 6)
+                {
+                    SceneManager.LoadScene("Main Stage");
+                }
             }
             if (hit.collider != null && hit.collider.gameObject.name == "GoMenu")
             {
@@ -40,7 +48,7 @@ public class SPFailSceneManager : MonoBehaviour
                 }
                 else if (randomnumber == 4)
                 {
-                    SceneManager.LoadScene("Stage");
+                    SceneManager.LoadScene("Credit Scene");
                 }
                 else if (randomnumber == 5)
                 {
