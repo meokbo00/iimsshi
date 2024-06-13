@@ -79,7 +79,7 @@ public class SPGameManager : MonoBehaviour
 
         int totalBalls = GameObject.FindGameObjectsWithTag("EnemyBall").Length +
                        GameObject.FindGameObjectsWithTag("P1ball").Length;
-        if (totalBalls > 12)
+        if (totalBalls > 16)
         {
             SceneManager.LoadScene("Fail");
         }

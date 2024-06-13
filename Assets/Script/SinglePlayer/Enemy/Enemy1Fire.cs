@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemy1Fire : MonoBehaviour
 {
-    public GameObject[] enemyBulletPrefabs; // ¿©·¯ ÃÑ¾Ë ÇÁ¸®ÆÕÀ» ´ã´Â ¹è¿­
+    public GameObject[] enemyBulletPrefabs;
     public float MinPower;
     public float MaxPower;
 
     public void SpawnBullet()
     {
-            // ¹è¿­¿¡¼­ ¹«ÀÛÀ§·Î ÃÑ¾Ë ÇÁ¸®ÆÕ ¼±ÅÃ
+            // ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             GameObject selectedBulletPrefab = enemyBulletPrefabs[Random.Range(0, enemyBulletPrefabs.Length)];
             GameObject bullet = Instantiate(selectedBulletPrefab, transform.position, Quaternion.identity);
             Vector2 shotDirection = -transform.up;

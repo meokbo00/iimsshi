@@ -101,6 +101,12 @@ public class SpawnEnemy : MonoBehaviour
             case "ZEnemy5": return 21;
             case "ZEnemy6": return 22;
             case "ZEnemy7": return 23;
+            case "IEnemy1": return 24;
+            case "IEnemy2": return 25;
+            case "IEnemy3": return 26;
+            case "IEnemy4": return 27;
+            case "IEnemy5": return 28;
+
 
             default: return -1;
         }

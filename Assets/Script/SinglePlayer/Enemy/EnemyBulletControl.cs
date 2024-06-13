@@ -96,7 +96,7 @@ public class EnemyBulletControl : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if(coll.gameObject.name == "SPTwiceF(Clone)")
+        if(coll.gameObject.name == "SPTwiceF(Clone)" || coll.gameObject.name == "TwiceBullet(Clone)")
         {
             randomNumber -= 1;
             textMesh.text = randomNumber.ToString();

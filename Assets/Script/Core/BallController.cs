@@ -93,7 +93,7 @@ public class BallController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (coll.gameObject.name == "SPTwiceF(Clone)" && rigid == null)
+        if ((coll.gameObject.name == "SPTwiceF(Clone)" && rigid == null )|| (coll.gameObject.name == "TwiceBullet(Clone)" && rigid == null))
         {
             randomNumber -= 1;
             if (randomNumber > 0)

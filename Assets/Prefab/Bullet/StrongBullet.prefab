@@ -164,5 +164,5 @@ MonoBehaviour:
   increase: 6
   hasExpanded: 0
   fontsize: 2
-  BallMinHP: 7
-  BallMaxHP: 10
+  BallMinHP: 6
+  BallMaxHP: 8
