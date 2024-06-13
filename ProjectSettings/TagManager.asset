@@ -31,9 +31,8 @@ TagManager:
   - Gojung
   - Item_Endless
   - Item_Small
-  - Item_Spread
-  - Item_Turret
   - Item_Twice
+  - Item_Big
   layers:
   - Default
   - TransparentFX

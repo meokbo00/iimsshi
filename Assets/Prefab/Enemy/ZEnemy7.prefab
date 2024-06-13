@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 5738812927679455974}
   - component: {fileID: 2100952334743129002}
   - component: {fileID: 1113233355897371404}
-  - component: {fileID: 3980458702231358391}
+  - component: {fileID: 6122039035774432466}
   m_Layer: 0
   m_Name: Center
   m_TagString: EnemyCenter
@@ -586,7 +586,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3980458702231358391
+--- !u!114 &6122039035774432466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3040796930979699128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254d06388a506cb4cb1830070861f716, type: 3}
+  m_Script: {fileID: 11500000, guid: b6bb8e15d65441249b8f75c6af08f4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   increase: 4
@@ -603,12 +603,11 @@ MonoBehaviour:
   randomNumber: 0
   initialRandomNumber: 0
   textMesh: {fileID: 0}
-  enemy1Fires:
-  - {fileID: 5104137312958579742}
+  enemy1Fires: []
   isShowHP: 1
   isHide: 0
-  MaxHP: 15
-  MinHP: 15
+  MaxHP: 20
+  MinHP: 20
   MaxFireTime: 15
   MinFireTime: 12
   MaxAngle: 360

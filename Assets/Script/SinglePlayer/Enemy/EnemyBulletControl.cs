@@ -96,6 +96,15 @@ public class EnemyBulletControl : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if(coll.gameObject.name == "SPTwiceF(Clone)")
+        {
+            randomNumber -= 1;
+            textMesh.text = randomNumber.ToString();
+            if(randomNumber <= 0)
+            {
+                Destroy(gameObject) ;
+            }
+        }
         if (coll.contacts != null && coll.contacts.Length > 0)
         {
             Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);

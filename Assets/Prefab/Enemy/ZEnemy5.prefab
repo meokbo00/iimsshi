@@ -172,7 +172,7 @@ MonoBehaviour:
   - {fileID: 0}
   isShowHP: 1
   isHide: 0
-  MaxHP: 5
+  MaxHP: 4
   MinHP: 3
   MaxFireTime: 9
   MinFireTime: 5
@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 2576785956760344729}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -4.22, z: 0}
+  m_LocalPosition: {x: 0.04, y: -5.37, z: 0}
   m_LocalScale: {x: 3.333333, y: 3.333333, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -256,13 +256,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBulletPrefabs:
-  - {fileID: 1721920693946575469, guid: 8b904a0eceedf284b98fbddfd5e4cb14, type: 3}
-  - {fileID: 6102662975464993372, guid: 915883c1d54573544b4c029df20ee096, type: 3}
-  - {fileID: 2027076699224104286, guid: 700f1e4d6cd195643b40eae0053f96fa, type: 3}
-  - {fileID: 439666419057068905, guid: 84bce1c9ebd995b46a1c418ed42aa261, type: 3}
-  - {fileID: 9219627083266486056, guid: 5ba178eab7558de4c9e24a560df6cd0a, type: 3}
-  - {fileID: 3316885824965820453, guid: ec5ad16a7ce21ea4e9771124f9bb38d8, type: 3}
-  - {fileID: 3154260539122837315, guid: d12564062bb3a7e40a0b06f2b09d3c4c, type: 3}
+  - {fileID: 4801704420069890048, guid: e3c9bb6206aaadb41ac28b7774261606, type: 3}
+  - {fileID: 3691755272866988324, guid: 677bd3c47f67f9642b1e781e0ab7bf0d, type: 3}
+  - {fileID: 9219627083266486056, guid: c7f66df3a629f8e4b9bf4d9b069bdd81, type: 3}
+  - {fileID: 4801704420069890048, guid: 2f3d6090006384946874b5b17ebac37c, type: 3}
+  - {fileID: 6531571181281681212, guid: 194c2b700a4d1a84e8f761266a663139, type: 3}
   MinPower: 6
   MaxPower: 8
 --- !u!1 &8643793535985890892

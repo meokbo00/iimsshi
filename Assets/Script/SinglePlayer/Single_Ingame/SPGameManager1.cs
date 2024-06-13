@@ -28,14 +28,11 @@ public class SPGameManager : MonoBehaviour
         this.fireitem = null;
         switch (icontag)
         {
-            case "Item_BlackHole": fireitem = FireItemPrefab[0]; break;
-            case "Item_Endless": fireitem = FireItemPrefab[1]; break;
-            case "Item_Fasten": fireitem = FireItemPrefab[2]; break;
-            case "Item_Force": fireitem = FireItemPrefab[3]; break;
+            case "Item_Big": fireitem = FireItemPrefab[0]; break;
+            case "Item_Small": fireitem = FireItemPrefab[1]; break;
+            case "Item_Twice": fireitem = FireItemPrefab[2]; break;
+            case "Item_Endless": fireitem = FireItemPrefab[3]; break;
             case "Item_Invincible": fireitem = FireItemPrefab[4]; break;
-            case "Item_Small": fireitem = FireItemPrefab[5]; break;
-            case "Item_Twice": fireitem = FireItemPrefab[6]; break;
-
         }
     }
     private void Update()

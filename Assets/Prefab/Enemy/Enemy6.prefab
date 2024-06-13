@@ -461,7 +461,7 @@ MonoBehaviour:
   randomNumber: 0
   enemy1Fires:
   - {fileID: 5104137312958579742}
-  MaxHP: 8
+  MaxHP: 5
   MinHP: 5
   MaxFireTime: 7
   MinFireTime: 4
