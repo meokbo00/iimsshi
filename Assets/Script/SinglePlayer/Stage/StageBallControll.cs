@@ -1,4 +1,5 @@
 //GameManager에서 힘 받아 공 발사와 이동 & 1차 데드라인과 닿으면 대화창 활성화 & 2차 데드라인과 닿으면 위치조절 & 스테이지와 닿으면 스테이지 선택창 활성화
+using System.Collections;
 using UnityEngine;
 
 public class StageBallController : MonoBehaviour
@@ -48,30 +49,45 @@ public class StageBallController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        switch (collision.gameObject.tag)
+        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+        if (collision.gameObject.tag == "StageDeadZone")
         {
-            case "StageDeadZone":
-                rigid.velocity = Vector2.zero;
-                break;
-            case "SDZ_Bottom":
-                transform.Translate(0, 620, 0);
-                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
+            rigid.velocity = Vector2.zero;
+        }
 
-                break;
-            case "SDZ_Top":
-                transform.Translate(0, -620, 0);
+        switch (collision.gameObject.name)
+        {
+            case "Bottom":
+                if (gameManager.StageClearID < 6)
+                {
+                    transform.Translate(0, 470, 0);
+                }
+                transform.Translate(0, 170, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-
                 break;
-            case "SDZ_Left":
-                transform.Translate(610, 0, 0);
+            case "Top":
+                if (gameManager.StageClearID < 6)
+                {
+                    transform.Translate(0, -470, 0);
+                }
+                transform.Translate(0, -170, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-
                 break;
-            case "SDZ_Right":
-                transform.Translate(-610, 0, 0);
+            case "Left":
+                if (gameManager.StageClearID < 6)
+                {
+                    transform.Translate(460, 0, 0);
+                }
+                transform.Translate(165, 0, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-
+                break;
+            case "Right":
+                if (gameManager.StageClearID < 6)
+                {
+                    transform.Translate(-460, 0, 0);
+                }
+                transform.Translate(-165, 0, 0);
+                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
         }
     }

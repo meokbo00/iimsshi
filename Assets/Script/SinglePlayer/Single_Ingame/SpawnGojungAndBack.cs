@@ -5,13 +5,13 @@ using System.Collections.Generic;
 public class SpawnGojungAndBack : MonoBehaviour
 {
     public TextAsset jsonFile;
-    public GameObject[] Gojungtype;
+    public GameObject[] StagePrefabs;
 
     [System.Serializable]
     public class GojungBackData
     {
         public int id;
-        public int Gojungnum;
+        public int StagePrefab;
         public string Color;
     }
 
@@ -40,18 +40,15 @@ public class SpawnGojungAndBack : MonoBehaviour
                             spriteRenderer.color = color;
                         }
                     }
-                    if (colorData.Gojungnum > 0 && colorData.Gojungnum <= Gojungtype.Length)
+
+                    if (colorData.StagePrefab > 0 && colorData.StagePrefab <= StagePrefabs.Length)
                     {
-                        Instantiate(Gojungtype[colorData.Gojungnum - 1], new Vector3(0, 0, 0), Quaternion.identity);
+                        Instantiate(StagePrefabs[colorData.StagePrefab - 1], new Vector3(0, 0, 0), Quaternion.identity);
                     }
                     else
                     {
-                        Debug.LogError("Gojungnum 값이 배열 범위를 벗어납니다.");
+                        Debug.LogError("StagePrefab 값이 배열 범위를 벗어납니다.");
                     }
-                }
-                else
-                {
-                    Debug.LogError("유효하지 않은 색상 코드입니다: " + colorData.Color);
                 }
             }
             else

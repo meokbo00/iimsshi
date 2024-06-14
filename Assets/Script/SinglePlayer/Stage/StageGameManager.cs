@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class StageGameManager : MonoBehaviour
 {
     public static StageGameManager instance = null;
-    public int StageClearID;
+    public int StageClearID = 1;
 
     private Vector3 clickPosition;
     public bool isDragging = false;
@@ -25,6 +26,16 @@ public class StageGameManager : MonoBehaviour
         {
             if (instance != this) 
                 Destroy(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+        if (gameManager != null && gameManager.StageClearID >= 6 && SceneManager.GetActiveScene().name == "Stage")
+        {
+            Debug.Log("5번 스테이지까지 클리어했으므로 Main Scene으로 넘어갑니다");
+            SceneManager.LoadScene("Main Stage");
         }
     }
 

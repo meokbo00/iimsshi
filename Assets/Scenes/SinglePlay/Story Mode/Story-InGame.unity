@@ -413,7 +413,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 670244115}
-  - {fileID: 1158795323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &178873124
@@ -1293,18 +1292,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: f2172f7c943ccba43b8d17b5304631f2, type: 3}
-  Gojungtype:
-  - {fileID: 197735856533355763, guid: e61d922999edefd49b4df1d2d4649e52, type: 3}
-  - {fileID: 5826900823676043515, guid: d00d0352e2bab334eae143686bbdfc72, type: 3}
-  - {fileID: 686315132702096984, guid: 92beda8839850db4582459d0307448d0, type: 3}
-  - {fileID: 1214780033757626096, guid: c4d5b7070b529704bba88851c6b4684c, type: 3}
-  - {fileID: 629666123610152682, guid: 2fbb3be92ce32a844aceb10e8dff0d28, type: 3}
-  - {fileID: 5892692937035075040, guid: 427ff43c8826c154b865ffc6fea72666, type: 3}
-  - {fileID: 6018952498119693642, guid: 29b78ac6b800c8e4fb4f7d0f44658790, type: 3}
-  - {fileID: 2794462841306625913, guid: 787233bd5d8f72a4186ee2dcdfeeae26, type: 3}
-  - {fileID: 88117873878164106, guid: 430fe1c00b3e53a4283b1a3e07387413, type: 3}
-  - {fileID: 6995540901568561371, guid: ec93eed31d254af4fad4d6920cd041a0, type: 3}
-  - {fileID: 3443649822580002918, guid: 52e41f4a4328b8d4e83d5c2e950669e7, type: 3}
+  StagePrefabs:
+  - {fileID: 361203652733954303, guid: c7a8b5821a3dd6d459194a759bb64b56, type: 3}
+  - {fileID: 4494546058392100405, guid: fc2e1fe16c1c94a4db87d9ce620fe411, type: 3}
+  - {fileID: 1090724814565297998, guid: 34f8f4450023c3248adc0b39081fee0d, type: 3}
+  - {fileID: 8434036019819067123, guid: b7c1b2b7b92ea3c488b4911768723293, type: 3}
+  - {fileID: 7292193534860379357, guid: 80554ad042fddc84d90823fcd1768732, type: 3}
+  - {fileID: 4814196305119922789, guid: a934db940941a904f84d41e35b80710b, type: 3}
+  - {fileID: 7805045808167142288, guid: 5fa707cc041c74146b1e963419605996, type: 3}
+  - {fileID: 7212185147638410075, guid: 30a8975d307442648a4c067c55f220a8, type: 3}
+  - {fileID: 7892072665286655985, guid: d79db5b37d177e246b34b2a5e4a519b4, type: 3}
+  - {fileID: 1045053690773711489, guid: f39ee46ffff3615429b2e524740f8597, type: 3}
+  - {fileID: 5648128592443580850, guid: d94fc5b2a9566174dbd1467424a6f0c4, type: 3}
+  - {fileID: 6528486024561435885, guid: 29bcc8d07907c8f469daf3d9de2d62a9, type: 3}
+  - {fileID: 251602471433704298, guid: 960cef3a5d9ccb64cbc27485bda784dc, type: 3}
+  - {fileID: 7048218045299251768, guid: 806620f89dc00554a8edcf4d1676042b, type: 3}
+  - {fileID: 3199294919831960070, guid: f3a76c030c50d2a499f48c946c885772, type: 3}
 --- !u!1 &690423049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2133,7 @@ MonoBehaviour:
   background: {fileID: 1286937753}
   minSpawnTime: 7
   maxSpawnTime: 12
+<<<<<<< Updated upstream
 --- !u!1 &1158795321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +2209,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 173325674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1224555837
 GameObject:
   m_ObjectHideFlags: 0

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 13871073}
   - component: {fileID: 13871072}
   m_Layer: 0
-  m_Name: Right
+  m_Name: R
   m_TagString: StageDeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 66653482}
   - component: {fileID: 66653481}
   m_Layer: 0
-  m_Name: Left
+  m_Name: L
   m_TagString: StageDeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 400185315}
   - component: {fileID: 400185314}
   m_Layer: 0
-  m_Name: Bottom
+  m_Name: B
   m_TagString: StageDeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2629,7 +2629,7 @@ GameObject:
   - component: {fileID: 1048386674}
   - component: {fileID: 1048386673}
   m_Layer: 0
-  m_Name: Top
+  m_Name: T
   m_TagString: StageDeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3116,7 +3116,7 @@ GameObject:
   - component: {fileID: 1193188091}
   m_Layer: 0
   m_Name: Left
-  m_TagString: SDZ_Left
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3168,7 +3168,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -269.02325, y: -9.714203}
+  m_Offset: {x: -327.38635, y: -9.714203}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3179,7 +3179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 73.20442, y: 781.44366}
+  m_Size: {x: 189.9306, y: 1000.5084}
   m_EdgeRadius: 0
 --- !u!1 &1308923435
 GameObject:
@@ -3352,7 +3352,7 @@ GameObject:
   - component: {fileID: 1331071173}
   m_Layer: 0
   m_Name: Right
-  m_TagString: SDZ_Right
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3404,7 +3404,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 285.6177, y: 2.0622559}
+  m_Offset: {x: 343.98077, y: 2.0622559}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3415,7 +3415,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 87.54854, y: 756.9251}
+  m_Size: {x: 204.27466, y: 1025.4974}
   m_EdgeRadius: 0
 --- !u!1 &1342769222
 GameObject:
@@ -4231,7 +4231,7 @@ GameObject:
   - component: {fileID: 1674690326}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: SDZ_Bottom
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4283,7 +4283,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.887024, y: -284.4867}
+  m_Offset: {x: -6.887024, y: -340.46765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4294,7 +4294,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 840.1808, y: 61.394775}
+  m_Size: {x: 990.0339, y: 173.3565}
   m_EdgeRadius: 0
 --- !u!1 &1688791681
 GameObject:
@@ -5506,7 +5506,7 @@ GameObject:
   - component: {fileID: 2055598447}
   m_Layer: 0
   m_Name: Top
-  m_TagString: SDZ_Top
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5558,7 +5558,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.8033142, y: 258.64514}
+  m_Offset: {x: 1.8033142, y: 334.87445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5569,7 +5569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 876.4669, y: 39.891357}
+  m_Size: {x: 993.0416, y: 192.34998}
   m_EdgeRadius: 0
 --- !u!1 &2105216455
 GameObject:
@@ -5600,7 +5600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d080cc2a0477f4b9323aef3278e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   StageClearID: 6
+=======
+  StageClearID: 5
+>>>>>>> Stashed changes
   isDragging: 0
 --- !u!4 &2105216457
 Transform:

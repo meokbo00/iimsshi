@@ -24,7 +24,7 @@ public class CameraReduction : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName == "Stage")
         {
-            sizes = new float[] { 15f, 30f, 45f };
+            sizes = new float[] { 10f, 20f, 30f };
         }
         else if (currentSceneName == "Main Stage")
         {

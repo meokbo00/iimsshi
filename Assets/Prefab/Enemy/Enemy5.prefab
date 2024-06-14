@@ -687,7 +687,7 @@ MonoBehaviour:
   - {fileID: 5293071833537687619}
   isShowHP: 1
   isHide: 0
-  MaxHP: 2
+  MaxHP: 3
   MinHP: 1
   MaxFireTime: 10
   MinFireTime: 7
