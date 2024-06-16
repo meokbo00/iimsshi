@@ -1456,8 +1456,8 @@ MonoBehaviour:
   enemy1Fires: []
   isShowHP: 1
   isHide: 0
-  MaxHP: 8
-  MinHP: 5
+  MaxHP: 10
+  MinHP: 7
   MaxFireTime: 15
   MinFireTime: 15
   MaxAngle: 110

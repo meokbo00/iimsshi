@@ -11,6 +11,7 @@ public class TEnemyCenter : MonoBehaviour
     public TextMeshPro textMesh;
     public bool isShowHP;
     public bool isHide;
+    public float fontsize;
 
     public int MaxHP;
     public int MinHP;
@@ -26,7 +27,7 @@ public class TEnemyCenter : MonoBehaviour
         {
             textMesh.text = randomNumber.ToString();
         }
-        textMesh.fontSize = 6;
+        textMesh.fontSize = fontsize;
         textMesh.alignment = TextAlignmentOptions.Center;
         textMesh.autoSizeTextContainer = true;
         textMesh.rectTransform.localPosition = Vector3.zero;

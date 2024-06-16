@@ -609,7 +609,7 @@ MonoBehaviour:
   MaxHP: 20
   MinHP: 20
   MaxFireTime: 15
-  MinFireTime: 12
+  MinFireTime: 15
   MaxAngle: 360
   MinAngle: -360
   fontsize: 15

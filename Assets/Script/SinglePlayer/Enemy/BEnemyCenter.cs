@@ -9,9 +9,9 @@ public class BEnemyCenter : MonoBehaviour
     public float increase = 4f;
     public bool hasExpanded = false;
     public int randomNumber;
-    public int initialRandomNumber; // ÃÊ±â randomNumber °ªÀ» ÀúÀåÇÒ º¯¼ö
+    public int initialRandomNumber; // ï¿½Ê±ï¿½ randomNumber ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public TextMeshPro textMesh;
-    public Enemy1Fire[] enemy1Fires; // ¿©·¯ Enemy1Fire ÂüÁ¶¸¦ À§ÇÑ ¹è¿­
+    public Enemy1Fire[] enemy1Fires; // ï¿½ï¿½ï¿½ï¿½ Enemy1Fire ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
     public bool isShowHP;
     public bool isHide;
 
@@ -30,7 +30,7 @@ public class BEnemyCenter : MonoBehaviour
         textObject.transform.parent = transform;
         textMesh = textObject.AddComponent<TextMeshPro>();
         randomNumber = Random.Range(MinHP, MaxHP);
-        initialRandomNumber = randomNumber; // ÃÊ±â randomNumber °ªÀ» ÀúÀå
+        initialRandomNumber = randomNumber; // ï¿½Ê±ï¿½ randomNumber ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isShowHP)
         {
             textMesh.text = randomNumber.ToString();
@@ -41,7 +41,7 @@ public class BEnemyCenter : MonoBehaviour
         textMesh.rectTransform.localPosition = Vector3.zero;
         textMesh.sortingOrder = 3;
 
-        enemy1Fires = GetComponentsInChildren<Enemy1Fire>(); // Enemy1Fire ÄÄÆ÷³ÍÆ® ¹è¿­ ÂüÁ¶
+        enemy1Fires = GetComponentsInChildren<Enemy1Fire>(); // Enemy1Fire ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
 
         StartCoroutine(RotateObject());
 
@@ -66,7 +66,7 @@ public class BEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
-                Destroy(transform.parent.gameObject); // ºÎ¸ð ¿ÀºêÁ§Æ® »èÁ¦
+                Destroy(transform.parent.gameObject); // ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             }
         }
         if (coll.gameObject.name == "SPTwiceF(Clone)")
@@ -98,16 +98,16 @@ public class BEnemyCenter : MonoBehaviour
     {
         while (true)
         {
-            // 5ÃÊ µ¿¾È Á¤Áö
+            // 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             yield return new WaitForSeconds(Random.Range(MinFireTime, MaxFireTime));
 
-            // È¸ÀüÇÒ °¢µµ ¼³Á¤
+            // È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             float targetAngle = Random.Range(MinAngle, MaxAngle);
             float currentAngle = transform.eulerAngles.z;
-            float rotationTime = 1f; // È¸ÀüÇÏ´Â µ¥ °É¸®´Â ½Ã°£
+            float rotationTime = 1f; // È¸ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
             float elapsedTime = 0f;
 
-            // È¸ÀüÇÏ±â
+            // È¸ï¿½ï¿½ï¿½Ï±ï¿½
             while (elapsedTime < rotationTime)
             {
                 elapsedTime += Time.deltaTime;
@@ -116,7 +116,7 @@ public class BEnemyCenter : MonoBehaviour
                 yield return null;
             }
 
-            // È¸ÀüÀÌ ³¡³­ ÈÄ 1ÃÊ µÚ¿¡ ÃÑ¾Ë ¹ß»ç
+            // È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½Ñ¾ï¿½ ï¿½ß»ï¿½
             yield return new WaitForSeconds(1f);
 
             if (enemy1Fires != null)
@@ -134,7 +134,7 @@ public class BEnemyCenter : MonoBehaviour
         if (!isHide)
             return;
 
-        // ÀÚ±â ÀÚ½ÅÀÇ »ö»ó º¯°æ
+        // ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         SpriteRenderer currentSpriteRenderer = parentTransform.GetComponent<SpriteRenderer>();
         if (currentSpriteRenderer != null)
         {
@@ -149,7 +149,7 @@ public class BEnemyCenter : MonoBehaviour
             }
         }
 
-        // ºÎ¸ð ¿ÀºêÁ§Æ®ÀÇ ÀÚ½ÄµéÀ» °Ë»çÇÏ¸é¼­ »ö»óÀ» º¯°æ
+        // ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ú½Äµï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         foreach (Transform child in parentTransform)
         {
             ChangeObjectColor(child);
