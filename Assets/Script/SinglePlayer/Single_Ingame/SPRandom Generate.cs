@@ -60,9 +60,17 @@ public class SPRandomGenerate : MonoBehaviour
         {
             maxIndex = 3;
         }
+        else if (stageGameManager.StageClearID <=44)
+        {
+            maxIndex = 4;
+        }
+        else if(stageGameManager.StageClearID == 45)
+        {
+            maxIndex = 3;
+        }
         else
         {
-            maxIndex = spherePrefabs.Length;
+            maxIndex = 4;
         }
 
         int prefabIndex = Random.Range(0, maxIndex);

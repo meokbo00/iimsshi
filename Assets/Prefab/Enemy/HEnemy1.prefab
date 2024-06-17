@@ -298,6 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5f6b31c46ae0f41a8b91dea9c14e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 6
-  interval: 10
+  radius: 80
+  interval: 14
   segments: 50

@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 100
-  interval: 10
+  interval: 7
   segments: 25
 --- !u!50 &1386182687371424142
 Rigidbody2D:

@@ -4,12 +4,20 @@ public class StageState : MonoBehaviour
 {
     public GameObject StageStart;
     public GameObject StartButton;
-    public GameObject Clearhere; // Clearhere 오브젝트를 public으로 추가
+    public GameObject Clearhere;
     public int stagenum;
     public static int chooseStage;
     private bool isclear;
     private StageGameManager gameManager;
     private SpriteRenderer spriteRenderer;
+
+    public bool isturn = false; 
+    public float rotationSpeed = 1f; 
+    public float radius = 5f;
+    private float initialAngle; 
+
+    private Vector3 initialPosition;
+    private float angle = 0f; 
 
     void Start()
     {
@@ -19,6 +27,9 @@ public class StageState : MonoBehaviour
         int stageClearID = gameManager.StageClearID;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        initialPosition = transform.position; // 초기 위치 저장
+        initialAngle = Random.Range(0f, 360f); // 초기 각도를 랜덤으로 설정
+        angle = initialAngle; // 초기 각도로 설정
 
         if (stageClearID < this.stagenum)
         {
@@ -39,6 +50,21 @@ public class StageState : MonoBehaviour
         {
             isclear = true;
             spriteRenderer.color = new Color32(255, 255, 255, 255);
+        }
+    }
+
+    void Update()
+    {
+        if (isturn)
+        {
+            // 원을 그리며 이동
+            angle += rotationSpeed * Time.deltaTime; 
+            if (angle > 360f) angle -= 360f; // 각도가 360도를 넘지 않도록 조정
+
+            float x = Mathf.Cos(angle) * radius;
+            float y = Mathf.Sin(angle) * radius;
+
+            transform.position = initialPosition + new Vector3(x, y, 0f);
         }
     }
 
@@ -65,6 +91,8 @@ public class StageState : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "StageBall")
+        {
             StageStart.gameObject.SetActive(false);
+        }
     }
 }

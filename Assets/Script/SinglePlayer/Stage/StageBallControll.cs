@@ -13,10 +13,24 @@ public class StageBallController : MonoBehaviour
     private bool hasbeenout = false;
     public static int chooseStage;
 
+    private float randomX;
+    private float randomY;
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         stageGameManager = FindObjectOfType<StageGameManager>();
+
+        if (stageGameManager.StageClearID <= 15)
+        {
+            randomX = Random.Range(-460, -320);
+            randomY = Random.Range(-470, -330);
+        }
+        else if (stageGameManager.StageClearID > 15)
+        {
+            randomX = Random.Range(-750f, 0f);
+            randomY = Random.Range(0f, -850f);
+        }
+        gameObject.transform.position = new Vector3(randomX, randomY, gameObject.transform.position.z);
     }
 
     private void Update()
