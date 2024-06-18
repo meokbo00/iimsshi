@@ -48,7 +48,7 @@ public class SinglePlayerSetting : MonoBehaviour
         if (fadeInComplete)
         {
             yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene("Prologue");
+            SceneManager.LoadScene("Booting");
         }
     }
 }

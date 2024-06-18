@@ -1,5 +1,6 @@
 //GameManager에서 힘 받아 공 발사와 이동 & 1차 데드라인과 닿으면 대화창 활성화 & 2차 데드라인과 닿으면 위치조절 & 스테이지와 닿으면 스테이지 선택창 활성화
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StageBallController : MonoBehaviour
@@ -19,8 +20,12 @@ public class StageBallController : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         stageGameManager = FindObjectOfType<StageGameManager>();
-
-        if (stageGameManager.StageClearID <= 15)
+        if(stageGameManager.StageClearID <= 5)
+        {
+            randomX = 0;
+            randomY = -5;
+        }
+        else if (stageGameManager.StageClearID <= 15)
         {
             randomX = Random.Range(-460, -320);
             randomY = Random.Range(-470, -330);

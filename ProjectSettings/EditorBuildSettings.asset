@@ -21,8 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Start/Credit Scene.unity
     guid: 8151beb029ca7dd40ab2317defbcc2e5
   - enabled: 1
-    path: Assets/Scenes/SinglePlay/Story Mode/Prologue.unity
+    path: Assets/Scenes/SinglePlay/Story Mode/Booting.unity
     guid: 111c37a78842bb143a3e7cef29b02159
+  - enabled: 1
+    path: Assets/Scenes/SinglePlay/Story Mode/Prologue.unity
+    guid: 9f765f49dc1f04c44ad00b5232c1b503
   - enabled: 1
     path: Assets/Scenes/SinglePlay/Story Mode/Tutorial.unity
     guid: 78efdeb045c79954485eeeba9f199d04

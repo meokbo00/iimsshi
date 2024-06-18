@@ -224,8 +224,8 @@ MonoBehaviour:
   MinHP: 3
   MaxFireTime: 10
   MinFireTime: 12
-  MaxAngle: 60
-  MinAngle: -60
+  MaxAngle: 35
+  MinAngle: -35
   fontsize: 5
 --- !u!1 &1243882614098403208
 GameObject:
@@ -403,8 +403,8 @@ MonoBehaviour:
   MinHP: 3
   MaxFireTime: 10
   MinFireTime: 12
-  MaxAngle: 60
-  MinAngle: -60
+  MaxAngle: 35
+  MinAngle: -35
   fontsize: 5
 --- !u!1 &1574370344208338112
 GameObject:
@@ -662,8 +662,8 @@ MonoBehaviour:
   MinHP: 3
   MaxFireTime: 10
   MinFireTime: 12
-  MaxAngle: 60
-  MinAngle: -60
+  MaxAngle: 35
+  MinAngle: -35
   fontsize: 5
 --- !u!1 &2163821735608267448
 GameObject:
@@ -1877,6 +1877,6 @@ MonoBehaviour:
   MinHP: 3
   MaxFireTime: 10
   MinFireTime: 12
-  MaxAngle: 60
-  MinAngle: -60
+  MaxAngle: 35
+  MinAngle: -35
   fontsize: 5
