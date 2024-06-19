@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+class TextWithDelay
+{
+    public string text;
+    public float delay;
+}
+
 class Chat
 {
     public int id;
-    public string[] texts;
-    public float[] delaytimes;
+    public List<TextWithDelay> textWithDelay;
 }
 
 public class ShowText : MonoBehaviour
@@ -21,8 +26,9 @@ public class ShowText : MonoBehaviour
     private int currentTextIndex = 0;
     private bool isTyping = false;
     private Coroutine typingCoroutine;
+    private int chatIdToDisplay = -1;
 
-    void Start()
+    void Awake()
     {
         ChatBox.gameObject.SetActive(true);
         if (JsonFile != null)
@@ -31,7 +37,6 @@ public class ShowText : MonoBehaviour
             {
                 var json = JsonFile.text;
                 chats = JsonConvert.DeserializeObject<List<Chat>>(json);
-                DisplayCurrentChat();
             }
             catch (JsonReaderException e)
             {
@@ -40,7 +45,15 @@ public class ShowText : MonoBehaviour
         }
         else
         {
-            Debug.LogError("JsonFile is not assigned.");
+            //Debug.LogError("JsonFile is not assigned.");
+        }
+    }
+
+    void OnEnable()
+    {
+        if (chatIdToDisplay != -1)
+        {
+            DisplayChatById(chatIdToDisplay);
         }
     }
 
@@ -51,13 +64,13 @@ public class ShowText : MonoBehaviour
             if (isTyping)
             {
                 StopCoroutine(typingCoroutine);
-                chatting.text = chats[currentChatIndex].texts[currentTextIndex];
+                chatting.text = chats[currentChatIndex].textWithDelay[currentTextIndex].text;
                 isTyping = false;
             }
             else
             {
                 currentTextIndex++;
-                if (currentTextIndex >= chats[currentChatIndex].texts.Length)
+                if (currentTextIndex >= chats[currentChatIndex].textWithDelay.Count)
                 {
                     currentChatIndex++;
                     currentTextIndex = 0;
@@ -71,9 +84,10 @@ public class ShowText : MonoBehaviour
     {
         if (currentChatIndex < chats.Count)
         {
-            if (currentTextIndex < chats[currentChatIndex].texts.Length)
+            if (currentTextIndex < chats[currentChatIndex].textWithDelay.Count)
             {
-                typingCoroutine = StartCoroutine(Typing(chats[currentChatIndex].texts[currentTextIndex], chats[currentChatIndex].delaytimes[currentTextIndex]));
+                var textWithDelay = chats[currentChatIndex].textWithDelay[currentTextIndex];
+                typingCoroutine = StartCoroutine(Typing(textWithDelay.text, textWithDelay.delay));
             }
             else
             {
@@ -98,5 +112,22 @@ public class ShowText : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    public void DisplayChatById(int chatId)
+    {
+        chatIdToDisplay = chatId;
+
+        var chat = chats.Find(c => c.id == chatId);
+        if (chat != null)
+        {
+            currentChatIndex = chats.IndexOf(chat);
+            currentTextIndex = 0;
+            DisplayCurrentChat();
+        }
+        else
+        {
+            Debug.LogError("Chat with ID " + chatId + " not found.");
+        }
     }
 }

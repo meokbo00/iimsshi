@@ -85,7 +85,7 @@ public class StageState : MonoBehaviour
         }
         chooseStage = stagenum;
         Debug.Log("chooseStage : " + chooseStage);
-        FindObjectOfType<ShowStageBox>().UpdateStageInfo(chooseStage);
+        //FindObjectOfType<ShowStageBox>().UpdateStageInfo(chooseStage);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

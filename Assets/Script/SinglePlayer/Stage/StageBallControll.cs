@@ -10,7 +10,7 @@ public class StageBallController : MonoBehaviour
     float deceleration = 2f;
     public GameObject StageStart;
     private StageGameManager stageGameManager;
-    public GameObject LineBox;
+   // public GameObject LineBox;
     private bool hasbeenout = false;
     public static int chooseStage;
 
@@ -57,10 +57,11 @@ public class StageBallController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        TextManager textManager = FindObjectOfType<TextManager>();
         if (hasbeenout) return;
         if (collision.gameObject.tag == "StageDeadZone")
         {
-            LineBox.SetActive(true);
+            textManager.GiveMeTextId(1);
             Debug.Log("대화창이 활성화 되었습니다");
             hasbeenout = true;
         }
