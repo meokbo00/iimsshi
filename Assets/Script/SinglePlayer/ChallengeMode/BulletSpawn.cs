@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour
 {
-    public GameObject[] bullets; // Bullet ÇÁ¸®ÆÕ ¹è¿­
-    public float spawnInterval = 10f; // ÃÊ±â ½ºÆù °£°Ý (ÃÊ)
-    public float minimumSpawnInterval = 1f; // ÃÖ¼Ò ½ºÆù °£°Ý (ÃÊ)
-    public float minForce = 1.7f; // ÃÖ¼Ò ÈûÀÇ ¼¼±â
-    public float maxForce = 7f; // ÃÖ´ë ÈûÀÇ ¼¼±â
+    public GameObject[] bullets; 
+    public float spawnInterval = 10f; 
+    public float minimumSpawnInterval = 1f; 
+    public float minForce = 1.7f; 
+    public float maxForce = 7f;
 
     private BoxCollider2D backgroundCollider;
     private float timer;
 
     void Start()
     {
-        // BackGround ¿ÀºêÁ§Æ®ÀÇ BoxCollider2D¸¦ Ã£½À´Ï´Ù.
         GameObject background = GameObject.Find("BackGround");
         if (background != null)
         {
@@ -21,25 +20,21 @@ public class BulletSpawn : MonoBehaviour
         }
         else
         {
-            Debug.LogError("BackGround ¿ÀºêÁ§Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogError("BackGround ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
 
-        // Å¸ÀÌ¸Ó ÃÊ±âÈ­
         timer = spawnInterval;
     }
 
     void Update()
     {
-        // Å¸ÀÌ¸Ó¸¦ °¨¼Ò½ÃÅµ´Ï´Ù.
         timer -= Time.deltaTime;
 
-        // Å¸ÀÌ¸Ó°¡ 0 ÀÌÇÏ°¡ µÇ¸é ÃÑ¾ËÀ» »ý¼ºÇÕ´Ï´Ù.
         if (timer <= 0f)
         {
             SpawnBullet();
-            // »ý¼º °£°ÝÀ» ÁÙÀÔ´Ï´Ù.
-            spawnInterval = Mathf.Max(minimumSpawnInterval, spawnInterval - 0.5f);
-            timer = spawnInterval; // Å¸ÀÌ¸Ó ¸®¼Â
+            spawnInterval = Mathf.Max(minimumSpawnInterval, spawnInterval - 0.2f);
+            timer = spawnInterval; 
         }
     }
 
@@ -47,33 +42,25 @@ public class BulletSpawn : MonoBehaviour
     {
         if (bullets.Length == 0 || backgroundCollider == null)
         {
-            Debug.LogWarning("½ºÆùÇÒ ÃÑ¾Ë ÇÁ¸®ÆÕÀÌ ¾ø°Å³ª BackGround Collider°¡ ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ BackGround Colliderï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
 
-        // BackGroundÀÇ ÄÝ¶óÀÌ´õ ¿µ¿ª ³»¿¡¼­ ·£´ý À§Ä¡¸¦ »ý¼ºÇÕ´Ï´Ù.
         float x = Random.Range(backgroundCollider.bounds.min.x, backgroundCollider.bounds.max.x);
         float y = Random.Range(backgroundCollider.bounds.min.y, backgroundCollider.bounds.max.y);
         Vector2 spawnPosition = new Vector2(x, y);
 
-        // ·£´ýÇÏ°Ô ÃÑ¾Ë ÇÁ¸®ÆÕÀ» ¼±ÅÃÇÕ´Ï´Ù.
         int randomIndex = Random.Range(0, bullets.Length);
         GameObject bulletPrefab = bullets[randomIndex];
 
-        // ÃÑ¾ËÀ» »ý¼ºÇÕ´Ï´Ù.
         GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
 
-        // »ý¼ºµÈ ÃÑ¾Ë¿¡ ·£´ýÇÑ ¹æÇâ°ú ¼¼±â·Î ÈûÀ» °¡ÇÕ´Ï´Ù.
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             Vector2 forceDirection = Random.insideUnitCircle.normalized;
             float forceMagnitude = Random.Range(minForce, maxForce);
             rb.AddForce(forceDirection * forceMagnitude, ForceMode2D.Impulse);
-        }
-        else
-        {
-            Debug.LogWarning("»ý¼ºµÈ ÃÑ¾Ë¿¡ Rigidbody2D°¡ ¾ø½À´Ï´Ù.");
         }
     }
 }

@@ -83,8 +83,15 @@ public class EnemyBulletControl : MonoBehaviour
         //{
         //    HitSound.Play();
         //}
+        ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
+        if (coll.gameObject.name == "SPInvincibleF(Clone)")
+        {
+            chmanager.scorenum++;
+            Destroy(gameObject);
+        }
+
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item" || coll.gameObject.tag == "EnemyBall"
-            || coll.gameObject.tag == "Item") && rigid == null)
+        || coll.gameObject.tag == "Item") && rigid == null)
         {
             if (randomNumber > 0)
             {
@@ -93,16 +100,18 @@ public class EnemyBulletControl : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                chmanager.scorenum++;
                 Destroy(gameObject);
             }
         }
-        if(coll.gameObject.name == "SPTwiceF(Clone)" || coll.gameObject.name == "TwiceBullet(Clone)")
+        if (coll.gameObject.name == "SPTwiceF(Clone)" || coll.gameObject.name == "TwiceBullet(Clone)")
         {
             randomNumber -= 1;
             textMesh.text = randomNumber.ToString();
-            if(randomNumber <= 0)
+            if (randomNumber <= 0)
             {
-                Destroy(gameObject) ;
+                chmanager.scorenum++;
+                Destroy(gameObject);
             }
         }
         if (coll.contacts != null && coll.contacts.Length > 0)

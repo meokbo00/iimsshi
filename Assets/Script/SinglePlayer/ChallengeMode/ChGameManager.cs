@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +8,8 @@ public class ChallengeGameManager : MonoBehaviour
 {
     public GameObject P1ballPrefab;
     public GameObject[] FireItemPrefab;
-
     public GameObject P1firezone;
     public GameObject P1Itemsave;
-
     public GameObject fireitem;
 
     private Vector3 clickPosition;
@@ -19,10 +18,20 @@ public class ChallengeGameManager : MonoBehaviour
     public static float shotDistance;
     public static Vector3 shotDirection;
 
+    public int maxscorenum;
+    public int scorenum;
+    public TMP_Text maxscoretext;
+    public TMP_Text scoretext;
+
     private void Start()
     {
+        // ê²Œì„ ì‹œì‘ ì‹œ ì €ì¥ëœ maxscorenum ë¶ˆëŸ¬ì˜¤ê¸°
+        maxscorenum = PlayerPrefs.GetInt("MaxScore", 0);
+        maxscoretext.text = "Best : " + maxscorenum.ToString();
+
         P1firezone.gameObject.SetActive(true);
     }
+
     public void PrintDestroyedicontag(string icontag)
     {
         this.fireitem = null;
@@ -35,8 +44,19 @@ public class ChallengeGameManager : MonoBehaviour
             case "Item_Invincible": fireitem = FireItemPrefab[4]; break;
         }
     }
+
     private void Update()
     {
+        if (maxscorenum < scorenum)
+        {
+            maxscorenum = scorenum;
+            // maxscorenumì´ ê°±ì‹ ë  ë•Œë§ˆë‹¤ ì €ì¥
+            PlayerPrefs.SetInt("MaxScore", maxscorenum);
+            PlayerPrefs.Save();
+        }
+
+        maxscoretext.text = "Best : " + maxscorenum.ToString();
+        scoretext.text = "Score : " + scorenum.ToString();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -50,8 +70,8 @@ public class ChallengeGameManager : MonoBehaviour
                     if (fireitem != null)
                     {
                         Instantiate(fireitem, clickPosition, Quaternion.identity);
-                        Debug.Log("P1ÀÌ ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ¿´½À´Ï´Ù");
-                        Debug.Log("¾ÆÀÌÅÛÀÇ ÀÌ¸§Àº " + fireitem.gameObject.name + "ÀÔ´Ï´Ù");
+                        Debug.Log("P1 ì•„ì´í…œì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤.");
+                        Debug.Log("ì•„ì´í…œ ì´ë¦„ì€ " + fireitem.gameObject.name + "ì…ë‹ˆë‹¤.");
                         isDragging = true;
                         fireitem = null;
                         break;
@@ -59,7 +79,7 @@ public class ChallengeGameManager : MonoBehaviour
                     else
                     {
                         Instantiate(P1ballPrefab, clickPosition, Quaternion.identity);
-                        Debug.Log("P1ÀÌ ±âº»±¸Ã¼¸¦ ³¯·È½À´Ï´Ù");
+                        Debug.Log("P1 ê¸°ë³¸ ê³µì„ ìƒì„±í–ˆìŠµë‹ˆë‹¤.");
                         isDragging = true;
                         break;
                     }
@@ -84,5 +104,4 @@ public class ChallengeGameManager : MonoBehaviour
             SceneManager.LoadScene("ChallengeFail");
         }
     }
-
 }
