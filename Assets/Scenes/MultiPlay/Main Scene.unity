@@ -2091,6 +2091,7 @@ MonoBehaviour:
   Xbtn: {fileID: 1413711134}
   Resume: {fileID: 122691788}
   Restart: {fileID: 756232990}
+  BacktoStage: {fileID: 0}
   Main_menu: {fileID: 1398859872}
   Stop_Channel: {fileID: 178873124}
   ButtonAudio: {fileID: 1132099137}
@@ -4294,15 +4295,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 686315132702096984, guid: 92beda8839850db4582459d0307448d0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8005293533498696857, guid: 92beda8839850db4582459d0307448d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.989484
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8005293533498696857, guid: 92beda8839850db4582459d0307448d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8005293533498696857, guid: 92beda8839850db4582459d0307448d0, type: 3}
       propertyPath: m_LocalPosition.z

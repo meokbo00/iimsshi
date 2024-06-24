@@ -51,7 +51,6 @@ public class ShowInformationtxt : MonoBehaviour
                     stageString = info.String;
                     stageTitle = info.StageTitle;
                 }
-                Debug.Log(info.id + "�� �����Դϴ�");
                 break;
             }
         }

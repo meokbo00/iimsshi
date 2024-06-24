@@ -3704,6 +3704,7 @@ MonoBehaviour:
   X: {fileID: 1322816251}
   NewBtn: {fileID: 2029345027}
   ContinueBtn: {fileID: 1004423560}
+  ChallengeBtn: {fileID: 1846456656}
   EndlessBtn: {fileID: 1686638863}
 --- !u!1 &1438929550
 GameObject:

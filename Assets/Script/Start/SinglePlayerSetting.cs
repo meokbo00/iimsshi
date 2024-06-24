@@ -10,6 +10,7 @@ public class SinglePlayerSetting : MonoBehaviour
     public Button X;
     public Button NewBtn;
     public Button ContinueBtn;
+    public Button ChallengeBtn;
     public Button EndlessBtn;
 
     private bool fadeInComplete = false;
@@ -27,6 +28,10 @@ public class SinglePlayerSetting : MonoBehaviour
         this.ContinueBtn.onClick.AddListener(() =>
         {
 
+        });
+        this.ChallengeBtn.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("ChallengeScene");
         });
         this.EndlessBtn.onClick.AddListener(() =>
         {

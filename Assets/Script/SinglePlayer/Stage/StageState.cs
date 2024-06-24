@@ -82,9 +82,10 @@ public class StageState : MonoBehaviour
             {
                 StartButton.gameObject.SetActive(true);
             }
+            chooseStage = stagenum;
+            Debug.Log("chooseStage : " + chooseStage);
         }
-        chooseStage = stagenum;
-        Debug.Log("chooseStage : " + chooseStage);
+
         //FindObjectOfType<ShowStageBox>().UpdateStageInfo(chooseStage);
     }
 

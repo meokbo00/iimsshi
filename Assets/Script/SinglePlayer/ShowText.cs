@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 class TextWithDelay
 {
@@ -28,6 +29,8 @@ public class ShowText : MonoBehaviour
     private Coroutine typingCoroutine;
     private int chatIdToDisplay = -1;
 
+    public UnityEvent<int> OnChatComplete; // 이벤트 선언
+
     void Awake()
     {
         ChatBox.gameObject.SetActive(true);
@@ -42,10 +45,6 @@ public class ShowText : MonoBehaviour
             {
                 Debug.LogError("Failed to parse JSON: " + e.Message);
             }
-        }
-        else
-        {
-            //Debug.LogError("JsonFile is not assigned.");
         }
     }
 
@@ -72,8 +71,8 @@ public class ShowText : MonoBehaviour
                 currentTextIndex++;
                 if (currentTextIndex >= chats[currentChatIndex].textWithDelay.Count)
                 {
-                    currentChatIndex++;
                     currentTextIndex = 0;
+                    currentChatIndex++;
                 }
                 DisplayCurrentChat();
             }
@@ -97,6 +96,11 @@ public class ShowText : MonoBehaviour
         else
         {
             ChatBox.gameObject.SetActive(false);
+        }
+
+        if (currentChatIndex >= chats.Count || currentTextIndex >= chats[currentChatIndex].textWithDelay.Count)
+        {
+            OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 모든 문장 출력 완료 시 이벤트 호출
         }
     }
 

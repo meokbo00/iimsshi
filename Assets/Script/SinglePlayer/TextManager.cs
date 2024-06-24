@@ -8,7 +8,7 @@ public class TextManager : MonoBehaviour
     {
         if (Linebox != null)
         {
-            Linebox.SetActive(true); // Linebox를 활성화합니다.
+            Linebox.SetActive(true); 
 
             ShowText showTextScript = Linebox.GetComponent<ShowText>();
             if (showTextScript != null)
