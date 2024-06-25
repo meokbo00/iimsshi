@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static ChallengeGameManager;
 
 public class ChDeadzone : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class ChDeadzone : MonoBehaviour
         {
             BallController ball = collision.GetComponent<BallController>();
             if (!ball.hasExpanded)
+            {
+                ChallengeGameManager chgamemanager = FindObjectOfType<ChallengeGameManager>();
+                GameData.CurrentScore = chgamemanager.scorenum;
                 SceneManager.LoadScene("ChallengeFail");
+            }
         }
 
 
@@ -36,6 +41,8 @@ public class ChDeadzone : MonoBehaviour
             }
             if (isExpand == false)
             {
+                ChallengeGameManager chgamemanager = FindObjectOfType<ChallengeGameManager>();
+                GameData.CurrentScore = chgamemanager.scorenum;
                 SceneManager.LoadScene("ChallengeFail");
             }
         }

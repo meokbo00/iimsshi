@@ -22,7 +22,10 @@ public class ChallengeGameManager : MonoBehaviour
     public int scorenum;
     public TMP_Text maxscoretext;
     public TMP_Text scoretext;
-
+    public static class GameData
+    {
+        public static int CurrentScore;
+    }
     private void Start()
     {
         // 게임 시작 시 저장된 maxscorenum 불러오기
@@ -101,7 +104,9 @@ public class ChallengeGameManager : MonoBehaviour
                        GameObject.FindGameObjectsWithTag("P1ball").Length;
         if (totalBalls > 15)
         {
+            GameData.CurrentScore = scorenum;
             SceneManager.LoadScene("ChallengeFail");
         }
     }
+
 }
