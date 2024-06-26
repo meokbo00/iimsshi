@@ -5,38 +5,18 @@ using UnityEngine.UI;
 
 public class Ch1Story : MonoBehaviour
 {
-    public Image[] Tutorial;
-    private int currentIndex = 0;
 
     void Start()
     {
-       
+        StageGameManager stageGameManager = FindObjectOfType<StageGameManager>();
+        TextManager textManager = FindObjectOfType<TextManager>();
+        if (stageGameManager.StageClearID == 1)
+        {
+            textManager.GiveMeTextId(1);
+        }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ActivateNextTutorial();
-        }
-    }
-
-    void ActivateNextTutorial()
-    {
-        if (currentIndex >= 0 && currentIndex < Tutorial.Length)
-        {
-            Tutorial[currentIndex].gameObject.SetActive(false);
-        }
-
-        currentIndex++;
-
-        if (currentIndex < Tutorial.Length)
-        {
-            Tutorial[currentIndex].gameObject.SetActive(true);
-        }
-        if (currentIndex >= Tutorial.Length)
-        {
-
-        }
     }
 }
