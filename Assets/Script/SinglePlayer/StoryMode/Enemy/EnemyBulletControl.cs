@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBulletControl : MonoBehaviour
 {
@@ -100,7 +101,10 @@ public class EnemyBulletControl : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
-                chmanager.scorenum++;
+                if (SceneManager.GetActiveScene().name == "ChallengeScene")
+                {
+                    chmanager.scorenum++;
+                }
                 Destroy(gameObject);
             }
         }
@@ -110,7 +114,10 @@ public class EnemyBulletControl : MonoBehaviour
             textMesh.text = randomNumber.ToString();
             if (randomNumber <= 0)
             {
-                chmanager.scorenum++;
+                if (SceneManager.GetActiveScene().name == "ChallengeScene")
+                {
+                    chmanager.scorenum++;
+                }
                 Destroy(gameObject);
             }
         }

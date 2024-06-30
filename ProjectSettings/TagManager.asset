@@ -29,6 +29,10 @@ TagManager:
   - Item_Small
   - Item_Twice
   - Item_Big
+  - Item_Plus1
+  - Item_Five_Round
+  - Item_Plus2
+  - MoveCircle
   layers:
   - Default
   - TransparentFX
