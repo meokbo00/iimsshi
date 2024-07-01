@@ -1,17 +1,17 @@
 using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
-class TextWithDelay
+public class TextWithDelay
 {
     public string text;
     public float delay;
 }
 
-class Chat
+public class Chat
 {
     public int id;
     public List<TextWithDelay> textWithDelay;
@@ -29,11 +29,13 @@ public class ShowText : MonoBehaviour
     private Coroutine typingCoroutine;
     private int chatIdToDisplay = -1;
 
-    public UnityEvent<int> OnChatComplete; // 이벤트 선언
+    public int logTextIndex = 0; // 로그용 변수 추가
+
+    public UnityEvent<int> OnChatComplete = new UnityEvent<int>();
 
     void Awake()
     {
-        ChatBox.gameObject.SetActive(true);
+        ChatBox.SetActive(true);
         if (JsonFile != null)
         {
             try
@@ -87,32 +89,32 @@ public class ShowText : MonoBehaviour
             {
                 var textWithDelay = chats[currentChatIndex].textWithDelay[currentTextIndex];
                 typingCoroutine = StartCoroutine(Typing(textWithDelay.text, textWithDelay.delay));
+
+                // 로그 텍스트 인덱스 증가
+                logTextIndex++;
             }
             else
             {
-                ChatBox.gameObject.SetActive(false);
+                ChatBox.SetActive(false);
+                OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 이전 대화의 ID 호출
             }
         }
         else
         {
-            ChatBox.gameObject.SetActive(false);
-        }
-
-        if (currentChatIndex >= chats.Count || currentTextIndex >= chats[currentChatIndex].textWithDelay.Count)
-        {
-            OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 모든 문장 출력 완료 시 이벤트 호출
+            ChatBox.SetActive(false);
+            OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 마지막 대화의 ID 호출
         }
     }
 
-    IEnumerator Typing(string talk, float delaytime)
+    IEnumerator Typing(string text, float delay)
     {
         isTyping = true;
         chatting.text = string.Empty;
 
-        for (int i = 0; i < talk.Length; i++)
+        for (int i = 0; i < text.Length; i++)
         {
-            chatting.text += talk[i];
-            yield return new WaitForSeconds(delaytime);
+            chatting.text += text[i];
+            yield return new WaitForSeconds(delay);
         }
 
         isTyping = false;
