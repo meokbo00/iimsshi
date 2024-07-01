@@ -36,12 +36,11 @@ public class Ch1Story : MonoBehaviour
 
         if (showText != null && stageGameManager.StageClearID == 1)
         {
-            // logTextIndex °ªÀÌ 25ÀÏ ¶§ ·Î±× Ãâ·Â
-            if (showText.logTextIndex == 26 || showText.logTextIndex == 27 || showText.logTextIndex == 28)
+            if (showText.logTextIndex >= 26 && showText.logTextIndex <= 28)
             {
                 Clearhere.gameObject.SetActive(true);
             }
-            if(showText.logTextIndex >= 27)
+            if(showText.logTextIndex >= 29)
             {
                 Clearhere.gameObject.SetActive(false);
             }
@@ -52,7 +51,7 @@ public class Ch1Story : MonoBehaviour
     {
         if (chatId == 1)
         {
-            Debug.Log("ID 1ÀÇ Ã¤ÆÃÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+            Debug.Log("ID 1ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
     }
 }
