@@ -20,7 +20,7 @@ public class StageBallController : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         stageGameManager = FindObjectOfType<StageGameManager>();
-        if(stageGameManager.StageClearID <= 5)
+        if(stageGameManager.StageClearID <= 6)
         {
             randomX = 0;
             randomY = -5;
@@ -77,7 +77,7 @@ public class StageBallController : MonoBehaviour
 
         switch (collision.gameObject.name)
         {
-            case "Bottom":
+            case "B":
                 if (gameManager.StageClearID < 6)
                 {
                     transform.Translate(0, 470, 0);
@@ -85,7 +85,7 @@ public class StageBallController : MonoBehaviour
                 transform.Translate(0, 170, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
-            case "Top":
+            case "T":
                 if (gameManager.StageClearID < 6)
                 {
                     transform.Translate(0, -470, 0);
@@ -93,7 +93,7 @@ public class StageBallController : MonoBehaviour
                 transform.Translate(0, -170, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
-            case "Left":
+            case "L":
                 if (gameManager.StageClearID < 6)
                 {
                     transform.Translate(460, 0, 0);
@@ -101,7 +101,7 @@ public class StageBallController : MonoBehaviour
                 transform.Translate(165, 0, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
-            case "Right":
+            case "R":
                 if (gameManager.StageClearID < 6)
                 {
                     transform.Translate(-460, 0, 0);

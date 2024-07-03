@@ -74,7 +74,17 @@ public class ShowText : MonoBehaviour
                 if (currentTextIndex >= chats[currentChatIndex].textWithDelay.Count)
                 {
                     currentTextIndex = 0;
-                    currentChatIndex++;
+                    if (chatIdToDisplay == -1)
+                    {
+                        currentChatIndex++;
+                    }
+                    else
+                    {
+                        ChatBox.SetActive(false);
+                        OnChatComplete.Invoke(chats[currentChatIndex].id);
+                        chatIdToDisplay = -1;
+                        return;
+                    }
                 }
                 DisplayCurrentChat();
             }
@@ -96,14 +106,15 @@ public class ShowText : MonoBehaviour
             else
             {
                 ChatBox.SetActive(false);
-                OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 이전 대화의 ID 호출
+                OnChatComplete.Invoke(chats[currentChatIndex].id);
             }
         }
         else
         {
             ChatBox.SetActive(false);
-            OnChatComplete.Invoke(chats[currentChatIndex - 1].id); // 마지막 대화의 ID 호출
+            OnChatComplete.Invoke(chats[currentChatIndex - 1].id);
         }
+        Debug.Log("텍스트 순서 : " + logTextIndex);
     }
 
     IEnumerator Typing(string text, float delay)
@@ -123,7 +134,6 @@ public class ShowText : MonoBehaviour
     public void DisplayChatById(int chatId)
     {
         chatIdToDisplay = chatId;
-
         var chat = chats.Find(c => c.id == chatId);
         if (chat != null)
         {

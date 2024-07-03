@@ -29,15 +29,15 @@ public class StageGameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
-        if (gameManager != null && gameManager.StageClearID >= 6 && SceneManager.GetActiveScene().name == "Stage")
-        {
-            Debug.Log("5번 스테이지까지 클리어했으므로 Main Scene으로 넘어갑니다");
-            SceneManager.LoadScene("Main Stage");
-        }
-    }
+    //private void Start()
+    //{
+    //    StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+    //    if (gameManager != null && gameManager.StageClearID >= 6 && SceneManager.GetActiveScene().name == "Stage")
+    //    {
+    //        Debug.Log("5번 스테이지까지 클리어했으므로 Main Scene으로 넘어갑니다");
+    //        SceneManager.LoadScene("Main Stage");
+    //    }
+    //}
 
     private void Update()
     {
