@@ -27,13 +27,13 @@ public class StageBallController : MonoBehaviour
         }
         else if (stageGameManager.StageClearID <= 15)
         {
-            randomX = Random.Range(-460, -320);
-            randomY = Random.Range(-470, -330);
+            randomX = Random.Range(-90, 50);
+            randomY = Random.Range(-45, 100);
         }
         else if (stageGameManager.StageClearID > 15)
         {
-            randomX = Random.Range(-750f, 0f);
-            randomY = Random.Range(0f, -850f);
+            randomX = Random.Range(-500f, 500f);
+            randomY = Random.Range(-500f, 500f);
         }
         gameObject.transform.position = new Vector3(randomX, randomY, gameObject.transform.position.z);
     }

@@ -46,8 +46,13 @@ public class Ch1Story : MonoBehaviour
 
         if (showText != null && stageGameManager.StageClearID == 1)
         {
-            if (showText.logTextIndex >= 26 && showText.logTextIndex <= 28)
+            if(showText.logTextIndex < 41)
             {
+                Stage.SetActive(false);
+            }
+            if (showText.logTextIndex >= 42)
+            {
+                Stage.SetActive(true);
                 Clearhere.gameObject.SetActive(true);
             }
         }
@@ -123,6 +128,6 @@ public class Ch1Story : MonoBehaviour
         fadeColor.a = 1;
         FadeIn.color = fadeColor;
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Main Stage");
+        SceneManager.LoadScene("Prologue 2");
     }
 }

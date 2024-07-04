@@ -33,11 +33,11 @@ public class ClearBall : MonoBehaviour
     void OnMouseDown()
     {
         StageGameManager gameManager = FindObjectOfType<StageGameManager>();
-        if (gameManager.StageClearID <= 5)
+        if (gameManager.StageClearID <= 6)
         {
             SceneManager.LoadScene("Stage");
         }
-        else if (gameManager.StageClearID > 5)
+        else if (gameManager.StageClearID > 6)
         {
             SceneManager.LoadScene("Main Stage");
         }
