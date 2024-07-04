@@ -14,7 +14,7 @@ public class StageState : MonoBehaviour
     public bool isturn = false; 
     public float rotationSpeed = 1f; 
     public float radius = 5f;
-    private float initialAngle; 
+    public float initialAngle; 
 
     private Vector3 initialPosition;
     private float angle = 0f; 
