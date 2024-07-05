@@ -2130,6 +2130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullets:
   - {fileID: 1100004579995390317, guid: 6ba141c4d6db9c84b8945b4788e00a74, type: 3}
+  - {fileID: 4801704420069890048, guid: 422319e6f0f6d634d846e8ed27a280af, type: 3}
+  - {fileID: 4801704420069890048, guid: 4561956e75b414647a0e9a7f76af0e6b, type: 3}
   spawnInterval: 6
   minimumSpawnInterval: 1
   minForce: 1.7

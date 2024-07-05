@@ -204,6 +204,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &92376101
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -726,6 +727,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &228680977
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -906,6 +908,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.01
   radius: 49
+  initialAngle: 0
 --- !u!58 &275646570
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1148,6 +1151,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &296721215
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1368,6 +1372,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.2
   radius: 4
+  initialAngle: 0
 --- !u!58 &303947294
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1536,6 +1541,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &312398592
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1852,6 +1858,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.04
   radius: 29
+  initialAngle: 0
 --- !u!1 &393665070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1940,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.4
   radius: 10
+  initialAngle: 0
 --- !u!58 &393665075
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2366,6 +2374,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &444892993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2534,6 +2543,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &450918067
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2702,6 +2712,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &484473423
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3009,6 +3020,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.03
   radius: 34
+  initialAngle: 0
 --- !u!58 &523860873
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3204,6 +3216,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &533716610
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3449,6 +3462,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.05
   radius: 34
+  initialAngle: 0
 --- !u!58 &568096019
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3617,6 +3631,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &581177014
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3807,6 +3822,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &613802538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4050,6 +4066,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &674166630
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4137,6 +4154,141 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &674748352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674748353}
+  - component: {fileID: 674748355}
+  - component: {fileID: 674748354}
+  m_Layer: 5
+  m_Name: Line
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &674748353
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674748352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 704022771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.7544, y: 0}
+  m_SizeDelta: {x: 1075.8158, y: 415.8382}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &674748354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674748352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\uC548\uB155\uD558\uC138\uC694 \uBC18\uAC11\uC2B5\uB2C8\uB2E4\n\uD14D\uC2A4\uD2B8
+    \uCD9C\uB825\uC785\uB2C8\uB2E4"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 872fc52617f7106429e5f22fb7e89e4c, type: 2}
+  m_sharedMaterial: {fileID: 2326276519201562975, guid: 872fc52617f7106429e5f22fb7e89e4c, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 60
+  m_fontSizeBase: 60
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 56.693115, y: 0, z: 60.78595, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &674748355
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674748352}
+  m_CullTransparentMesh: 1
 --- !u!1 &689425191
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,6 +4370,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.07
   radius: 67
+  initialAngle: 0
 --- !u!58 &689425195
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4386,6 +4539,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &697822236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4473,6 +4627,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &704022770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704022771}
+  - component: {fileID: 704022772}
+  m_Layer: 5
+  m_Name: LineBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &704022771
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704022770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 722849896}
+  - {fileID: 674748353}
+  m_Father: {fileID: 1792146807}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 778}
+  m_SizeDelta: {x: 920.796, y: 415.83813}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &704022772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704022770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc098501f0099748a67fddbb16b370c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatting: {fileID: 674748354}
+  ChatBox: {fileID: 704022770}
+  JsonFile: {fileID: 4900000, guid: 345470e778d385b4da710110b9d896d2, type: 3}
+  logTextIndex: 0
+  OnChatComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &717964522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,6 +4817,81 @@ RectTransform:
   m_AnchoredPosition: {x: 553, y: 813}
   m_SizeDelta: {x: 160, y: 38.9651}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &722849895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722849896}
+  - component: {fileID: 722849898}
+  - component: {fileID: 722849897}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &722849896
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722849895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 704022771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.3083496}
+  m_SizeDelta: {x: 661.29, y: 174.773}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &722849897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722849895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4827201375843143100, guid: 1c9bc0d104c01934da10d4333b9dc48b, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &722849898
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722849895}
+  m_CullTransparentMesh: 1
 --- !u!1 &728688666
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +4995,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &728688671
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4865,6 +5164,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &734833138
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5034,6 +5334,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &742046998
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5500,6 +5801,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.02
   radius: 105
+  initialAngle: 0
 --- !u!58 &788661274
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5668,6 +5970,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &831551270
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6104,6 +6407,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.11
   radius: 67
+  initialAngle: 0
 --- !u!58 &946562359
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6424,6 +6728,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1127961281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6775,6 +7080,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.02
   radius: 224
+  initialAngle: 0
 --- !u!58 &1180240281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7003,6 +7309,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.06
   radius: 18
+  initialAngle: 0
 --- !u!50 &1197083559
 Rigidbody2D:
   serializedVersion: 4
@@ -7084,6 +7391,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.002
   radius: 62
+  initialAngle: 0
 --- !u!58 &1201266299
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7279,6 +7587,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1211866675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7448,6 +7757,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1214055769
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7637,6 +7947,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1219890037
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8638,7 +8949,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1125, y: -305, z: 0}
-  m_LocalScale: {x: 70, y: 70, z: 4}
+  m_LocalScale: {x: 120, y: 120, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1398692685}
@@ -8689,6 +9000,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1380546310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9016,6 +9328,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.009
   radius: 56
+  initialAngle: 0
 --- !u!58 &1402544369
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9509,6 +9822,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.1
   radius: 47
+  initialAngle: 0
 --- !u!58 &1455061362
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9671,6 +9985,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.05
   radius: 23
+  initialAngle: 0
 --- !u!58 &1478188101
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9941,6 +10256,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1495372146
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10242,6 +10558,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1535070006
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10615,6 +10932,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1549383680
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11134,6 +11452,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1696212400
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11324,6 +11643,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1699683087
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11465,6 +11785,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.02
   radius: 40
+  initialAngle: 0
 --- !u!58 &1740190571
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11660,6 +11981,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1759628441
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11828,6 +12150,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.1
   radius: 23
+  initialAngle: 0
 --- !u!58 &1761643884
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12018,6 +12341,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1762773903
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12105,6 +12429,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1776048555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1776048557}
+  - component: {fileID: 1776048556}
+  m_Layer: 0
+  m_Name: TextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1776048556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776048555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e20271009a8214595ebd432da04e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Linebox: {fileID: 704022770}
+--- !u!4 &1776048557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776048555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1786796950
 GameObject:
   m_ObjectHideFlags: 0
@@ -12557,6 +12926,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1787629693}
+  - {fileID: 704022771}
   - {fileID: 1503312897}
   - {fileID: 1539269153}
   - {fileID: 1586553777}
@@ -12726,6 +13096,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1807911304
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12894,6 +13265,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.07
   radius: 34
+  initialAngle: 0
 --- !u!58 &1816196905
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13063,6 +13435,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.4
   radius: 10
+  initialAngle: 0
 --- !u!58 &1850119062
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13287,6 +13660,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1875132904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13641,6 +14015,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &1966348879
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13782,6 +14157,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.04
   radius: 28
+  initialAngle: 0
 --- !u!58 &1989608334
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13977,6 +14353,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &1990961498
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14251,6 +14628,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &2061470108
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14419,6 +14797,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!58 &2062128761
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14587,6 +14966,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.02
   radius: 58
+  initialAngle: 0
 --- !u!58 &2106742394
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14755,6 +15135,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 0.03
   radius: 170
+  initialAngle: 0
 --- !u!58 &2125725115
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14923,6 +15304,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.08
   radius: 86
+  initialAngle: 0
 --- !u!58 &2128096174
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15092,6 +15474,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.01
   radius: 85
+  initialAngle: 0
 --- !u!58 &2132456770
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15281,6 +15664,7 @@ MonoBehaviour:
   isturn: 1
   rotationSpeed: 0.2
   radius: 14
+  initialAngle: 0
 --- !u!58 &2144366741
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15379,3 +15763,4 @@ SceneRoots:
   - {fileID: 1420241019}
   - {fileID: 785782805}
   - {fileID: 374060412}
+  - {fileID: 1776048557}

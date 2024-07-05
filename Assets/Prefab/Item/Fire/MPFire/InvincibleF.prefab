@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: -6202315524387813560}
   m_Layer: 0
   m_Name: InvincibleF
-  m_TagString: Item
+  m_TagString: P1Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

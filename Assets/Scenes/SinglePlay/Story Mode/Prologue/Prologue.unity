@@ -326,6 +326,7 @@ MonoBehaviour:
   chatting: {fileID: 1931384587}
   ChatBox: {fileID: 526820490}
   JsonFile: {fileID: 4900000, guid: 409fde7a2c3f2684aa1001c9118bd855, type: 3}
+  logTextIndex: 0
   OnChatComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -496,7 +497,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870247259}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: fa2ad00c8b35a76429053eb0d03cf6d1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 33cb4b2905698364489770ec33ddd124, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1072,6 +1073,7 @@ MonoBehaviour:
   chatting: {fileID: 1931384587}
   ChatBox: {fileID: 526820490}
   JsonFile: {fileID: 0}
+  logTextIndex: 0
   OnChatComplete:
     m_PersistentCalls:
       m_Calls: []
