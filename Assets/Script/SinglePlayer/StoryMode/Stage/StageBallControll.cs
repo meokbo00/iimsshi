@@ -10,6 +10,7 @@ public class StageBallController : MonoBehaviour
     float deceleration = 2f;
     public GameObject StageStart;
     private StageGameManager stageGameManager;
+    private StageBallManager stageBallManager;
    // public GameObject LineBox;
     private bool hasbeenout = false;
     public static int chooseStage;
@@ -19,6 +20,7 @@ public class StageBallController : MonoBehaviour
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        stageBallManager = FindObjectOfType<StageBallManager>();
         stageGameManager = FindObjectOfType<StageGameManager>();
         if(stageGameManager.StageClearID <= 6)
         {
@@ -40,11 +42,11 @@ public class StageBallController : MonoBehaviour
 
     private void Update()
     {
-        if (!stageGameManager.isDragging)
+        if (!stageBallManager.isDragging)
         {
             Debug.Log("StageBallController에서 클릭 뗀 것을 인지");
-            rigid.velocity = StageGameManager.shotDirection * StageGameManager.shotDistance; // GameManager에서 값 가져와서 구체 발사
-            stageGameManager.isDragging = true;
+            rigid.velocity = StageBallManager.shotDirection * StageBallManager.shotDistance; // GameManager에서 값 가져와서 구체 발사
+            stageBallManager.isDragging = true;
         }
         Move();
     }

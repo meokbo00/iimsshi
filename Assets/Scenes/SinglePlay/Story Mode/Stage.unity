@@ -3519,6 +3519,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!1 &380759948
 GameObject:
   m_ObjectHideFlags: 0
@@ -5913,6 +5914,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!1 &638345735
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,6 +7870,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!1 &912586865
 GameObject:
   m_ObjectHideFlags: 0
@@ -17108,6 +17111,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!1 &1916537969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17871,6 +17875,7 @@ MonoBehaviour:
   isturn: 0
   rotationSpeed: 1
   radius: 5
+  initialAngle: 0
 --- !u!1 &1948934585
 GameObject:
   m_ObjectHideFlags: 0
@@ -20086,6 +20091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105216457}
   - component: {fileID: 2105216456}
+  - component: {fileID: 2105216458}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20105,8 +20111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d080cc2a0477f4b9323aef3278e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageClearID: 6
-  isDragging: 0
+  StageClearID: 1
 --- !u!4 &2105216457
 Transform:
   m_ObjectHideFlags: 0
@@ -20122,6 +20127,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105216458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105216455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1dc2ba345a6e684aaa972af6c1293cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!1 &2124806912
 GameObject:
   m_ObjectHideFlags: 0

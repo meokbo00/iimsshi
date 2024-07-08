@@ -91,6 +91,7 @@ public class SPGameManager : MonoBehaviour
             if (gameManager.StageClearID == StageState.chooseStage)
             {
                 gameManager.StageClearID += 1;
+                gameManager.SaveStageClearID();
             }
             SceneManager.LoadScene("Clear");
         }
