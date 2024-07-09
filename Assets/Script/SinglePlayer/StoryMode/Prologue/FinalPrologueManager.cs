@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Scene Management ³×ÀÓ½ºÆäÀÌ½º Ãß°¡
+using UnityEngine.SceneManagement;
 
 public class FinalPrologueManager : MonoBehaviour
 {
@@ -9,7 +9,6 @@ public class FinalPrologueManager : MonoBehaviour
 
     void Start()
     {
-        // ¸ğµç ÀÌ¹ÌÁöÀÇ CanvasGroupÀ» ¼³Á¤ÇÕ´Ï´Ù.
         foreach (GameObject image in images)
         {
             CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
@@ -17,7 +16,7 @@ public class FinalPrologueManager : MonoBehaviour
             {
                 canvasGroup = image.AddComponent<CanvasGroup>();
             }
-            canvasGroup.alpha = 0f;  // Ã³À½¿£ ¸ğµÎ Åõ¸íÇÏ°Ô ¼³Á¤ÇÕ´Ï´Ù.
+            canvasGroup.alpha = 0f;  
         }
 
         StartCoroutine(ShowImagesSequentially());
@@ -28,12 +27,11 @@ public class FinalPrologueManager : MonoBehaviour
         foreach (GameObject image in images)
         {
             yield return StartCoroutine(FadeIn(image));
-            yield return new WaitForSeconds(4.5f);  // 7ÃÊ - 1ÃÊ (ÆäÀÌµå ¾Æ¿ô ½Ã°£)
+            yield return new WaitForSeconds(4.5f);  // 7ï¿½ï¿½ - 1ï¿½ï¿½ (ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Æ¿ï¿½ ï¿½Ã°ï¿½)
             yield return StartCoroutine(FadeOut(image));
         }
 
         yield return new WaitForSeconds(2f);
-        // ¸¶Áö¸· ÀÌ¹ÌÁö ÆäÀÌµå ¾Æ¿ôÀÌ ³¡³­ ÈÄ "Stage" ¾ÀÀ¸·Î ÀüÈ¯
         SceneManager.LoadScene("Stage");
     }
 

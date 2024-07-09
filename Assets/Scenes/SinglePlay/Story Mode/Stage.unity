@@ -2889,6 +2889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d148feff74355c74991432adbbf4e209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fadeinout: {fileID: 1239783449}
+  RemainTime: {fileID: 1215371884}
 --- !u!1 &300127166
 GameObject:
   m_ObjectHideFlags: 0
@@ -10324,6 +10326,7 @@ GameObject:
   - component: {fileID: 1215371885}
   - component: {fileID: 1215371887}
   - component: {fileID: 1215371886}
+  - component: {fileID: 1215371888}
   m_Layer: 5
   m_Name: RemainTime
   m_TagString: Untagged
@@ -10448,6 +10451,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215371884}
   m_CullTransparentMesh: 1
+--- !u!114 &1215371888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215371884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1941db41385b97479c6bf6d0947114e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDisplay: {fileID: 1215371886}
+  years: 5999
+  days: 364
+  hours: 23
+  minutes: 59
+  seconds: 75
 --- !u!1 &1235662195
 GameObject:
   m_ObjectHideFlags: 0

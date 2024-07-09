@@ -28,7 +28,7 @@ public class RemainTime : MonoBehaviour
 
     void DisplayTime()
     {
-        timeDisplay.text = $"°³¹ßÀÚÀÇ ÄÚµå ¼öÁ¤±îÁö\n{years}³â {days}ÀÏ {hours}½Ã°£ {minutes}ºÐ {seconds}ÃÊ";
+        timeDisplay.text = $"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n{years}ï¿½ï¿½ {days}ï¿½ï¿½ {hours}ï¿½Ã°ï¿½ {minutes}ï¿½ï¿½ {seconds}ï¿½ï¿½";
     }
 
     void DecreaseTime()

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Ch1Story : MonoBehaviour
 {
-    public bool WatchPrologue2 = false;
     public GameObject Clearhere;
     private ShowText showText;
     private StageGameManager stageGameManager;
@@ -15,6 +14,7 @@ public class Ch1Story : MonoBehaviour
     public Image FadeIn;
     public GameObject Stage;
     public GameObject RemainTime;
+
     void Start()
     {
         stageGameManager = FindObjectOfType<StageGameManager>();
@@ -37,7 +37,6 @@ public class Ch1Story : MonoBehaviour
         if (stageGameManager.StageClearID == 6)
         {
             Destroy(Stage);
-            textManager.GiveMeTextId(3);
         }
     }
 
@@ -47,7 +46,7 @@ public class Ch1Story : MonoBehaviour
 
         if (showText != null && stageGameManager.StageClearID == 1)
         {
-            if(showText.logTextIndex < 41)
+            if (showText.logTextIndex < 41)
             {
                 Stage.SetActive(false);
             }
@@ -129,7 +128,8 @@ public class Ch1Story : MonoBehaviour
         fadeColor.a = 1;
         FadeIn.color = fadeColor;
         yield return new WaitForSeconds(3f);
-        this.WatchPrologue2 = true;
+
+
         SceneManager.LoadScene("Prologue 2");
     }
 }
