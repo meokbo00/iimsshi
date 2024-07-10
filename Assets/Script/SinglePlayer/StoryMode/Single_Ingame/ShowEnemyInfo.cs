@@ -10,7 +10,7 @@ public class ShowEnemyInfo : MonoBehaviour
     void Start()
     {
         StageGameManager stageGameManager = FindObjectOfType<StageGameManager>();
-        int stageClearID = stageGameManager.StageClearID;
+        float stageClearID = stageGameManager.StageClearID;
 
         foreach (GameObject enemyInfo in EnemyInfos)
         {

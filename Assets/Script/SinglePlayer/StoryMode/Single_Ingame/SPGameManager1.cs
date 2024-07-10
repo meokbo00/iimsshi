@@ -88,9 +88,14 @@ public class SPGameManager : MonoBehaviour
         if (totalenemy <= 0)
         {
             gameManager = FindObjectOfType<StageGameManager>();
-            if (gameManager.StageClearID == StageState.chooseStage)
+            if (gameManager.StageClearID == StageState.chooseStage && gameManager.StageClearID != 5)
             {
                 gameManager.StageClearID += 1;
+                gameManager.SaveStageClearID();
+            }
+            if (gameManager.StageClearID == 5)
+            {
+                gameManager.StageClearID += 0.5f;
                 gameManager.SaveStageClearID();
             }
             SceneManager.LoadScene("Clear");

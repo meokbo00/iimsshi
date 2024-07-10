@@ -24,7 +24,7 @@ public class StageState : MonoBehaviour
         string namePart = gameObject.name.Substring(5, 2); // 6번째와 7번째 문자를 추출
         this.stagenum = int.Parse(namePart);
         gameManager = StageGameManager.instance;
-        int stageClearID = gameManager.StageClearID;
+        float stageClearID = gameManager.StageClearID;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialPosition = transform.position; // 초기 위치 저장

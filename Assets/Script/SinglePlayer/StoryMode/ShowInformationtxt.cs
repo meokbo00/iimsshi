@@ -32,7 +32,7 @@ public class ShowInformationtxt : MonoBehaviour
         StageGameManager gameManager = FindObjectOfType<StageGameManager>();
 
         int stageID = StageState.chooseStage;
-        int stageClearID = gameManager.StageClearID;
+        float stageClearID = gameManager.StageClearID;
 
         string stageString = "";
         string stageTitle = "";

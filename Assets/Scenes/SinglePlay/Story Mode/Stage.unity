@@ -2889,8 +2889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d148feff74355c74991432adbbf4e209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clock: {fileID: 1215371884}
   Fadeinout: {fileID: 1239783449}
-  RemainTime: {fileID: 1215371884}
+  creation: {fileID: 1812864032}
+  fadeImage: {fileID: 1239783451}
 --- !u!1 &300127166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8848,7 +8850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcfbba5b6eba534e8d06acfac4f3d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WatchPrologue2: 0
   Clearhere: {fileID: 1380336349}
   mainCamera: {fileID: 61403564}
   FadeIn: {fileID: 1239783451}
@@ -14966,12 +14967,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1555069170}
-  - {fileID: 1066859268}
   - {fileID: 1567017158}
   - {fileID: 1448208250}
   - {fileID: 1380336350}
-  - {fileID: 1239783450}
   - {fileID: 1215371885}
+  - {fileID: 1239783450}
+  - {fileID: 1066859268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

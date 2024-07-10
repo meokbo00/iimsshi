@@ -8,9 +8,8 @@ using UnityEngine.SceneManagement;
 public class StageGameManager : MonoBehaviour
 {
     public static StageGameManager instance = null;
-    public int StageClearID;
+    public float StageClearID;
 
-  
 
     private void Awake()
     {
@@ -39,7 +38,7 @@ public class StageGameManager : MonoBehaviour
 
     public void SaveStageClearID()
     {
-        PlayerPrefs.SetInt("StageClearID", StageClearID);
+        PlayerPrefs.SetFloat("StageClearID", StageClearID);
         PlayerPrefs.Save();
     }
 
@@ -47,7 +46,7 @@ public class StageGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("StageClearID"))
         {
-            StageClearID = PlayerPrefs.GetInt("StageClearID");
+            StageClearID = PlayerPrefs.GetFloat("StageClearID");
         }
     }
 }

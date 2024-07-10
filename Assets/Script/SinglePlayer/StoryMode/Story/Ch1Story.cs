@@ -34,9 +34,15 @@ public class Ch1Story : MonoBehaviour
         {
             textManager.GiveMeTextId(2);
         }
-        if (stageGameManager.StageClearID == 6)
+        if (stageGameManager.StageClearID == 5.5)
         {
             Destroy(Stage);
+            textManager.GiveMeTextId(3);
+        }
+        if(stageGameManager.StageClearID == 6)
+        {
+            Destroy(Stage);
+            RemainTime.SetActive(true);
         }
     }
 
@@ -57,7 +63,7 @@ public class Ch1Story : MonoBehaviour
             }
         }
 
-        if (showText != null && stageGameManager.StageClearID == 6)
+        if (showText != null && stageGameManager.StageClearID == 5.5)
         {
             if (showText.logTextIndex == 4)
             {
@@ -129,7 +135,8 @@ public class Ch1Story : MonoBehaviour
         FadeIn.color = fadeColor;
         yield return new WaitForSeconds(3f);
 
-
+        stageGameManager.StageClearID += 0.5f;
+        stageGameManager.SaveStageClearID();
         SceneManager.LoadScene("Prologue 2");
     }
 }
