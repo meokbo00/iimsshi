@@ -631,8 +631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC548\uB155\uD558\uC138\uC694 \uBC18\uAC11\uC2B5\uB2C8\uB2E4\n\uD14D\uC2A4\uD2B8
-    \uCD9C\uB825\uC785\uB2C8\uB2E4"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 872fc52617f7106429e5f22fb7e89e4c, type: 2}
   m_sharedMaterial: {fileID: 2326276519201562975, guid: 872fc52617f7106429e5f22fb7e89e4c, type: 2}
@@ -10327,7 +10326,6 @@ GameObject:
   - component: {fileID: 1215371885}
   - component: {fileID: 1215371887}
   - component: {fileID: 1215371886}
-  - component: {fileID: 1215371888}
   m_Layer: 5
   m_Name: RemainTime
   m_TagString: Untagged
@@ -10452,24 +10450,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215371884}
   m_CullTransparentMesh: 1
---- !u!114 &1215371888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215371884}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1941db41385b97479c6bf6d0947114e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeDisplay: {fileID: 1215371886}
-  years: 5999
-  days: 364
-  hours: 23
-  minutes: 59
-  seconds: 75
 --- !u!1 &1235662195
 GameObject:
   m_ObjectHideFlags: 0

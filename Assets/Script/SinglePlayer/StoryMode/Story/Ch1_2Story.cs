@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // 씬 전환을 위해 추가
 
 public class Ch1_2Story : MonoBehaviour
 {
@@ -33,9 +34,8 @@ public class Ch1_2Story : MonoBehaviour
             remainTime.years = 0;
             remainTime.days = 0;
             remainTime.hours = 0;
-            remainTime.minutes = 2;
-            remainTime.seconds = 30;
-
+            remainTime.minutes = 0;
+            remainTime.seconds = 0;
 
             SpriteRenderer[] spriteRenderers = creation.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer sr in spriteRenderers)
@@ -57,14 +57,35 @@ public class Ch1_2Story : MonoBehaviour
 
         if (showText != null && stageGameManager.StageClearID == 6)
         {
-            if (showText.logTextIndex == 2)
+            if (showText.logTextIndex > 38)
             {
                 Fadeinout.SetActive(false);
             }
-            if (showText.logTextIndex == 8)
+            if (showText.logTextIndex == 48)
             {
-
+                StartCoroutine(FadeIn());
             }
         }
+    }
+
+    IEnumerator FadeIn()
+    {
+        Fadeinout.SetActive(true);
+        Color color = fadeImage.color;
+        color.a = 0f;
+        fadeImage.color = color;
+
+        while (color.a < 1f)
+        {
+            color.a += Time.deltaTime / 5; // 2초에 걸쳐 페이드 인
+            fadeImage.color = color;
+            yield return null;
+        }
+
+        // 알파값이 1이 되면 3초 대기
+        yield return new WaitForSeconds(3f);
+
+        // "Main Stage"로 씬 전환
+        SceneManager.LoadScene("Main Stage");
     }
 }

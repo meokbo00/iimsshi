@@ -77,7 +77,7 @@ public class Ch1Story : MonoBehaviour
                     randomMovement.enabled = false;
                 }
             }
-            if (showText.logTextIndex == 21)
+            if (showText.logTextIndex == 23)
             {
                 ContinuousRandomMovement[] randomMovements = FindObjectsOfType<ContinuousRandomMovement>();
                 foreach (ContinuousRandomMovement randomMovement in randomMovements)
