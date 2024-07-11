@@ -14,35 +14,36 @@ public class Ch1Story : MonoBehaviour
     public Image FadeIn;
     public GameObject Stage;
     public GameObject RemainTime;
+    StageBallController stageBallController;
 
     void Start()
     {
         stageGameManager = FindObjectOfType<StageGameManager>();
         TextManager textManager = FindObjectOfType<TextManager>();
-
+        stageBallController = FindObjectOfType<StageBallController>();
         showText = FindObjectOfType<ShowText>();
         if (showText != null)
         {
             showText.OnChatComplete.AddListener(OnChatCompleteHandler);
         }
 
-        if (stageGameManager.StageClearID == 1)
+        switch (stageGameManager.StageClearID)
         {
-            textManager.GiveMeTextId(1);
-        }
-        if (stageGameManager.StageClearID == 2)
-        {
-            textManager.GiveMeTextId(2);
-        }
-        if (stageGameManager.StageClearID == 5.5)
-        {
-            Destroy(Stage);
-            textManager.GiveMeTextId(3);
-        }
-        if(stageGameManager.StageClearID == 6)
-        {
-            Destroy(Stage);
-            RemainTime.SetActive(true);
+            case 1:
+                stageBallController.enabled = false;
+                textManager.GiveMeTextId(1);
+                break;
+            case 2:
+                textManager.GiveMeTextId(2);
+                break;
+            case 5.5f:
+                Destroy(Stage);
+                textManager.GiveMeTextId(3);
+                break;
+            case 6:
+                Destroy(Stage);
+                RemainTime.SetActive(true);
+                break;
         }
     }
 
@@ -52,6 +53,10 @@ public class Ch1Story : MonoBehaviour
 
         if (showText != null && stageGameManager.StageClearID == 1)
         {
+            if (showText.logTextIndex == 17)
+            {
+                stageBallController.enabled = true;
+            }
             if (showText.logTextIndex < 41)
             {
                 Stage.SetActive(false);

@@ -34,26 +34,44 @@ public class SPFailSceneManager : MonoBehaviour
             }
             if (hit.collider != null && hit.collider.gameObject.name == "Random")
             {
-                if (randomnumber == 1)
+                switch(randomnumber)
                 {
-                    SceneManager.LoadScene("Example Scene");
+                    case 1:
+                        SceneManager.LoadScene("Example Scene");
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("Design Scene");
+                        break;
+                    case 3:
+                        SceneManager.LoadScene("1-1 Intro Scene");
+                        break;
+                    case 4:
+                        SceneManager.LoadScene("Credit Scene");
+                        break;
+                    case 5:
+                        SceneManager.LoadScene("Challenge Scene");
+                        break;
                 }
-                else if (randomnumber == 2)
-                {
-                    SceneManager.LoadScene("Design Scene");
-                }
-                else if (randomnumber == 3)
-                {
-                    SceneManager.LoadScene("1-1 Intro Scene");
-                }
-                else if (randomnumber == 4)
-                {
-                    SceneManager.LoadScene("Credit Scene");
-                }
-                else if (randomnumber == 5)
-                {
-                    SceneManager.LoadScene("P1 Win");
-                }
+                //if (randomnumber == 1)
+                //{
+                //    SceneManager.LoadScene("Example Scene");
+                //}
+                //else if (randomnumber == 2)
+                //{
+                //    SceneManager.LoadScene("Design Scene");
+                //}
+                //else if (randomnumber == 3)
+                //{
+                //    SceneManager.LoadScene("1-1 Intro Scene");
+                //}
+                //else if (randomnumber == 4)
+                //{
+                //    SceneManager.LoadScene("Credit Scene");
+                //}
+                //else if (randomnumber == 5)
+                //{
+                //    SceneManager.LoadScene("Challenge Scene");
+                //}
             }
         }
     }

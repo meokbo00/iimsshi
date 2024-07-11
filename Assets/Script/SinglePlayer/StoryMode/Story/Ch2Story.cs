@@ -18,25 +18,37 @@ public class Ch2Story : MonoBehaviour
         stageGameManager = FindObjectOfType<StageGameManager>();
         stageBallController = FindObjectOfType<StageBallController>();
 
-        if (stageGameManager.StageClearID == 6)
-        {
-            textManager.GiveMeTextId(1);
-            Fadein.SetActive(true);
-            Camera.orthographicSize = 150; 
 
-            if (stageBallController != null)
-            {
-                stageBallController.enabled = false;
-            }
-        }
-        if(stageGameManager.StageClearID == 7)
+        switch (stageGameManager.StageClearID)
         {
-            textManager.GiveMeTextId(2);
-        }
+            case 6:
+                textManager.GiveMeTextId(1);
+                Fadein.SetActive(true);
+                Camera.orthographicSize = 150;
 
-        if(stageGameManager.StageClearID == 16)
-        {
-            textManager.GiveMeTextId(3);
+                if (stageBallController != null)
+                {
+                    stageBallController.enabled = false;
+                }
+                break;
+            case 7:
+                textManager.GiveMeTextId(2);
+                break;
+            case 16:
+                textManager.GiveMeTextId(3);
+                break;
+            case 19:
+                textManager.GiveMeTextId(4);
+                break;
+            case 25:
+                textManager.GiveMeTextId(5);
+                break;
+            case 29:
+                textManager.GiveMeTextId(6);
+                break;
+            case 33:
+                textManager.GiveMeTextId(7);
+                break;
         }
     }
 
@@ -51,7 +63,7 @@ public class Ch2Story : MonoBehaviour
             }
             if (showText.logTextIndex == 4)
             {
-                StartCoroutine(ChangeCameraSize(150, 4, 5f)); // 2ÃÊ¿¡ °ÉÃÄ Ä«¸Þ¶ó »çÀÌÁî º¯°æ
+                StartCoroutine(ChangeCameraSize(150, 4, 5f)); // 2ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
             if (showText.logTextIndex == 36)
             {

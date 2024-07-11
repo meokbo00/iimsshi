@@ -2,11 +2,12 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // ¾À ÀüÈ¯À» À§ÇØ Ãß°¡
+using UnityEngine.SceneManagement; // ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 public class Ch1_2Story : MonoBehaviour
 {
     StageGameManager stageGameManager;
+    StageBallController stageBallController;
     private ShowText showText;
     public GameObject Clock;
     public GameObject Fadeinout;
@@ -20,6 +21,7 @@ public class Ch1_2Story : MonoBehaviour
         fadeImage = Fadeinout.GetComponent<Image>();
         stageGameManager = FindObjectOfType<StageGameManager>();
         TextManager textManager = FindObjectOfType<TextManager>();
+        stageBallController = FindObjectOfType<StageBallController>();
 
         Color color = fadeImage.color;
         color.a = 1f;
@@ -27,6 +29,7 @@ public class Ch1_2Story : MonoBehaviour
 
         if (stageGameManager.StageClearID == 6)
         {
+            stageBallController.enabled = false;
             Fadeinout.SetActive(true);
             textManager.GiveMeTextId(4);
             Clock.SetActive(true);
@@ -59,6 +62,7 @@ public class Ch1_2Story : MonoBehaviour
         {
             if (showText.logTextIndex > 38)
             {
+                stageBallController.enabled = true;
                 Fadeinout.SetActive(false);
             }
             if (showText.logTextIndex == 48)
@@ -77,15 +81,15 @@ public class Ch1_2Story : MonoBehaviour
 
         while (color.a < 1f)
         {
-            color.a += Time.deltaTime / 5; // 2ÃÊ¿¡ °ÉÃÄ ÆäÀÌµå ÀÎ
+            color.a += Time.deltaTime / 5; // 2ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½
             fadeImage.color = color;
             yield return null;
         }
 
-        // ¾ËÆÄ°ªÀÌ 1ÀÌ µÇ¸é 3ÃÊ ´ë±â
+        // ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Ç¸ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½
         yield return new WaitForSeconds(3f);
 
-        // "Main Stage"·Î ¾À ÀüÈ¯
+        // "Main Stage"ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯
         SceneManager.LoadScene("Main Stage");
     }
 }
