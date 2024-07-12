@@ -14,35 +14,34 @@ public class SettingButtonManager : MonoBehaviour
 
     public AudioSource ButtonAudio;
 
-    public bool isBGM = true;
-    public bool isSoundEffect = true;
 
     private void Start()
     {
+        BGMControl bGMControl = FindObjectOfType<BGMControl>();
         this.BGM_ON.onClick.AddListener(() =>
         {
-            isBGM = true;
+            bGMControl.BGMSwitch = false;
             ButtonAudio.Play();
             BGM_ON.gameObject.SetActive(false);
             BGM_OFF.gameObject.SetActive(true);
         });
         this.BGM_OFF.onClick.AddListener(() =>
         {
-            isBGM = true;
+            bGMControl.BGMSwitch = true;
             ButtonAudio.Play();
             BGM_OFF.gameObject.SetActive(false);
             BGM_ON.gameObject.SetActive(true);
         });
         this.Sound_Effect_ON.onClick.AddListener(() =>
         {
-            isSoundEffect = true;
+            bGMControl.SoundEffectSwitch = false;
             ButtonAudio.Play();
             Sound_Effect_ON.gameObject.SetActive(false);
             Sound_Effect_OFF.gameObject.SetActive(true);
         });
         this.Sound_Effect_OFF.onClick.AddListener(() =>
         {
-            isSoundEffect = true;
+            bGMControl.SoundEffectSwitch = true;
             ButtonAudio.Play();
             Sound_Effect_OFF.gameObject.SetActive(false);
             Sound_Effect_ON.gameObject.SetActive(true);
