@@ -14,7 +14,7 @@ public class SCBallController : MonoBehaviour
     private bool isStopped = false;
     private int randomNumber;
     private TextMeshPro textMesh;
-    private bool hasBeenReleased = false; // ÃÖÃÊ Å¬¸¯ÀÌ µÇ¾ú´ÂÁö ¿©ºÎ¸¦ ÃßÀû
+    private bool hasBeenReleased = false; // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public AudioSource HitSound;
     public AudioSource SwellSound;
@@ -94,7 +94,7 @@ public class SCBallController : MonoBehaviour
         {
             Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
             if (rigid != null)
-                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // °¨¼ÓÇÏÁö ¾Ê°í ¹Ý»ç¸¸ ÁøÇà
+                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ý»ç¸¸ ï¿½ï¿½ï¿½ï¿½
         }
         this.iscolliding = true;
 
@@ -114,8 +114,8 @@ public class SCBallController : MonoBehaviour
     {
         if (rigid != null)
         {
-            rigid.velocity = SCGameManager.shotDirection * SCGameManager.shotDistance; // SCGameManager¿¡¼­ °ª °¡Á®¿Í¼­ ±¸Ã¼ ¹ß»ç
-            hasBeenReleased = true; // ÃÖÃÊ Å¬¸¯ÀÌ µÇ¾úÀ½À» Ç¥½Ã
+            rigid.velocity = SCGameManager.shotDirection * SCGameManager.shotDistance; // SCGameManagerï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½Ã¼ ï¿½ß»ï¿½
+            hasBeenReleased = true; // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
         }
     }
 }
