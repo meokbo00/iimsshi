@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-//��Ƽ�÷��̿� �ִ� �Ͻ����� ��ư����� ����ϴ� ��ũ��Ʈ�Դϴ�
+// 멀티플레이어에 있는 여러가지 버튼들을 관리하는 스크립트입니다.
 public class MultiStopButtonManager : MonoBehaviour
 {
     public Button Stopbtn;
@@ -16,10 +16,12 @@ public class MultiStopButtonManager : MonoBehaviour
 
     public GameObject Stop_Channel;
     public AudioSource ButtonAudio;
-
+    StageGameManager stageGameManager;
     bool ispause;
+
     void Start()
     {
+        stageGameManager = FindObjectOfType<StageGameManager>();
         ispause = false;
         this.Stopbtn.onClick.AddListener(() =>
         {
@@ -55,18 +57,46 @@ public class MultiStopButtonManager : MonoBehaviour
             Time.timeScale = 1;
             ispause = false;
 
-            SceneManager.LoadScene("Main Scene");
+            // 현재 씬 이름을 확인하여 조건에 따라 다른 씬을 로드
+            if (SceneManager.GetActiveScene().name == "ChallengeScene")
+            {
+                SceneManager.LoadScene("ChallengeScene");
+            }
+            if (SceneManager.GetActiveScene().name == "Story-InGame")
+            {
+                SceneManager.LoadScene("Story-InGame");
+            }
+            else
+            {
+                SceneManager.LoadScene("Main Scene");
+            }
         });
-        this.BacktoStage.onClick.AddListener(() =>
+
+        // 현재 씬 이름이 "ChallengeScene"이 아니면 BacktoStage 버튼에 이벤트 추가
+        if (SceneManager.GetActiveScene().name != "ChallengeScene")
         {
-            ButtonAudio.Play();
-            this.Stop_Channel.gameObject.SetActive(false);
+            if (BacktoStage != null)
+            {
+                this.BacktoStage.onClick.AddListener(() =>
+                {
+                    ButtonAudio.Play();
+                    this.Stop_Channel.gameObject.SetActive(false);
 
-            Time.timeScale = 1;
-            ispause = false;
+                    Time.timeScale = 1;
+                    ispause = false;
 
-            SceneManager.LoadScene("Stage");
-        });
+                    if (stageGameManager.StageClearID < 6)
+                    {
+                        SceneManager.LoadScene("Stage");
+                    }
+                    else if(stageGameManager.StageClearID >= 6)
+                    {
+                        SceneManager.LoadScene("Main Stage");
+                    }
+                });
+            }
+        }
+
         this.Main_menu.onClick.AddListener(() =>
         {
             ButtonAudio.Play();

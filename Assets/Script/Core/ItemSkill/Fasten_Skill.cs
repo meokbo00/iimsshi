@@ -8,6 +8,7 @@ public class Fasten_Skill : MonoBehaviour
 {
     Rigidbody2D rigid;
     Vector2 lastVelocity;
+    BGMControl bGMControl;
     float deceleration = 2f;
     public float increase = 4f;
     private bool iscolliding = false;
@@ -15,12 +16,10 @@ public class Fasten_Skill : MonoBehaviour
     private bool isStopped = false;
     private bool hasBeenReleased = false;
 
-    public AudioSource HitSound;
-    public AudioSource SwellSound;
-
 
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -57,7 +56,7 @@ public class Fasten_Skill : MonoBehaviour
 
         if (!hasExpanded)
         {
-            SwellSound.Play();
+            bGMControl.SoundEffectPlay(1);
         }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
@@ -67,7 +66,7 @@ public class Fasten_Skill : MonoBehaviour
     {
         if (!hasExpanded)
         {
-            HitSound.Play();
+            bGMControl.SoundEffectPlay(0);
         }
         if ((coll.gameObject.tag == "Item_Invincible") && rigid == null)
         {

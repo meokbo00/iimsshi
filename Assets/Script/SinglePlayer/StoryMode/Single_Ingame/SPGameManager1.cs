@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +7,8 @@ public class SPGameManager : MonoBehaviour
 {
     public GameObject P1ballPrefab;
     public GameObject[] FireItemPrefab;
-
     public GameObject P1firezone;
     public GameObject P1Itemsave;
-
     public GameObject fireitem;
 
     private Vector3 clickPosition;
@@ -17,6 +16,7 @@ public class SPGameManager : MonoBehaviour
     public bool isDragging = false;
     public static float shotDistance;
     public static Vector3 shotDirection;
+    public int chooseStagenum;
 
     private void Start()
     {

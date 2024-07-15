@@ -9,9 +9,9 @@ public class ShowEnemyInfo : MonoBehaviour
 
     void Start()
     {
+        StageState stageState = FindObjectOfType<StageState>();
         StageGameManager stageGameManager = FindObjectOfType<StageGameManager>();
         float stageClearID = stageGameManager.StageClearID;
-
         foreach (GameObject enemyInfo in EnemyInfos)
         {
             if (enemyInfo != null)
@@ -25,7 +25,7 @@ public class ShowEnemyInfo : MonoBehaviour
                     // 숫자로 변환
                     if (int.TryParse(idString, out int enemyID))
                     {
-                        if (enemyID == stageClearID)
+                        if (enemyID == StageState.chooseStage)
                         {
                             InstantiateEnemyInfo(enemyInfo);
                             break; // 일치하는 항목을 찾으면 루프 종료

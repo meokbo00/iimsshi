@@ -15,6 +15,7 @@ public class EnemyBulletControl : MonoBehaviour
     private bool isStopped = false;
     private int randomNumber;
     private TextMeshPro textMesh;
+    BGMControl bGMControl;
     private bool hasBeenReleased = false;
     private float rotationAngle = 0f; // 회전 각도를 저장할 변수
 
@@ -26,6 +27,7 @@ public class EnemyBulletControl : MonoBehaviour
 
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;
@@ -70,20 +72,20 @@ public class EnemyBulletControl : MonoBehaviour
         if (rigid.velocity.magnitude > 0.1f) return;
         if (Input.GetMouseButton(0)) return;
 
-        //if (!hasExpanded)
-        //{
-        //    SwellSound.Play();
-        //}
+        if (!hasExpanded)
+        {
+            bGMControl.SoundEffectPlay(1);
+        }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        //if (!hasExpanded)
-        //{
-        //    HitSound.Play();
-        //}
+        if (!hasExpanded)
+        {
+            bGMControl.SoundEffectPlay(0);
+        }
         ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
         if (coll.gameObject.name == "SPInvincibleF(Clone)")
         {

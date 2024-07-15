@@ -13,7 +13,7 @@ public class Border : MonoBehaviour
         {
             Destroy(ch2Border);
         }
-        if(gameManager.StageClearID > 65)
+        if(gameManager.StageClearID >= 65)
         {
             Destroy(ch3Border);
         }

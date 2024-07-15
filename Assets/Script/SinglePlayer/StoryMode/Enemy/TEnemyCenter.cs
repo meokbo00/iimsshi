@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TEnemyCenter : MonoBehaviour
 {
+    BGMControl bGMControl;
     Rigidbody2D rigid;
     public int randomNumber;
     public int initialRandomNumber; // 초기 randomNumber 값을 저장할 변수
@@ -17,6 +18,7 @@ public class TEnemyCenter : MonoBehaviour
     public int MinHP;
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;
@@ -55,6 +57,8 @@ public class TEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
+
                 Destroy(transform.parent.gameObject); // 부모 오브젝트 삭제
             }
         }
@@ -67,6 +71,8 @@ public class TEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
+
                 Destroy(gameObject);
             }
         }

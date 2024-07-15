@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SPRandomGenerate : MonoBehaviour
 {
+    BGMControl bGMControl;
     public GameObject[] spherePrefabs;
     public GameObject background;
     public float minSpawnTime = 7f;
@@ -13,6 +14,7 @@ public class SPRandomGenerate : MonoBehaviour
 
     void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
         backgroundCollider = background.GetComponent<Collider2D>();
 
@@ -74,6 +76,7 @@ public class SPRandomGenerate : MonoBehaviour
         }
 
         int prefabIndex = Random.Range(0, maxIndex);
+        bGMControl.SoundEffectPlay(2);
         Instantiate(spherePrefabs[prefabIndex], randomPosition, Quaternion.identity);
     }
 }

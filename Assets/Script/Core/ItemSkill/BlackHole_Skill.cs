@@ -6,6 +6,7 @@ using UnityEngine;
 public class BlackHole_Skill : MonoBehaviour
 {
     Rigidbody2D rigid;
+    BGMControl bGMControl;
     Vector2 lastVelocity;
     float deceleration = 2f;
     public float increase = 4f;
@@ -14,12 +15,9 @@ public class BlackHole_Skill : MonoBehaviour
     private bool isStopped = false;
     private bool hasBeenReleased = false;
 
-    public AudioSource HitSound;
-    public AudioSource SwellSound;
-
-
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyObjectDelayed(Random.Range(10f, 25f)));
     }
@@ -57,7 +55,7 @@ public class BlackHole_Skill : MonoBehaviour
 
         if (!hasExpanded)
         {
-            SwellSound.Play();
+            bGMControl.SoundEffectPlay(1);
         }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
@@ -67,7 +65,7 @@ public class BlackHole_Skill : MonoBehaviour
     {
         if (!hasExpanded)
         {
-            HitSound.Play();
+            bGMControl.SoundEffectPlay(0);
         }
 
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item"

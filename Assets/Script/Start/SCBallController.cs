@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SCBallController : MonoBehaviour
 {
@@ -15,14 +16,12 @@ public class SCBallController : MonoBehaviour
     private int randomNumber;
     private TextMeshPro textMesh;
     private bool hasBeenReleased = false; // ���� Ŭ���� �Ǿ����� ���θ� ����
-
-    public AudioSource HitSound;
-    public AudioSource SwellSound;
-
+    BGMControl bgmControl;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        bgmControl = FindObjectOfType<BGMControl>();
 
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;
@@ -65,7 +64,7 @@ public class SCBallController : MonoBehaviour
 
         if (!hasExpanded)
         {
-            SwellSound.Play();
+            bgmControl.SoundEffectPlay(2);
         }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
@@ -75,7 +74,7 @@ public class SCBallController : MonoBehaviour
     {
         if (!hasExpanded)
         {
-            HitSound.Play();
+            bgmControl.SoundEffectPlay(1);
         }
 
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball") && rigid == null)

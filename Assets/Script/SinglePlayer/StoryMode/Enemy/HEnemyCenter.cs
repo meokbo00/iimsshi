@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(LineRenderer))]
 public class HEnemyCenter : MonoBehaviour
 {
+    BGMControl bGMControl;
     public float radius;
     public float interval;
     public int segments = 50; // ���� �׸� �� ����� ���׸�Ʈ ��
@@ -11,6 +12,7 @@ public class HEnemyCenter : MonoBehaviour
 
     void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         // LineRenderer ������Ʈ�� �ʱ�ȭ
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = segments + 1;
@@ -30,6 +32,8 @@ public class HEnemyCenter : MonoBehaviour
     {
         if (coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item" || (coll.gameObject.tag == "Item" && coll.gameObject.name != "SPEndlessF(Clone)"))
         {
+            bGMControl.SoundEffectPlay(4);
+
             Destroy(gameObject);
         }
     }

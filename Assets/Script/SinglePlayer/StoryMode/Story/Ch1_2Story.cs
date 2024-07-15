@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement; // �� ��ȯ�� ���� �߰�
 
 public class Ch1_2Story : MonoBehaviour
 {
+    public AudioSource BGM;
     StageGameManager stageGameManager;
     StageBallController stageBallController;
     private ShowText showText;
@@ -17,6 +18,7 @@ public class Ch1_2Story : MonoBehaviour
 
     void Start()
     {
+        BGM.Stop();
         showText = FindObjectOfType<ShowText>();
         fadeImage = Fadeinout.GetComponent<Image>();
         stageGameManager = FindObjectOfType<StageGameManager>();

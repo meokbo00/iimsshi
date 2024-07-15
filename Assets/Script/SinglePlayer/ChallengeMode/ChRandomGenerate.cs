@@ -12,9 +12,11 @@ public class ChRandomGenerate : MonoBehaviour
     private float nextSpawnTime;
     private Collider2D backgroundCollider;
     private StageGameManager stageGameManager;
+    BGMControl bGMControl;
 
     void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
         backgroundCollider = background.GetComponent<Collider2D>();
 
@@ -38,5 +40,6 @@ public class ChRandomGenerate : MonoBehaviour
 
         int prefabIndex = Random.Range(0, 4);
         Instantiate(spherePrefabs[prefabIndex], randomPosition, Quaternion.identity);
+        bGMControl.SoundEffectPlay(2);
     }
 }

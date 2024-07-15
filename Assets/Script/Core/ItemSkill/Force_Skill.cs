@@ -7,6 +7,7 @@ public class Force_Skill : MonoBehaviour
 {
     Rigidbody2D rigid;
     Vector2 lastVelocity;
+    BGMControl bGMControl;
     float deceleration = 2f;
     public float increase = 4f;
     private bool iscolliding = false;
@@ -16,12 +17,10 @@ public class Force_Skill : MonoBehaviour
     private TextMeshPro textMesh;
     private bool hasBeenReleased = false;
 
-    public AudioSource HitSound;
-    public AudioSource SwellSound;
-
 
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
 
         GameObject textObject = new GameObject("TextMeshPro");
@@ -70,7 +69,7 @@ public class Force_Skill : MonoBehaviour
 
         if (!hasExpanded)
         {
-            SwellSound.Play();
+            bGMControl.SoundEffectPlay(1);
         }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
@@ -80,7 +79,7 @@ public class Force_Skill : MonoBehaviour
     {
         if (!hasExpanded)
         {
-            HitSound.Play();
+            bGMControl.SoundEffectPlay(1);
         }
 
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item"

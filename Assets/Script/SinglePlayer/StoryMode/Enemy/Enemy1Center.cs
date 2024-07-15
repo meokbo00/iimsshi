@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy1center : MonoBehaviour
 {
+    BGMControl bGMControl;
     Rigidbody2D rigid;
     public float increase = 4f;
     public bool hasExpanded = false;
@@ -25,6 +26,7 @@ public class Enemy1center : MonoBehaviour
 
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;
@@ -66,6 +68,7 @@ public class Enemy1center : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
                 Destroy(transform.parent.gameObject); // 부모 오브젝트 삭제
             }
         }
@@ -78,6 +81,7 @@ public class Enemy1center : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
                 Destroy(gameObject);
             }
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BEnemyCenter : MonoBehaviour
 {
+    BGMControl bGMControl;
     Rigidbody2D rigid;
     public float increase = 4f;
     public bool hasExpanded = false;
@@ -25,6 +26,7 @@ public class BEnemyCenter : MonoBehaviour
 
     private void Start()
     {
+        bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;
@@ -66,6 +68,8 @@ public class BEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
+
                 Destroy(transform.parent.gameObject); // �θ� ������Ʈ ����
             }
         }
@@ -78,6 +82,8 @@ public class BEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
+
                 Destroy(gameObject);
             }
         }
@@ -90,6 +96,8 @@ public class BEnemyCenter : MonoBehaviour
             }
             if (randomNumber <= 0)
             {
+                bGMControl.SoundEffectPlay(4);
+
                 Destroy(gameObject);
             }
         }
