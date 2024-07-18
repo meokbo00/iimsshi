@@ -1,4 +1,3 @@
-//GameManager에서 힘 받아 공 발사와 이동 & 1차 데드라인과 닿으면 대화창 활성화 & 2차 데드라인과 닿으면 위치조절 & 스테이지와 닿으면 스테이지 선택창 활성화
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,32 +10,36 @@ public class StageBallController : MonoBehaviour
     public GameObject StageStart;
     private StageGameManager stageGameManager;
     private StageBallManager stageBallManager;
-   // public GameObject LineBox;
+    // public GameObject LineBox;
     private bool hasbeenout = false;
     public static int chooseStage;
 
     private float randomX;
     private float randomY;
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         stageBallManager = FindObjectOfType<StageBallManager>();
         stageGameManager = FindObjectOfType<StageGameManager>();
-        if(stageGameManager.StageClearID <= 6)
+
+        if (stageGameManager.StageClearID <= 6)
         {
             randomX = 0;
             randomY = -5;
         }
-        else if (stageGameManager.StageClearID <= 15)
+        else if (stageGameManager.StageClearID >= 7)
         {
-            randomX = Random.Range(-90, 50);
-            randomY = Random.Range(-45, 100);
+            // 방금 저장한 Player의 위치값을 불러옴
+            randomX = GlobalData.PlayerPosition.x;
+            randomY = GlobalData.PlayerPosition.y;
+        //}
+        //else if (stageGameManager.StageClearID > 15)
+        //{
+        //    randomX = Random.Range(-500f, 500f);
+        //    randomY = Random.Range(-500f, 500f);
         }
-        else if (stageGameManager.StageClearID > 15)
-        {
-            randomX = Random.Range(-500f, 500f);
-            randomY = Random.Range(-500f, 500f);
-        }
+
         gameObject.transform.position = new Vector3(randomX, randomY, gameObject.transform.position.z);
     }
 

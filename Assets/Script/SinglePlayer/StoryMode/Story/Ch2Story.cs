@@ -10,6 +10,7 @@ public class Ch2Story : MonoBehaviour
     StageBallController stageBallController;
     TextManager textManager;
     ShowText showText;
+    public GameObject navigation;
 
     void Start()
     {
@@ -52,8 +53,16 @@ public class Ch2Story : MonoBehaviour
             case 45:
                 textManager.GiveMeTextId(8);
                 break;
-            case 54:
+            case 57:
                 textManager.GiveMeTextId(9);
+                break;
+            case 65:
+                navigation.SetActive(false);
+                textManager.GiveMeTextId(10);
+                break;
+            case 66:
+                navigation.SetActive(false);
+                textManager.GiveMeTextId(11);
                 break;
         }
     }
