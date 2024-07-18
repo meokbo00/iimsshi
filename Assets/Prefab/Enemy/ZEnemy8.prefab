@@ -360,11 +360,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   enemy1Fires:
   - {fileID: 5104137312958579742}
-  isShowHP: 1
+  isShowHP: 0
   isHide: 0
-  MaxHP: 5
-  MinHP: 3
-  MaxFireTime: 5
+  MaxHP: 15
+  MinHP: 15
+  MaxFireTime: 3
   MinFireTime: 3
   MaxAngle: 60
   MinAngle: -60
@@ -414,6 +414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBulletPrefabs:
-  - {fileID: 1100004579995390317, guid: 6ba141c4d6db9c84b8945b4788e00a74, type: 3}
+  - {fileID: 1721920693946575469, guid: 0c33cd8b75ae0d748add1eee48bbda37, type: 3}
   MinPower: 4
   MaxPower: 8

@@ -7,10 +7,13 @@ public class StageGoBtn : MonoBehaviour
     public Button GoBtn;
     public GameObject Player;
     StageGameManager gameManager;
+    StageState state;
 
     private void Start()
     {
+        state = FindObjectOfType<StageState>();
         gameManager = FindObjectOfType<StageGameManager>();
+        int choosestage = state.stagenum;
         this.GoBtn.onClick.AddListener(() =>
         {
             // 씬을 로드하기 전에 chooseStage 값을 저장
@@ -21,7 +24,7 @@ public class StageGoBtn : MonoBehaviour
             {
                 GlobalData.PlayerPosition = new Vector2(Player.transform.position.x, Player.transform.position.y);
             }
-            if (gameManager.StageClearID == 65)
+            if (gameManager.StageClearID == 65 && StageState.chooseStage == 65)
             {
                 SceneManager.LoadScene("Final-InGame");
             }
