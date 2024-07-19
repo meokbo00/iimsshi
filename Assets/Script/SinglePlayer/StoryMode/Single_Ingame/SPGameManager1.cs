@@ -71,9 +71,9 @@ public class SPGameManager : MonoBehaviour
         {
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0f;
-            GameManager.shotDistance = Vector3.Distance(clickPosition, currentPosition);
+            GameManager.shotDistance = Vector3.Distance(clickPosition, currentPosition)*2;
             Vector3 dragDirection = (currentPosition - clickPosition).normalized;
-            GameManager.shotDirection = -dragDirection;
+            GameManager.shotDirection = dragDirection;
             isDragging = false;
         }
 

@@ -23,7 +23,7 @@ public class IsPlayBGM : MonoBehaviour
                         BGM[1].Play();
                     }
                 }
-                if(StageState.chooseStage == 65)
+                else if(StageState.chooseStage == 65)
                 {
                     BGM[2].Play();
                 }

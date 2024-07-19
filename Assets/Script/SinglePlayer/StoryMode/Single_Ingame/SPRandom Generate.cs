@@ -70,6 +70,10 @@ public class SPRandomGenerate : MonoBehaviour
         {
             maxIndex = 3;
         }
+        else if(stageGameManager.StageClearID == 65)
+        {
+            maxIndex = 3;
+        }
         else
         {
             maxIndex = 4;

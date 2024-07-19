@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 5738812927679455974}
   - component: {fileID: 2100952334743129002}
   - component: {fileID: 1113233355897371404}
-  - component: {fileID: 3980458702231358391}
+  - component: {fileID: 1668828793231958653}
   m_Layer: 0
   m_Name: Center
   m_TagString: EnemyCenter
@@ -341,7 +341,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3980458702231358391
+--- !u!114 &1668828793231958653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3040796930979699128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254d06388a506cb4cb1830070861f716, type: 3}
+  m_Script: {fileID: 11500000, guid: 67930087315cd0c448a85d38693b75bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   increase: 4
@@ -358,17 +358,43 @@ MonoBehaviour:
   randomNumber: 0
   initialRandomNumber: 0
   textMesh: {fileID: 0}
-  enemy1Fires:
-  - {fileID: 5104137312958579742}
+  bossfires:
+  - {fileID: 2100637884296595765}
   isShowHP: 0
-  isHide: 0
-  MaxHP: 15
-  MinHP: 15
-  MaxFireTime: 3
-  MinFireTime: 3
+  MaxHP: 20
+  MinHP: 20
+  MaxFireTime: 2
+  MinFireTime: 2
   MaxAngle: 60
   MinAngle: -60
   fontsize: 5
+  Enemy:
+  - {fileID: 1574370344208338112, guid: e7321e72f64e198428934206ada4c11d, type: 3}
+  - {fileID: 1574370344208338112, guid: b11932bfef7edd149bdd25b047dc977f, type: 3}
+  - {fileID: 1574370344208338112, guid: bd9650eecffccf54fbe3858ed5072786, type: 3}
+  - {fileID: 1574370344208338112, guid: de22cc4fe358619498f4b571645379c8, type: 3}
+  - {fileID: 1574370344208338112, guid: f829bbf452a7b4746bf19478ed9537f9, type: 3}
+  - {fileID: 1574370344208338112, guid: 0477483359677b841afea6e970c8afcc, type: 3}
+  - {fileID: 1574370344208338112, guid: d7339c8616117504a90d7e60d002ac32, type: 3}
+  - {fileID: 1574370344208338112, guid: cabe5199c8f475a428569a17d5d71974, type: 3}
+  - {fileID: 1574370344208338112, guid: b2d31b79244286f42808f117d7fed930, type: 3}
+  - {fileID: 1574370344208338112, guid: 53418c2020cab36489d5bf17eb87b969, type: 3}
+  - {fileID: 1574370344208338112, guid: 8b221c6698d340146be739a464d788b3, type: 3}
+  - {fileID: 1574370344208338112, guid: 05c1b9f9497c5144b9294dbc82d2a0dd, type: 3}
+  - {fileID: 1574370344208338112, guid: 7c816f478fb935f4781703d7000bb0ed, type: 3}
+  - {fileID: 1574370344208338112, guid: 934f26c9938f8f442a15ee768dc6c617, type: 3}
+  - {fileID: 1574370344208338112, guid: a99249b49ea0ecc4995d2d6c7797508a, type: 3}
+  - {fileID: 1574370344208338112, guid: 52cdef5299ffd3a4da9a7c5564a76a0b, type: 3}
+  - {fileID: 1574370344208338112, guid: c03a3f0a3422571498c3d2693b77205a, type: 3}
+  - {fileID: 1574370344208338112, guid: fd9e65c1753b2f946aee12227ee31dbb, type: 3}
+  - {fileID: 1574370344208338112, guid: dacd0c6f0514d124785bff3933657418, type: 3}
+  - {fileID: 1574370344208338112, guid: eca42d4b90b4bb4418cd9eb2741b6ee9, type: 3}
+  - {fileID: 1574370344208338112, guid: 1d576d0104fa439458d4ae64c8f3ad7a, type: 3}
+  - {fileID: 1574370344208338112, guid: cab857e4f5e254948b02115fee8a4e7e, type: 3}
+  - {fileID: 1574370344208338112, guid: 3a7c61eaaffe9d34387825143372f83e, type: 3}
+  - {fileID: 1574370344208338112, guid: 977f3a956a8e5bd4e96cd714eec90619, type: 3}
+  - {fileID: 1574370344208338112, guid: c3f81ed17e593ed469fc50e7016df2b6, type: 3}
+  - {fileID: 1574370344208338112, guid: c1d8e1754b0d19944a7536ef76ca776a, type: 3}
 --- !u!1 &3270130263428601711
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7159458834122471546}
-  - component: {fileID: 5104137312958579742}
+  - component: {fileID: 2100637884296595765}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -401,7 +427,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8751840301217236581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5104137312958579742
+--- !u!114 &2100637884296595765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,10 +436,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3270130263428601711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5906088adaa709f4283dc9b8021e3979, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b171047a41713e409b41b20b8304b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBulletPrefabs:
   - {fileID: 1721920693946575469, guid: 0c33cd8b75ae0d748add1eee48bbda37, type: 3}
-  MinPower: 4
+  - {fileID: 1100004579995390317, guid: d43341adbe098c6489be717113a272cc, type: 3}
+  MinPower: 5
   MaxPower: 8
