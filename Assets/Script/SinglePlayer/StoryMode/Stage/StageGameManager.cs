@@ -9,7 +9,7 @@ public class StageGameManager : MonoBehaviour
 {
     public static StageGameManager instance = null;
     public float StageClearID;
-
+    public bool isending = false;
 
     private void Awake()
     {
@@ -18,10 +18,11 @@ public class StageGameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             LoadStageClearID();
+            LoadIsEnding();
         }
         else
         {
-            if (instance != this) 
+            if (instance != this)
                 Destroy(this.gameObject);
         }
     }
@@ -42,11 +43,25 @@ public class StageGameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveIsEnding()
+    {
+        PlayerPrefs.SetInt("IsEnding", isending ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
     private void LoadStageClearID()
     {
         if (PlayerPrefs.HasKey("StageClearID"))
         {
             StageClearID = PlayerPrefs.GetFloat("StageClearID");
+        }
+    }
+
+    private void LoadIsEnding()
+    {
+        if (PlayerPrefs.HasKey("IsEnding"))
+        {
+            isending = PlayerPrefs.GetInt("IsEnding") == 1;
         }
     }
 }

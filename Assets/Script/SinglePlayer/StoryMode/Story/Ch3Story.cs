@@ -41,7 +41,7 @@ public class Ch3Story : MonoBehaviour
             {
                 StartCoroutine(ExecuteAfterDelay(4f));
             }
-            if (showText.logTextIndex == 25)
+            if (showText.logTextIndex == 28)
             {
                 StartCoroutine(LoadSceneAfterDelay(4f, "Story-InGame"));
             }

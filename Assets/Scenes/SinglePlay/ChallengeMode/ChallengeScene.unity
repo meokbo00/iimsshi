@@ -1928,8 +1928,8 @@ MonoBehaviour:
   - {fileID: 6243507180153144267, guid: f4ffa9ce904724949beaa3c58c7b220b, type: 3}
   - {fileID: 8060221582886849896, guid: c2ee4e18bcc5969429c240ef1a905862, type: 3}
   background: {fileID: 859809942}
-  minSpawnTime: 8
-  maxSpawnTime: 16
+  minSpawnTime: 12
+  maxSpawnTime: 15
 --- !u!114 &1024663606
 MonoBehaviour:
   m_ObjectHideFlags: 0

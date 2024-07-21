@@ -1,15 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingCredit : MonoBehaviour
 {
-    public GameObject endingcredit; // Äµ¹ö½º ¾È¿¡ µé¾î°£ ¿ÀºêÁ§Æ® ¿ä¼Ò
-    public float scrollSpeed = 20f; // ½ºÅ©·Ñ ¼Óµµ
+    StageGameManager stageGameManager;
+    public GameObject endingcredit;
+    public float scrollSpeed = 20f;
+
+    private void Start()
+    {
+        stageGameManager = FindObjectOfType<StageGameManager>();
+    }
 
     void Update()
     {
-        // À§ ¹æÇâÀ¸·Î ÃµÃµÈ÷ ¿òÁ÷ÀÌ°Ô ¼³Á¤
         endingcredit.transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
+
+        if (endingcredit.transform.position.y >= 13000f)
+        {
+            stageGameManager.isending = true;
+            stageGameManager.SaveIsEnding(); // isending ê°’ì„ ì €ì¥
+            SceneManager.LoadScene("Start Scene");
+        }
     }
 }

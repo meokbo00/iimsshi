@@ -10,9 +10,9 @@ public class BossCenter : MonoBehaviour
     public float increase = 4f;
     public bool hasExpanded = false;
     public int randomNumber;
-    public int initialRandomNumber; // ÃÊ±â randomNumber °ªÀ» ÀúÀåÇÒ º¯¼ö
+    public int initialRandomNumber; // ï¿½Ê±ï¿½ randomNumber ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public TextMeshPro textMesh;
-    public BossFire[] bossfires; // ¿©·¯ Enemy1Fire ÂüÁ¶¸¦ À§ÇÑ ¹è¿­
+    public BossFire[] bossfires; // ï¿½ï¿½ï¿½ï¿½ Enemy1Fire ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
     public bool isShowHP;
 
     public int MaxHP;
@@ -33,7 +33,7 @@ public class BossCenter : MonoBehaviour
         textObject.transform.parent = transform;
         textMesh = textObject.AddComponent<TextMeshPro>();
         randomNumber = Random.Range(MinHP, MaxHP);
-        initialRandomNumber = randomNumber; // ÃÊ±â randomNumber °ªÀ» ÀúÀå
+        initialRandomNumber = randomNumber; // ï¿½Ê±ï¿½ randomNumber ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (isShowHP)
         {
             textMesh.text = randomNumber.ToString();
@@ -44,7 +44,7 @@ public class BossCenter : MonoBehaviour
         textMesh.rectTransform.localPosition = Vector3.zero;
         textMesh.sortingOrder = 3;
 
-        bossfires = GetComponentsInChildren<BossFire>(); // Enemy1Fire ÄÄÆ÷³ÍÆ® ¹è¿­ ÂüÁ¶
+        bossfires = GetComponentsInChildren<BossFire>(); // Enemy1Fire ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
 
         StartCoroutine(RandomAttack());
     }
@@ -65,7 +65,7 @@ public class BossCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
-                Destroy(transform.parent.gameObject); // ºÎ¸ð ¿ÀºêÁ§Æ® »èÁ¦
+                Destroy(transform.parent.gameObject); // ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             }
         }
         if (coll.gameObject.name == "SPTwiceF(Clone)")
@@ -85,16 +85,13 @@ public class BossCenter : MonoBehaviour
 
     private IEnumerator Attack1()
     {
-        // 5ÃÊ µ¿¾È Á¤Áö
         yield return new WaitForSeconds(Random.Range(MinFireTime, MaxFireTime));
 
-        // È¸ÀüÇÒ °¢µµ ¼³Á¤
         float targetAngle = Random.Range(MinAngle, MaxAngle);
         float currentAngle = transform.eulerAngles.z;
-        float rotationTime = 1f; // È¸ÀüÇÏ´Â µ¥ °É¸®´Â ½Ã°£
+        float rotationTime = 1f; // È¸ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         float elapsedTime = 0f;
 
-        // È¸ÀüÇÏ±â
         while (elapsedTime < rotationTime)
         {
             elapsedTime += Time.deltaTime;
@@ -103,7 +100,6 @@ public class BossCenter : MonoBehaviour
             yield return null;
         }
 
-        // È¸ÀüÀÌ ³¡³­ ÈÄ 1ÃÊ µÚ¿¡ ÃÑ¾Ë ¹ß»ç
         yield return new WaitForSeconds(1f);
 
         if (bossfires != null)
@@ -117,18 +113,16 @@ public class BossCenter : MonoBehaviour
 
     private IEnumerator Attack2()
     {
-        yield return new WaitForSeconds(Random.Range(MinFireTime, MaxFireTime));
+        yield return new WaitForSeconds(7);
 
         if (Enemy.Length > 0)
         {
-            // ·£´ýÀ¸·Î µÎ °³ÀÇ Àû ¿ÀºêÁ§Æ® ¼±ÅÃ
             GameObject enemy1 = Enemy[Random.Range(0, Enemy.Length)];
             GameObject enemy2 = Enemy[Random.Range(0, Enemy.Length)];
             GameObject enemy3 = Enemy[Random.Range(0, Enemy.Length)];
             GameObject enemy4 = Enemy[Random.Range(0, Enemy.Length)];
 
 
-            // º¸½ºÀÇ ¾ç¿·¿¡ »ý¼º
             Instantiate(enemy1, transform.position + new Vector3(-1.5f, 0, 0), Quaternion.identity);
             Instantiate(enemy2, transform.position + new Vector3(1.5f, 0, 0), Quaternion.identity);
             Instantiate(enemy3, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
@@ -154,7 +148,7 @@ public class BossCenter : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(4f); // 5ÃÊ ´ë±â ÈÄ ´ÙÀ½ °ø°Ý ¼±ÅÃ
+            yield return new WaitForSeconds(4f);
         }
     }
 }

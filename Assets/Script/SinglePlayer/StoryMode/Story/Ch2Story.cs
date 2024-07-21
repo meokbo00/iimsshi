@@ -62,7 +62,6 @@ public class Ch2Story : MonoBehaviour
                 break;
             case 66:
                 navigation.SetActive(false);
-                textManager.GiveMeTextId(11);
                 break;
         }
     }

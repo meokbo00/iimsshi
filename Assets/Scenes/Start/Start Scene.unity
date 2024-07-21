@@ -2816,6 +2816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageClearID: 0
+  isending: 0
 --- !u!114 &1132099136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,7 +2862,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 14a4e7743685ef24caebbeacee8b24a4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3149,7 +3150,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c776ec6031471614681be5844ed5c1e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.65
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

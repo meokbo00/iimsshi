@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageStart: {fileID: 0}
-  LineBox: {fileID: 0}
 --- !u!58 &-6198327690369867523
 CircleCollider2D:
   m_ObjectHideFlags: 0

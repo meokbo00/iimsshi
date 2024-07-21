@@ -68,6 +68,7 @@ public class SinglePlayerSetting : MonoBehaviour
     void ResetStageClearIDAndLoadScene(StageGameManager stageGameManager, string sceneName)
     {
         stageGameManager.StageClearID = 1;
+        stageGameManager.isending = false;
         StartCoroutine(FadeInAndLoadScene(sceneName));
     }
 
