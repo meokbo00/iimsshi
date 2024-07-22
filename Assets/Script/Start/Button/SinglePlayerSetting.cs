@@ -61,7 +61,7 @@ public class SinglePlayerSetting : MonoBehaviour
         });
         this.reallyYes.onClick.AddListener(() =>
         {
-            ResetStageClearIDAndLoadScene(stageGameManager, "Booting");
+            ResetStageClearIDAndLoadScene(stageGameManager, "Prologue");
         });
     }
 

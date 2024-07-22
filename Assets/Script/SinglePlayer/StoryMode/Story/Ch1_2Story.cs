@@ -15,6 +15,7 @@ public class Ch1_2Story : MonoBehaviour
     public GameObject creation;
     RemainTime remainTime;
     public Image fadeImage;
+    public GameObject isplaybgm;
 
     void Start()
     {
@@ -66,6 +67,7 @@ public class Ch1_2Story : MonoBehaviour
             {
                 stageBallController.enabled = true;
                 Fadeinout.SetActive(false);
+                isplaybgm.SetActive(false);
             }
             if (showText.logTextIndex == 48)
             {
@@ -73,7 +75,6 @@ public class Ch1_2Story : MonoBehaviour
             }
         }
     }
-
     IEnumerator FadeIn()
     {
         Fadeinout.SetActive(true);

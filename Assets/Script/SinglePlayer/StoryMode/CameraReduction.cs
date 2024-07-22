@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class CameraReduction : MonoBehaviour
 {
+
     private Camera mainCamera;
     private int currentIndex = 0;
     private float[] sizes;

@@ -26,12 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SinglePlay/ChallengeMode/ChallengeFail.unity
     guid: 25d2f00a3b5b2b34595e5ba1ca1a08a3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SinglePlay/Story Mode/Prologue/Booting.unity
     guid: 111c37a78842bb143a3e7cef29b02159
   - enabled: 1
     path: Assets/Scenes/SinglePlay/Story Mode/Prologue/Prologue.unity
     guid: 9f765f49dc1f04c44ad00b5232c1b503
+  - enabled: 1
+    path: Assets/Scenes/SinglePlay/Story Mode/Prologue/Prologue1.5.unity
+    guid: b407f2840fbb5f64bb1e794fc5067e7c
   - enabled: 1
     path: Assets/Scenes/SinglePlay/Story Mode/Prologue/Prologue 2.unity
     guid: 128d433412bec90429ff2571cc4ba70a

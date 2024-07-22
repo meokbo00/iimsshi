@@ -2,14 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement; // 씬 매니지먼트 네임스페이스 추가
 using UnityEngine.UI;
-using UnityEngine.Video; // 비디오 플레이어 네임스페이스 추가
 
 public class PrologueManager : MonoBehaviour
 {
     public Image firstImage;
     public Image secondImage;
     public Image FadeIn;
-    public GameObject prologuevideo;
 
     private int currentChatId;
 
@@ -95,23 +93,7 @@ public class PrologueManager : MonoBehaviour
         // 알파값이 다 올라간 후 2.5초 대기
         yield return new WaitForSeconds(2.5f);
 
-        // Prologuevideo 오브젝트 활성화
-        prologuevideo.SetActive(true);
-
-        // Prologuevideo 오브젝트의 자식 중 VideoPlayer를 찾아 이벤트 등록
-        VideoPlayer videoPlayer = prologuevideo.GetComponentInChildren<VideoPlayer>();
-        if (videoPlayer != null)
-        {
-            videoPlayer.loopPointReached += OnVideoEnd; // 비디오가 끝날 때 호출될 이벤트 핸들러 등록
-        }
-        else
-        {
-            Debug.LogError("VideoPlayer component not found on child of prologuevideo.");
-        }
-    }
-
-    void OnVideoEnd(VideoPlayer vp)
-    {
-        SceneManager.LoadScene("Stage"); // "Stage" 씬으로 전환
+        // "Prologue1.5" 씬으로 전환
+        SceneManager.LoadScene("Prologue1.5");
     }
 }

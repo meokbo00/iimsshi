@@ -2893,6 +2893,7 @@ MonoBehaviour:
   Fadeinout: {fileID: 1239783449}
   creation: {fileID: 1812864032}
   fadeImage: {fileID: 1239783451}
+  isplaybgm: {fileID: 1387191588}
 --- !u!1 &300127166
 GameObject:
   m_ObjectHideFlags: 0
@@ -20381,6 +20382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageClearID: 2
+  isending: 0
 --- !u!4 &2105216457
 Transform:
   m_ObjectHideFlags: 0

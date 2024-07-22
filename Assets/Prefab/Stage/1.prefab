@@ -107,6 +107,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 3980458702231358391, guid: e7321e72f64e198428934206ada4c11d, type: 3}
+      propertyPath: MaxHP
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980458702231358391, guid: e7321e72f64e198428934206ada4c11d, type: 3}
+      propertyPath: MaxFireTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3980458702231358391, guid: e7321e72f64e198428934206ada4c11d, type: 3}
+      propertyPath: MinFireTime
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6350379193036845528, guid: e7321e72f64e198428934206ada4c11d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
