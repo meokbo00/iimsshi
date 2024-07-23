@@ -30,7 +30,7 @@ public class Ch1_2Story : MonoBehaviour
         color.a = 1f;
         fadeImage.color = color;
 
-        if (stageGameManager.StageClearID == 6)
+        if (stageGameManager.StageClearID == 6f)
         {
             stageBallController.enabled = false;
             Fadeinout.SetActive(true);
@@ -61,7 +61,7 @@ public class Ch1_2Story : MonoBehaviour
     {
         showText = FindObjectOfType<ShowText>();
 
-        if (showText != null && stageGameManager.StageClearID == 6)
+        if (showText != null && stageGameManager.StageClearID == 6f)
         {
             if (showText.logTextIndex > 38)
             {

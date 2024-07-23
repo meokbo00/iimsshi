@@ -49,29 +49,9 @@ public class SPFailSceneManager : MonoBehaviour
                         SceneManager.LoadScene("Credit Scene");
                         break;
                     case 5:
-                        SceneManager.LoadScene("Challenge Scene");
+                        SceneManager.LoadScene("ChallengeScene");
                         break;
                 }
-                //if (randomnumber == 1)
-                //{
-                //    SceneManager.LoadScene("Example Scene");
-                //}
-                //else if (randomnumber == 2)
-                //{
-                //    SceneManager.LoadScene("Design Scene");
-                //}
-                //else if (randomnumber == 3)
-                //{
-                //    SceneManager.LoadScene("1-1 Intro Scene");
-                //}
-                //else if (randomnumber == 4)
-                //{
-                //    SceneManager.LoadScene("Credit Scene");
-                //}
-                //else if (randomnumber == 5)
-                //{
-                //    SceneManager.LoadScene("Challenge Scene");
-                //}
             }
         }
     }

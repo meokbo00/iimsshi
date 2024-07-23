@@ -35,7 +35,7 @@ public class StageBallManager : MonoBehaviour
         {
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0f;
-            shotDistance = Vector3.Distance(clickPosition, currentPosition) * 2;
+            shotDistance = Vector3.Distance(clickPosition, currentPosition) * 3;
             Vector3 dragDirection = (currentPosition - clickPosition).normalized;
             shotDirection = -dragDirection;
             isDragging = false;
