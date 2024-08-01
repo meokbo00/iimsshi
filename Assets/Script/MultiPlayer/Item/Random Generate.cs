@@ -4,8 +4,8 @@ public class SphereSpawner : MonoBehaviour
 {
     public GameObject[] spherePrefabs; 
     public GameObject background; 
-    public float minSpawnTime = 7f; 
-    public float maxSpawnTime = 12f; 
+    public float minSpawnTime = 10f; 
+    public float maxSpawnTime = 15f; 
 
     private float nextSpawnTime;
     private Collider2D backgroundCollider;

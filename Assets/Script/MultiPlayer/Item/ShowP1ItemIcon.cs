@@ -15,13 +15,12 @@ public class ShowP1ItemIcon : MonoBehaviour
 
         switch (objecttag)
         {
-            case "Item_BlackHole": nextIcon = P1Icon[0]; break;
-            case "Item_Durability": nextIcon = P1Icon[1]; break;
-            case "Item_Fasten": nextIcon = P1Icon[2]; break;
-            case "Item_Force": nextIcon = P1Icon[3]; break;
+            case "Item_Big": nextIcon = P1Icon[0]; break;
+            case "Item_Small": nextIcon = P1Icon[1]; break;
+            case "Item_Twice": nextIcon = P1Icon[2]; break;
+            case "Item_Endless": nextIcon = P1Icon[3]; break;
             case "Item_Invincible": nextIcon = P1Icon[4]; break;
-            case "Item_Random_number": nextIcon = P1Icon[5]; break;
-            case "Item_Reduction": nextIcon = P1Icon[6]; break;
+            case "Item_BlackHole": nextIcon = P1Icon[5]; break;
         }
         if (nextIcon != null)
         {

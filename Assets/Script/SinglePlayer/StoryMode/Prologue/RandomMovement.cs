@@ -2,57 +2,54 @@ using UnityEngine;
 
 public class ContinuousRandomMovement : MonoBehaviour
 {
-
-    private Vector2 moveDirection; // 이동 방향
+    private Vector2 moveDirection;
+    private float moveSpeed;
+    private StageGameManager gameManager;
+    private const float OFFSET = 170f;
+    private const float COLLISION_OFFSET = 200f;
 
     void Start()
     {
-        gameObject.transform.position = new Vector2(Random.Range(-199, 199), Random.Range(-190, 190));
+        transform.position = new Vector2(Random.Range(-199f, 199f), Random.Range(-190f, 190f));
         float randomAngle = Random.Range(0f, 360f);
         moveDirection = new Vector2(Mathf.Cos(randomAngle * Mathf.Deg2Rad), Mathf.Sin(randomAngle * Mathf.Deg2Rad));
-
         moveDirection.Normalize();
+
+        moveSpeed = Random.Range(2f, 17f);
+
+        gameManager = FindObjectOfType<StageGameManager>();
     }
 
     void Update()
     {
-        transform.Translate(moveDirection * Random.Range(2, 17) * Time.deltaTime);
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+        if (gameManager == null) return;
+
+        Vector3 offset = Vector3.zero;
 
         switch (collision.gameObject.name)
         {
             case "Bottom":
-                if (gameManager.StageClearID < 7)
-                {
-                    transform.Translate(0, 210, 0);
-                }
-                transform.Translate(0, 170, 0);
+                offset = (gameManager.StageClearID < 7) ? new Vector3(0, COLLISION_OFFSET + OFFSET, 0) : new Vector3(0, OFFSET, 0);
                 break;
             case "Top":
-                if (gameManager.StageClearID < 7)
-                {
-                    transform.Translate(0, -210, 0);
-                }
-                transform.Translate(0, -170, 0);
+                offset = (gameManager.StageClearID < 7) ? new Vector3(0, -COLLISION_OFFSET - OFFSET, 0) : new Vector3(0, -OFFSET, 0);
                 break;
             case "Left":
-                if (gameManager.StageClearID < 7)
-                {
-                    transform.Translate(200, 0, 0);
-                }
-                transform.Translate(165, 0, 0);
+                offset = (gameManager.StageClearID < 7) ? new Vector3(COLLISION_OFFSET + OFFSET, 0, 0) : new Vector3(OFFSET, 0, 0);
                 break;
             case "Right":
-                if (gameManager.StageClearID < 7)
-                {
-                    transform.Translate(-200, 0, 0);
-                }
-                transform.Translate(-165, 0, 0);
+                offset = (gameManager.StageClearID < 7) ? new Vector3(-COLLISION_OFFSET - OFFSET, 0, 0) : new Vector3(-OFFSET, 0, 0);
                 break;
+        }
+
+        if (offset != Vector3.zero)
+        {
+            transform.Translate(offset);
         }
     }
 }

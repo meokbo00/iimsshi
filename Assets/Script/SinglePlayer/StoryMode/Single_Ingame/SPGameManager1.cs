@@ -33,6 +33,8 @@ public class SPGameManager : MonoBehaviour
             case "Item_Twice": fireitem = FireItemPrefab[2]; break;
             case "Item_Endless": fireitem = FireItemPrefab[3]; break;
             case "Item_Invincible": fireitem = FireItemPrefab[4]; break;
+            case "Item_BlackHole": fireitem = FireItemPrefab[5]; break;
+
         }
     }
     private void Update()

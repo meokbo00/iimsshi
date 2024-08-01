@@ -35,17 +35,32 @@ public class BallController : MonoBehaviour
 
     private void Update()
     {
-        // 최초 클릭 이후에만 힘이 가해지도록 설정
-        if (Input.GetMouseButtonUp(0) && rigid != null && !hasBeenReleased)
-        {
-            rigid.velocity = GameManager.shotDirection * GameManager.shotDistance; // GameManager에서 값 가져와서 구체 발사
-            hasBeenReleased = true; // 최초 클릭이 되었음을 표시
-        }
-        Move();
-        expand();
+        if (ShouldApplyForce()) ApplyForce();
     }
 
-    void Move()
+    private bool ShouldApplyForce()
+    {
+        return Input.GetMouseButtonUp(0) && rigid != null && !hasBeenReleased;
+    }
+
+    private void ApplyForce()
+    {
+        rigid.velocity = GameManager.shotDirection * GameManager.shotDistance;
+        hasBeenReleased = true;
+        StartCoroutine(ManageBallMovement());
+    }
+
+    private IEnumerator ManageBallMovement()
+    {
+        while (!isStopped || !iscolliding)
+        {
+            Move();
+            Expand();
+            yield return null;
+        }
+    }
+
+    private void Move()
     {
         if (rigid == null || isStopped) return;
 
@@ -58,11 +73,11 @@ public class BallController : MonoBehaviour
             StartCoroutine(DestroyRigidbodyDelayed());
         }
     }
-    void expand()
+
+    private void Expand()
     {
-        if (rigid == null || iscolliding) return;
+        if (rigid == null) return;
         if (rigid.velocity.magnitude > 0.1f) return;
-        if (Input.GetMouseButton(0)) return;
 
         if (!hasExpanded)
         {
@@ -91,7 +106,7 @@ public class BallController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if ((coll.gameObject.name == "SPTwiceF(Clone)" && rigid == null )|| (coll.gameObject.name == "TwiceBullet(Clone)" && rigid == null))
+        if ((coll.gameObject.name == "SPTwiceF(Clone)" && rigid == null) || (coll.gameObject.name == "TwiceBullet(Clone)" && rigid == null))
         {
             randomNumber -= 1;
             if (randomNumber > 0)
@@ -104,7 +119,6 @@ public class BallController : MonoBehaviour
             }
         }
 
-
         if (coll.contacts != null && coll.contacts.Length > 0)
         {
             Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
@@ -112,10 +126,17 @@ public class BallController : MonoBehaviour
                 rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // 감속하지 않고 반사만 진행
         }
         this.iscolliding = true;
+        hasExpanded = false; // Reset expansion on collision
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         this.iscolliding = false;
+        hasExpanded = false; // Reset expansion on collision exit
+        if (isStopped)
+        {
+            StartCoroutine(ManageBallMovement()); // Restart expansion if stopped
+        }
     }
 
     IEnumerator DestroyRigidbodyDelayed()
@@ -125,4 +146,3 @@ public class BallController : MonoBehaviour
             Destroy(rigid);
     }
 }
-
