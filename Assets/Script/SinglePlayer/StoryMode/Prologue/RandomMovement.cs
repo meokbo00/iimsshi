@@ -5,12 +5,12 @@ public class ContinuousRandomMovement : MonoBehaviour
     private Vector2 moveDirection;
     private float moveSpeed;
     private StageGameManager gameManager;
-    private const float OFFSET = 170f;
-    private const float COLLISION_OFFSET = 200f;
+    private const float OFFSET = 100f;
+    private const float COLLISION_OFFSET = 150f;
 
     void Start()
     {
-        transform.position = new Vector2(Random.Range(-199f, 199f), Random.Range(-190f, 190f));
+        transform.position = new Vector2(Random.Range(-170f, 20f), Random.Range(-110f, 90f));
         float randomAngle = Random.Range(0f, 360f);
         moveDirection = new Vector2(Mathf.Cos(randomAngle * Mathf.Deg2Rad), Mathf.Sin(randomAngle * Mathf.Deg2Rad));
         moveDirection.Normalize();

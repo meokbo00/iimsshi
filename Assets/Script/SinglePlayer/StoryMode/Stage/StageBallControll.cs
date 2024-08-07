@@ -92,16 +92,16 @@ public class StageBallController : MonoBehaviour
         switch (collision.gameObject.name)
         {
             case "B":
-                offset = (gameManager.StageClearID < 6) ? new Vector3(0, 470, 0) : new Vector3(0, 170, 0);
+                offset = (gameManager.StageClearID < 6) ? new Vector3(0, 370, 0) : new Vector3(0, 170, 0);
                 break;
             case "T":
-                offset = (gameManager.StageClearID < 6) ? new Vector3(0, -470, 0) : new Vector3(0, -170, 0);
+                offset = (gameManager.StageClearID < 6) ? new Vector3(0, -370, 0) : new Vector3(0, -170, 0);
                 break;
             case "L":
-                offset = (gameManager.StageClearID < 6) ? new Vector3(460, 0, 0) : new Vector3(165, 0, 0);
+                offset = (gameManager.StageClearID < 6) ? new Vector3(360, 0, 0) : new Vector3(165, 0, 0);
                 break;
             case "R":
-                offset = (gameManager.StageClearID < 6) ? new Vector3(-460, 0, 0) : new Vector3(-165, 0, 0);
+                offset = (gameManager.StageClearID < 6) ? new Vector3(-360, 0, 0) : new Vector3(-165, 0, 0);
                 break;
         }
 

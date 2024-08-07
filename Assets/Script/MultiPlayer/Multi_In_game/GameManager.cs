@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         P1firezone.gameObject.SetActive(true);
-        P2firezone.gameObject.SetActive(true);
+        P2firezone.gameObject.SetActive(false);
     }
     public void PrintDestroyedicontag(string icontag)
     {
