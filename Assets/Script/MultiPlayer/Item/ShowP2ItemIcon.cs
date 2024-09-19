@@ -16,12 +16,13 @@ public class ShowP2ItemIcon : MonoBehaviour
 
         switch (objecttag)
         {
-            case "Item_Big": nextIcon = P2Icon[0]; break;
-            case "Item_Small": nextIcon = P2Icon[1]; break;
-            case "Item_Twice": nextIcon = P2Icon[2]; break;
-            case "Item_Endless": nextIcon = P2Icon[3]; break;
+            case "Item_BlackHole": nextIcon = P2Icon[0]; break;
+            case "Item_Durability": nextIcon = P2Icon[1]; break;
+            case "Item_Fasten": nextIcon = P2Icon[2]; break;
+            case "Item_Force": nextIcon = P2Icon[3]; break;
             case "Item_Invincible": nextIcon = P2Icon[4]; break;
-            case "Item_BlackHole": nextIcon = P2Icon[5]; break;
+            case "Item_Random_number": nextIcon = P2Icon[5]; break;
+            case "Item_Reduction": nextIcon = P2Icon[6]; break;
         }
 
         if (nextIcon != null)

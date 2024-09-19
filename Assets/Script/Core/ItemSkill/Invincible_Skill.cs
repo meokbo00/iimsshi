@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Invincible_Skill : MonoBehaviour
 {
+    SPGameManager spGameManager;
     Rigidbody2D rigid;
     Vector2 lastVelocity;
     BGMControl bGMControl;
@@ -17,6 +18,7 @@ public class Invincible_Skill : MonoBehaviour
 
     private void Start()
     {
+        spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
     }
@@ -68,8 +70,9 @@ public class Invincible_Skill : MonoBehaviour
         if (coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item"
             || coll.gameObject.tag == "EnemyBall" || coll.gameObject.tag == "Item" || coll.gameObject.tag == "Gojung" || coll.gameObject.tag == "EnemyCenter")
         {
-            
+            spGameManager.RemoveBall();
             Destroy(coll.gameObject);
+            spGameManager.RemoveBall();
             Destroy(gameObject);
         }
         if (coll.contacts != null && coll.contacts.Length > 0)

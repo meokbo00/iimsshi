@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BEnemyCenter : MonoBehaviour
 {
+    SPGameManager spGameManager;
     BGMControl bGMControl;
     Rigidbody2D rigid;
     public float increase = 4f;
@@ -26,6 +27,7 @@ public class BEnemyCenter : MonoBehaviour
 
     private void Start()
     {
+        spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
@@ -69,7 +71,7 @@ public class BEnemyCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
-
+                spGameManager.RemoveEnemy();
                 Destroy(transform.parent.gameObject); // �θ� ������Ʈ ����
             }
         }
@@ -83,6 +85,7 @@ public class BEnemyCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
+                spGameManager.RemoveEnemy();
 
                 Destroy(gameObject);
             }
@@ -97,6 +100,7 @@ public class BEnemyCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
+                spGameManager.RemoveEnemy();
 
                 Destroy(gameObject);
             }
@@ -131,6 +135,7 @@ public class BEnemyCenter : MonoBehaviour
             {
                 foreach (var enemy1Fire in enemy1Fires)
                 {
+                    spGameManager.AddBall();
                     enemy1Fire.SpawnBullet();
                 }
             }

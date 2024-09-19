@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7045182033786972990}
   m_Layer: 0
   m_Name: ReductionF
-  m_TagString: P1Item
+  m_TagString: P2Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increase: 4
   hasExpanded: 0
+  HitSound: {fileID: 0}
+  SwellSound: {fileID: 0}
 --- !u!1 &9201731732141482023
 GameObject:
   m_ObjectHideFlags: 0

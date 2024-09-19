@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BlackHole_Skill : MonoBehaviour
 {
+    SPGameManager spGameManager;
     Rigidbody2D rigid;
     BGMControl bGMControl;
     Vector2 lastVelocity;
@@ -17,6 +18,7 @@ public class BlackHole_Skill : MonoBehaviour
 
     private void Start()
     {
+        spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyObjectDelayed(Random.Range(10f, 25f)));
@@ -71,6 +73,7 @@ public class BlackHole_Skill : MonoBehaviour
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item"
             || coll.gameObject.tag == "EnemyBall" || coll.gameObject.tag == "Item") && rigid == null)
         {
+            spGameManager.RemoveBall();
             Destroy(coll.gameObject);
         }
         if (coll.contacts != null && coll.contacts.Length > 0)
@@ -96,6 +99,7 @@ public class BlackHole_Skill : MonoBehaviour
     IEnumerator DestroyObjectDelayed(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
+        spGameManager.RemoveBall();
         Destroy(gameObject);
     }
 }

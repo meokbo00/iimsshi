@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyBulletControl : MonoBehaviour
 {
+    SPGameManager spGameManager;
     Rigidbody2D rigid;
     Vector2 lastVelocity;
     float deceleration = 2f;
@@ -27,6 +28,7 @@ public class EnemyBulletControl : MonoBehaviour
 
     private void Start()
     {
+        spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
@@ -107,6 +109,7 @@ public class EnemyBulletControl : MonoBehaviour
                 {
                     chmanager.scorenum++;
                 }
+                spGameManager.RemoveBall();
                 Destroy(gameObject);
             }
         }
@@ -120,6 +123,7 @@ public class EnemyBulletControl : MonoBehaviour
                 {
                     chmanager.scorenum++;
                 }
+                spGameManager.RemoveBall();
                 Destroy(gameObject);
             }
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5103949075740025544}
   - component: {fileID: 7387887998377467258}
   - component: {fileID: 569950362156945474}
-  - component: {fileID: 8450513375203151931}
+  - component: {fileID: 707323667068416565}
   m_Layer: 0
   m_Name: P1ball
   m_TagString: P1ball
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8450513375203151931
+--- !u!114 &707323667068416565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977937362943864785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06d2439b9dc87d489fa8781b77e221a, type: 3}
+  m_Script: {fileID: 11500000, guid: 245eb70a8cb90b444b6711fa03527af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   increase: 4

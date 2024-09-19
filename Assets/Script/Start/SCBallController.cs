@@ -64,7 +64,7 @@ public class SCBallController : MonoBehaviour
 
         if (!hasExpanded)
         {
-            bgmControl.SoundEffectPlay(1);
+            bgmControl.SoundEffectPlay(2);
         }
         transform.localScale += Vector3.one * increase * Time.deltaTime;
         hasExpanded = true;
@@ -74,7 +74,7 @@ public class SCBallController : MonoBehaviour
     {
         if (!hasExpanded)
         {
-            bgmControl.SoundEffectPlay(0);
+            bgmControl.SoundEffectPlay(1);
         }
 
         if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball") && rigid == null)

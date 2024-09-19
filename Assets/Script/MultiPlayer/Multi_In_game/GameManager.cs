@@ -22,20 +22,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         P1firezone.gameObject.SetActive(true);
-        P2firezone.gameObject.SetActive(false);
+        P2firezone.gameObject.SetActive(true);
     }
     public void PrintDestroyedicontag(string icontag)
     {
         this.fireitem = null;
         switch (icontag)
         {
-            case "Item_Big": fireitem = FireItemPrefab[0]; break;
-            case "Item_Small": fireitem = FireItemPrefab[1]; break;
-            case "Item_Twice": fireitem = FireItemPrefab[2]; break;
-            case "Item_Endless": fireitem = FireItemPrefab[3]; break;
+            case "Item_BlackHole": fireitem = FireItemPrefab[0]; break;
+            case "Item_Durability": fireitem = FireItemPrefab[1]; break;
+            case "Item_Fasten": fireitem = FireItemPrefab[2]; break;
+            case "Item_Force": fireitem = FireItemPrefab[3]; break;
             case "Item_Invincible": fireitem = FireItemPrefab[4]; break;
-            case "Item_BlackHole": fireitem = FireItemPrefab[5]; break;
-
+            case "Item_Random_number": fireitem = FireItemPrefab[5]; break;
+            case "Item_Reduction": fireitem = FireItemPrefab[6]; break;
         }
     }
     private void Update()
@@ -97,9 +97,9 @@ public class GameManager : MonoBehaviour
         {
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0f;
-            GameManager.shotDistance = Vector3.Distance(clickPosition, currentPosition)*2;
+            shotDistance = Vector3.Distance(clickPosition, currentPosition)*2;
             Vector3 dragDirection = (currentPosition - clickPosition).normalized;
-            GameManager.shotDirection = dragDirection;
+            shotDirection = dragDirection;
             isDragging = false;
         }
     }

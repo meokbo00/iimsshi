@@ -14,17 +14,17 @@ public class StartStarMove : MonoBehaviour
 
     void Start()
     {
-        initialPosition = transform.position; // ÃÊ±â À§Ä¡ ÀúÀå
-        initialAngle = Random.Range(0f, 360f); // ÃÊ±â °¢µµ¸¦ ·£´ýÀ¸·Î ¼³Á¤
-        angle = initialAngle; // ÃÊ±â °¢µµ·Î ¼³Á¤
+        initialPosition = transform.position; // ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+        initialAngle = Random.Range(0f, 360f); // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        angle = initialAngle; // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
     void Update()
     {
         if (isturn)
         {
-            // ¿øÀ» ±×¸®¸ç ÀÌµ¿
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             angle += rotationSpeed * Time.deltaTime;
-            if (angle > 360f) angle -= 360f; // °¢µµ°¡ 360µµ¸¦ ³ÑÁö ¾Êµµ·Ï Á¶Á¤
+            if (angle > 360f) angle -= 360f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 360ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
             float x = Mathf.Cos(angle) * radius;
             float y = Mathf.Sin(angle) * radius;

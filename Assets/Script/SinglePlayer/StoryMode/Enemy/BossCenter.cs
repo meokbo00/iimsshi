@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BossCenter : MonoBehaviour
 {
+    SPGameManager spGameManager;
     BGMControl bGMControl;
     Rigidbody2D rigid;
     public float increase = 4f;
@@ -27,6 +28,7 @@ public class BossCenter : MonoBehaviour
 
     private void Start()
     {
+        spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
@@ -65,6 +67,7 @@ public class BossCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
+                spGameManager.RemoveEnemy();
                 Destroy(transform.parent.gameObject); // �θ� ������Ʈ ����
             }
         }
@@ -78,6 +81,7 @@ public class BossCenter : MonoBehaviour
             if (randomNumber <= 0)
             {
                 bGMControl.SoundEffectPlay(4);
+                spGameManager.RemoveEnemy();
                 Destroy(gameObject);
             }
         }
@@ -106,6 +110,7 @@ public class BossCenter : MonoBehaviour
         {
             foreach (var enemy1Fire in bossfires)
             {
+                spGameManager.AddBall();
                 enemy1Fire.SpawnBullet();
             }
         }

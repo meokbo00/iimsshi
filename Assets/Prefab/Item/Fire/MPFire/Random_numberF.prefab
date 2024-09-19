@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7919848456635231479}
   m_Layer: 0
   m_Name: Random_numberF
-  m_TagString: P1Item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,3 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increase: 4
   hasExpanded: 0
+  HitSound: {fileID: 0}
+  SwellSound: {fileID: 0}
