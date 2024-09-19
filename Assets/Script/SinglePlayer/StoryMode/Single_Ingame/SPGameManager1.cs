@@ -23,7 +23,7 @@ public class SPGameManager : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindObjectOfType<StageGameManager>();
+        gameManager = FindAnyObjectByType<StageGameManager>();
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         P1firezone.gameObject.SetActive(true);
         Debug.Log(StageState.chooseStage);

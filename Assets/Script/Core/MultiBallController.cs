@@ -19,7 +19,7 @@ public class MultiBallController : MonoBehaviour
 
     private void Start()
     {
-        bGMControl = FindObjectOfType<BGMControl>();
+        bGMControl = FindAnyObjectByType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
         textObject.transform.parent = transform;

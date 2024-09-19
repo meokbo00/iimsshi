@@ -17,10 +17,9 @@ public class BallController : MonoBehaviour
 
     private void Start()
     {
-        spGameManager = FindObjectOfType<SPGameManager>();
-        bGMControl = FindObjectOfType<BGMControl>();
+        spGameManager = FindAnyObjectByType<SPGameManager>();
+        bGMControl = FindAnyObjectByType<BGMControl>();
         rigid = GetComponent<Rigidbody2D>();
-
         randomNumber = Random.Range(1, 6);
     }
     private void Update()
