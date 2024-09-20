@@ -33,6 +33,7 @@ TagManager:
   - Item_Five_Round
   - Item_Plus2
   - MoveCircle
+  - Wall
   layers:
   - Default
   - TransparentFX

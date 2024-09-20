@@ -8,8 +8,8 @@ public class SPP1Deadzone : MonoBehaviour
     {
         if (collision.gameObject.tag == "P1ball")
         {
-            BallController ball = collision.GetComponent<BallController>();
-            if (!ball.hasExpanded)
+            ExBallController ball = collision.GetComponent<ExBallController>();
+            if (!ball.isExpanding)
                 SceneManager.LoadScene("Fail");
         }
 
