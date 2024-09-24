@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7387887998377467258}
   - component: {fileID: 569950362156945474}
   - component: {fileID: -6183857642019978126}
-  - component: {fileID: 8450513375203151931}
   - component: {fileID: 4866244928444082244}
   - component: {fileID: 5580464243157066455}
   m_Layer: 0
@@ -164,21 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94013f6aea897d649ace6245033a64b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isExpanding: 0
   bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
---- !u!114 &8450513375203151931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977937362943864785}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06d2439b9dc87d489fa8781b77e221a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  increase: 6
-  hasExpanded: 0
 --- !u!82 &4866244928444082244
 AudioSource:
   m_ObjectHideFlags: 0

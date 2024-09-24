@@ -8,6 +8,7 @@ public class EnemyBulletControl : MonoBehaviour
 {
     SPGameManager spGameManager;
     Rigidbody2D rigid;
+    BGMControl bGMControl;
     Vector2 lastVelocity;
     float deceleration = 2f;
     public float increase = 4f;
@@ -16,15 +17,11 @@ public class EnemyBulletControl : MonoBehaviour
     private bool isStopped = false;
     private int randomNumber;
     private TextMeshPro textMesh;
-    BGMControl bGMControl;
     private bool hasBeenReleased = false;
     private float rotationAngle = 0f; // 회전 각도를 저장할 변수
-
     public float fontsize;
     public int BallMinHP = 1;
     public int BallMaxHP = 6;
-    //public AudioSource HitSound;
-    //public AudioSource SwellSound;
 
     private void Start()
     {
@@ -49,10 +46,10 @@ public class EnemyBulletControl : MonoBehaviour
         expand();
     }
 
-    public void SetRotationAngle(float angle)
-    {
-        rotationAngle = angle;
-    }
+    //public void SetRotationAngle(float angle)
+    //{
+    //    rotationAngle = angle;
+    //}
 
     void Move()
     {

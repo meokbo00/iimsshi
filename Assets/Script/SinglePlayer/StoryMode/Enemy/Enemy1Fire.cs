@@ -10,7 +10,6 @@ public class Enemy1Fire : MonoBehaviour
 
     public void SpawnBullet()
     {
-            // �迭���� �������� �Ѿ� ������ ����
             GameObject selectedBulletPrefab = enemyBulletPrefabs[Random.Range(0, enemyBulletPrefabs.Length)];
             GameObject bullet = Instantiate(selectedBulletPrefab, transform.position, Quaternion.identity);
             Vector2 shotDirection = -transform.up;

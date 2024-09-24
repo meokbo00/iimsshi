@@ -97,6 +97,7 @@ public class ExBallController : MonoBehaviour
 
     void StartExpansion()
     {
+        bGMControl.SoundEffectPlay(1);
         targetScale = initialScale * 10f; 
         isExpanding = true;
     }
@@ -105,7 +106,6 @@ public class ExBallController : MonoBehaviour
     {
         if (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
         {
-            bGMControl.SoundEffectPlay(1);
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * expandSpeed);
         }
         else
@@ -117,7 +117,7 @@ public class ExBallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isExpanding)
+        if(!isExpanding)
         {
             bGMControl.SoundEffectPlay(0);
         }
