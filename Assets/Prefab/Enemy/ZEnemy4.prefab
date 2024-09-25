@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 7109061508604713137}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 7552577308334224377}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 6391969633182559445}
   m_Layer: 0
   m_Name: RGun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 6667206281312475529}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1964,7 +1964,7 @@ GameObject:
   - component: {fileID: 1425577387499921388}
   m_Layer: 0
   m_Name: LGun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2122,7 +2122,7 @@ GameObject:
   - component: {fileID: 3586328259508158594}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

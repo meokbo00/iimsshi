@@ -7,37 +7,58 @@ using UnityEngine.SceneManagement;
 public class EnemyBulletControl : MonoBehaviour
 {
     SPGameManager spGameManager;
-    Rigidbody2D rigid;
+    Rigidbody2D rb;
     BGMControl bGMControl;
     Vector2 lastVelocity;
     float deceleration = 2f;
-    public float increase = 4f;
+    public float increase;
     private bool iscolliding = false;
     public bool hasExpanded = false;
     private bool isStopped = false;
-    private int randomNumber;
+    private int durability;
     private TextMeshPro textMesh;
-    private bool hasBeenReleased = false;
-    private float rotationAngle = 0f; // 회전 각도를 저장할 변수
     public float fontsize;
     public int BallMinHP = 1;
     public int BallMaxHP = 6;
+    public PhysicsMaterial2D bouncyMaterial;
+    private Vector3 initialScale; // 초기 공 크기
+    private Vector3 targetScale; // 목표 크기
+    private const string SPTwiceFName = "SPTwiceF(Clone)";
+    private const string TwiceBulletName = "TwiceBullet(Clone)";
+    private const string GojungTag = "Gojung";
+    private const string WallTag = "Wall";
+    private const string EnemyCenterTag = "EnemyCenter";
+
+
 
     private void Start()
     {
         spGameManager = FindObjectOfType<SPGameManager>();
         bGMControl = FindObjectOfType<BGMControl>();
-        rigid = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
+
         textObject.transform.parent = transform;
         textMesh = textObject.AddComponent<TextMeshPro>();
-        randomNumber = Random.Range(BallMinHP, BallMaxHP);
-        textMesh.text = randomNumber.ToString();
+        durability = Random.Range(BallMinHP, BallMaxHP);
+        textMesh.text = durability.ToString();
         textMesh.fontSize = fontsize;
         textMesh.alignment = TextAlignmentOptions.Center;
         textMesh.autoSizeTextContainer = true;
         textMesh.rectTransform.localPosition = Vector3.zero;
         textMesh.sortingOrder = 1;
+
+        rb.drag = 0f;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null && bouncyMaterial != null)
+        {
+            collider.sharedMaterial = bouncyMaterial;
+        }
+
+        //initialScale = transform.localScale;
     }
 
     private void Update()
@@ -46,29 +67,23 @@ public class EnemyBulletControl : MonoBehaviour
         expand();
     }
 
-    //public void SetRotationAngle(float angle)
-    //{
-    //    rotationAngle = angle;
-    //}
-
     void Move()
     {
-        if (rigid == null || isStopped) return;
+        if (rb == null || isStopped) return;
 
-        lastVelocity = rigid.velocity;
-        rigid.velocity -= rigid.velocity.normalized * deceleration * Time.deltaTime;
+        lastVelocity = rb.velocity;
+        rb.velocity -= rb.velocity.normalized * deceleration * Time.deltaTime;
 
-        if (rigid.velocity.magnitude <= 0.01f && hasExpanded)
+        if (rb.velocity.magnitude <= 0.01f && hasExpanded)
         {
             isStopped = true;
-            StartCoroutine(DestroyRigidbodyDelayed());
         }
     }
 
     void expand()
     {
-        if (rigid == null || iscolliding) return;
-        if (rigid.velocity.magnitude > 0.1f) return;
+        if (rb == null || iscolliding) return;
+        if (rb.velocity.magnitude > 0.1f) return;
         if (Input.GetMouseButton(0)) return;
 
         if (!hasExpanded)
@@ -85,50 +100,32 @@ public class EnemyBulletControl : MonoBehaviour
         {
             bGMControl.SoundEffectPlay(0);
         }
-        ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
+        if (!coll.collider.isTrigger && hasExpanded)
+        {
+            hasExpanded = true; // 팽창 중단
+            transform.localScale = transform.localScale; // 현재 크기에서 멈춤
+            DestroyRigidbody(); // Rigidbody 제거
+        }
         if (coll.gameObject.name == "SPInvincibleF(Clone)")
         {
+            ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
             chmanager.scorenum++;
             Destroy(gameObject);
         }
 
-        if ((coll.gameObject.tag == "P1ball" || coll.gameObject.tag == "P2ball" || coll.gameObject.tag == "P1Item" || coll.gameObject.tag == "P2Item" || coll.gameObject.tag == "EnemyBall"
-        || coll.gameObject.tag == "Item") && rigid == null)
+        if ((coll.collider.name != SPTwiceFName || coll.collider.name != TwiceBulletName) && rb == null)
         {
-            if (randomNumber > 0)
-            {
-                randomNumber--;
-                textMesh.text = randomNumber.ToString();
-            }
-            if (randomNumber <= 0)
-            {
-                if (SceneManager.GetActiveScene().name == "ChallengeScene")
-                {
-                    chmanager.scorenum++;
-                }
-                spGameManager.RemoveBall();
-                Destroy(gameObject);
-            }
+            if (coll.collider.CompareTag(GojungTag)) return;
+            if (coll.collider.CompareTag(WallTag)) return;
+            if (coll.collider.CompareTag(EnemyCenterTag)) return;
+
+            TakeDamage(1);
+            textMesh.text = durability.ToString();
         }
-        if (coll.gameObject.name == "SPTwiceF(Clone)" || coll.gameObject.name == "TwiceBullet(Clone)")
+        if ((coll.collider.name == SPTwiceFName || coll.collider.name == TwiceBulletName) && rb == null)
         {
-            randomNumber -= 1;
-            textMesh.text = randomNumber.ToString();
-            if (randomNumber <= 0)
-            {
-                if (SceneManager.GetActiveScene().name == "ChallengeScene")
-                {
-                    chmanager.scorenum++;
-                }
-                spGameManager.RemoveBall();
-                Destroy(gameObject);
-            }
-        }
-        if (coll.contacts != null && coll.contacts.Length > 0)
-        {
-            Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
-            if (rigid != null)
-                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // 벡터 값이 음수가 되지 않게 함
+            TakeDamage(2);
+            textMesh.text = durability.ToString();
         }
         this.iscolliding = true;
     }
@@ -137,11 +134,27 @@ public class EnemyBulletControl : MonoBehaviour
     {
         this.iscolliding = false;
     }
-
-    IEnumerator DestroyRigidbodyDelayed()
+    void TakeDamage(int damage)
     {
-        yield return new WaitForSeconds(0.8f);
-        if (rigid != null)
-            Destroy(rigid);
+        durability -= damage;
+        if (durability <= 0)
+        {
+            ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
+            if (SceneManager.GetActiveScene().name == "ChallengeScene")
+            {
+                chmanager.scorenum++;
+            }
+            spGameManager.RemoveBall();
+            Destroy(gameObject);
+        }
+    }
+
+    void DestroyRigidbody()
+    {
+        if (rb != null)
+        {
+            Destroy(rb);
+            rb = null;
+        }
     }
 }

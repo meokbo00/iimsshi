@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7109061508604713137}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 2242717466656229233}
   m_Layer: 0
   m_Name: RLeg
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 1073085778185423917}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 3457660708661119323}
   m_Layer: 0
   m_Name: LLeg
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

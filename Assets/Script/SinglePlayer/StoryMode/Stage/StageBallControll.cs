@@ -13,6 +13,7 @@ public class StageBallController : MonoBehaviour
     // public GameObject LineBox;
     private bool hasbeenout = false;
     public static int chooseStage;
+    StageGameManager gameManager = FindObjectOfType<StageGameManager>();
 
     private float randomX;
     private float randomY;
@@ -33,11 +34,6 @@ public class StageBallController : MonoBehaviour
             // 방금 저장한 Player의 위치값을 불러옴
             randomX = GlobalData.PlayerPosition.x;
             randomY = GlobalData.PlayerPosition.y;
-        //}
-        //else if (stageGameManager.StageClearID > 15)
-        //{
-        //    randomX = Random.Range(-500f, 500f);
-        //    randomY = Random.Range(-500f, 500f);
         }
 
         gameObject.transform.position = new Vector3(randomX, randomY, gameObject.transform.position.z);
@@ -74,7 +70,6 @@ public class StageBallController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        StageGameManager gameManager = FindObjectOfType<StageGameManager>();
         if (collision.gameObject.tag == "StageDeadZone")
         {
             rigid.velocity = Vector2.zero;

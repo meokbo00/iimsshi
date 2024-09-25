@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2819756687972289418}
   m_Layer: 0
   m_Name: Center1
-  m_TagString: Untagged
+  m_TagString: EnemyCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,5 +184,6 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   isShowHP: 0
   isHide: 0
+  fontsize: 0
   MaxHP: 50
   MinHP: 50

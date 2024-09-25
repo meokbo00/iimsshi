@@ -24,6 +24,9 @@ public class ExBallController : MonoBehaviour
     private const string GojungTag = "Gojung";
     private const string WallTag = "Wall";
 
+    public int fontsize;
+    public int PlusScale;
+
 
     void Start()
     {
@@ -37,7 +40,7 @@ public class ExBallController : MonoBehaviour
 
         textMesh = textObject.AddComponent<TextMeshPro>();
         textMesh.text = durability.ToString();
-        textMesh.fontSize = 4;
+        textMesh.fontSize = fontsize;
         textMesh.alignment = TextAlignmentOptions.Center;
         textMesh.autoSizeTextContainer = true;
         textMesh.rectTransform.localPosition = Vector3.zero; // 구체 중심에 텍스트 배치
@@ -98,7 +101,7 @@ public class ExBallController : MonoBehaviour
     void StartExpansion()
     {
         bGMControl.SoundEffectPlay(1);
-        targetScale = initialScale * 10f; 
+        targetScale = initialScale * PlusScale; 
         isExpanding = true;
     }
 
@@ -128,7 +131,7 @@ public class ExBallController : MonoBehaviour
             DestroyRigidbody(); // Rigidbody 제거
         }
 
-        if ((collision.collider.name != "SPTwiceF(Clone)" || collision.collider.name != "TwiceBullet(Clone)") && rb == null)
+        if ((collision.collider.name != SPTwiceFName || collision.collider.name != TwiceBulletName) && rb == null)
         {
             if (collision.collider.CompareTag(GojungTag)) return;
             if (collision.collider.CompareTag(WallTag)) return;
@@ -136,7 +139,7 @@ public class ExBallController : MonoBehaviour
             TakeDamage(1);
             textMesh.text = durability.ToString();
         }
-        if ((collision.collider.name == "SPTwiceF(Clone)" || collision.collider.name == "TwiceBullet(Clone)") && rb == null)
+        if ((collision.collider.name == SPTwiceFName || collision.collider.name == TwiceBulletName) && rb == null)
         {
             TakeDamage(2);
             textMesh.text = durability.ToString();
