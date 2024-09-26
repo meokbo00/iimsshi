@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyBulletControl : MonoBehaviour
+public class Invincible_Bullet : MonoBehaviour
 {
     SPGameManager spGameManager;
     Rigidbody2D rb;
@@ -16,15 +16,9 @@ public class EnemyBulletControl : MonoBehaviour
     public bool hasExpanded = false;
     private bool isStopped = false;
     private int durability;
-    private TextMeshPro textMesh;
-    public float fontsize;
-    public int BallMinHP = 1;
-    public int BallMaxHP = 6;
     public PhysicsMaterial2D bouncyMaterial;
     private Vector3 initialScale; // 초기 공 크기
     private Vector3 targetScale; // 목표 크기
-    private const string SPTwiceFName = "SPTwiceF(Clone)";
-    private const string TwiceBulletName = "TwiceBullet(Clone)";
     private const string GojungTag = "Gojung";
     private const string WallTag = "Wall";
     private const string EnemyCenterTag = "EnemyCenter";
@@ -33,20 +27,10 @@ public class EnemyBulletControl : MonoBehaviour
 
     private void Start()
     {
-        spGameManager = FindObjectOfType<SPGameManager>();
-        bGMControl = FindObjectOfType<BGMControl>();
+        spGameManager = FindAnyObjectByType<SPGameManager>();
+        bGMControl = FindAnyObjectByType<BGMControl>();
         rb = GetComponent<Rigidbody2D>();
         GameObject textObject = new GameObject("TextMeshPro");
-
-        textObject.transform.parent = transform;
-        textMesh = textObject.AddComponent<TextMeshPro>();
-        durability = Random.Range(BallMinHP, BallMaxHP);
-        textMesh.text = durability.ToString();
-        textMesh.fontSize = fontsize;
-        textMesh.alignment = TextAlignmentOptions.Center;
-        textMesh.autoSizeTextContainer = true;
-        textMesh.rectTransform.localPosition = Vector3.zero;
-        textMesh.sortingOrder = 1;
 
         rb.drag = 0f;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -58,7 +42,7 @@ public class EnemyBulletControl : MonoBehaviour
             collider.sharedMaterial = bouncyMaterial;
         }
 
-        //initialScale = transform.localScale;
+        initialScale = transform.localScale;
     }
 
     private void Update()
@@ -106,26 +90,15 @@ public class EnemyBulletControl : MonoBehaviour
             transform.localScale = transform.localScale; // 현재 크기에서 멈춤
             DestroyRigidbody(); // Rigidbody 제거
         }
-        if (coll.gameObject.name == "SPInvincibleF(Clone)")
+
+        if (!coll.collider.CompareTag(WallTag))
         {
-            ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
-            chmanager.scorenum++;
+            //ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
+            //chmanager.scorenum++;
+            Destroy(coll.gameObject);
+            spGameManager.RemoveBall();
             Destroy(gameObject);
-        }
-
-        if ((coll.collider.name != SPTwiceFName || coll.collider.name != TwiceBulletName) && rb == null)
-        {
-            if (coll.collider.CompareTag(GojungTag)) return;
-            if (coll.collider.CompareTag(WallTag)) return;
-            if (coll.collider.CompareTag(EnemyCenterTag)) return;
-
-            TakeDamage(1);
-            textMesh.text = durability.ToString();
-        }
-        if ((coll.collider.name == SPTwiceFName || coll.collider.name == TwiceBulletName) && rb == null)
-        {
-            TakeDamage(2);
-            textMesh.text = durability.ToString();
+            spGameManager.RemoveBall();
         }
         this.iscolliding = true;
     }
@@ -134,21 +107,6 @@ public class EnemyBulletControl : MonoBehaviour
     {
         this.iscolliding = false;
     }
-    void TakeDamage(int damage)
-    {
-        durability -= damage;
-        if (durability <= 0)
-        {
-            ChallengeGameManager chmanager = FindObjectOfType<ChallengeGameManager>();
-            if (SceneManager.GetActiveScene().name == "ChallengeScene")
-            {
-                chmanager.scorenum++;
-            }
-            spGameManager.RemoveBall();
-            Destroy(gameObject);
-        }
-    }
-
     void DestroyRigidbody()
     {
         if (rb != null)

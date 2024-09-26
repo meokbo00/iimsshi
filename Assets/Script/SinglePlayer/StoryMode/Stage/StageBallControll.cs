@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class StageBallController : MonoBehaviour
 {
-    Rigidbody2D rigid;
+    Rigidbody2D rb;
     Vector2 lastVelocity;
     float deceleration = 2f;
     public GameObject StageStart;
     private StageGameManager stageGameManager;
     private StageBallManager stageBallManager;
-    // public GameObject LineBox;
     private bool hasbeenout = false;
     public static int chooseStage;
-    StageGameManager gameManager = FindObjectOfType<StageGameManager>();
+
+    private float dragAmount = 1.1f;
+    bool hasBeenLaunched = false;
+    bool isStopped = false; // 공이 완전히 멈췄는지 여부
+    private float decelerationThreshold = 0.4f;
+    public PhysicsMaterial2D bouncyMaterial;
+
+
 
     private float randomX;
     private float randomY;
 
     private void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        stageBallManager = FindObjectOfType<StageBallManager>();
-        stageGameManager = FindObjectOfType<StageGameManager>();
+        rb = GetComponent<Rigidbody2D>();
+        stageBallManager = FindAnyObjectByType<StageBallManager>();
+        stageGameManager = FindAnyObjectByType<StageGameManager>();
+        rb.drag = 0f;
 
         if (stageGameManager.StageClearID <= 6)
         {
@@ -37,25 +44,43 @@ public class StageBallController : MonoBehaviour
         }
 
         gameObject.transform.position = new Vector3(randomX, randomY, gameObject.transform.position.z);
+
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null && bouncyMaterial != null)
+        {
+            collider.sharedMaterial = bouncyMaterial;
+        }
     }
 
     private void Update()
     {
         if (!stageBallManager.isDragging)
         {
-            Debug.Log("StageBallController에서 클릭 뗀 것을 인지");
-            rigid.velocity = StageBallManager.shotDirection * StageBallManager.shotDistance; // GameManager에서 값 가져와서 구체 발사
-            stageBallManager.isDragging = true;
+            LaunchBall();
         }
-        Move();
+        if (hasBeenLaunched && !isStopped)
+        {
+            SlowDownBall();
+        }
     }
-
-    void Move()
+    void LaunchBall()
     {
-        lastVelocity = rigid.velocity;
-        rigid.velocity -= rigid.velocity.normalized * deceleration * Time.deltaTime;
+        Vector2 launchForce = StageBallManager.shotDirection * (StageBallManager.shotDistance * 1.4f);
+        rb.AddForce(launchForce, ForceMode2D.Impulse);
+        stageBallManager.isDragging = true;
+        rb.drag = dragAmount;
+        hasBeenLaunched = true;
     }
+    void SlowDownBall()
+    {
+        if (rb == null) return;
 
+        if (rb.velocity.magnitude <= decelerationThreshold)
+        {
+            rb.velocity = Vector2.zero;
+            isStopped = true;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         TextManager textManager = FindObjectOfType<TextManager>();
@@ -70,15 +95,16 @@ public class StageBallController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        stageGameManager = FindAnyObjectByType<StageGameManager>();
         if (collision.gameObject.tag == "StageDeadZone")
         {
-            rigid.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
         }
 
         switch (collision.gameObject.name)
         {
             case "B":
-                if (gameManager.StageClearID < 6)
+                if (stageGameManager.StageClearID < 6)
                 {
                     transform.Translate(0, 470, 0);
                 }
@@ -86,7 +112,7 @@ public class StageBallController : MonoBehaviour
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
             case "T":
-                if (gameManager.StageClearID < 6)
+                if (stageGameManager.StageClearID < 6)
                 {
                     transform.Translate(0, -470, 0);
                 }
@@ -94,7 +120,7 @@ public class StageBallController : MonoBehaviour
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
             case "L":
-                if (gameManager.StageClearID < 6)
+                if (stageGameManager.StageClearID < 6)
                 {
                     transform.Translate(460, 0, 0);
                 }
@@ -102,23 +128,13 @@ public class StageBallController : MonoBehaviour
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
             case "R":
-                if (gameManager.StageClearID < 6)
+                if (stageGameManager.StageClearID < 6)
                 {
                     transform.Translate(-460, 0, 0);
                 }
                 transform.Translate(-165, 0, 0);
                 Debug.Log("빠져나가지 못하도록 위치 조절합니다");
                 break;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.contacts != null && coll.contacts.Length > 0)
-        {
-            Vector2 dir = Vector2.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
-            if (rigid != null)
-                rigid.velocity = dir * Mathf.Max(lastVelocity.magnitude, 0f); // 감속하지 않고 반사만 진행
         }
     }
 }

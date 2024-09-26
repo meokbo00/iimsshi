@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 7834701165655262115}
   - component: {fileID: 4309526044862121270}
   - component: {fileID: -1669577320678774698}
-  - component: {fileID: -1492559288971569798}
+  - component: {fileID: -8090827768196368566}
   m_Layer: 0
   m_Name: SPInvincibleF
   m_TagString: Item
@@ -319,7 +319,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-1492559288971569798
+--- !u!114 &-8090827768196368566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,8 +328,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9219627083266486056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7976042bc14cf4a8b54facb2bc98c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 11e2b2801df11d842bba47557b0526d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increase: 6
+  increase: 4
   hasExpanded: 0
+  bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
+  isExpanding: 0

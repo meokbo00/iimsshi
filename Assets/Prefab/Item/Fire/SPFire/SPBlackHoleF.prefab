@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7060720171696451270}
   - component: {fileID: 7779867560481730177}
   - component: {fileID: -7382963132203785312}
-  - component: {fileID: 4203339133426297927}
+  - component: {fileID: -3917968191872301414}
   m_Layer: 0
   m_Name: SPBlackHoleF
   m_TagString: Item
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4203339133426297927
+--- !u!114 &-3917968191872301414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,10 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721920693946575469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63778899f2b0d2744b0392b29b69db2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 23261266fa6b2ad4ea67a006e4b2bf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increase: 6
+  increase: 4
   hasExpanded: 0
-  HitSound: {fileID: 0}
-  SwellSound: {fileID: 0}
+  bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
+  isExpanding: 0

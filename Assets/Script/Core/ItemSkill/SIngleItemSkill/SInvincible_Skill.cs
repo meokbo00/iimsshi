@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class Invincible_Skill : MonoBehaviour
+public class SInvincible_Skill : MonoBehaviour
 {
-    GameManager gamemanager;
+    SPGameManager spgamemanager;
     Rigidbody2D rb;
     BGMControl bGMControl;
     public float increase = 4f;
@@ -26,8 +25,8 @@ public class Invincible_Skill : MonoBehaviour
     private const string WallTag = "Wall";
     private void Start()
     {
-        gamemanager = FindObjectOfType<GameManager>();
-        bGMControl = FindObjectOfType<BGMControl>();
+        spgamemanager = FindAnyObjectByType<SPGameManager>();
+        bGMControl = FindAnyObjectByType<BGMControl>();
         rb = GetComponent<Rigidbody2D>();
 
         rb.drag = 0f;
@@ -44,7 +43,7 @@ public class Invincible_Skill : MonoBehaviour
 
     private void Update()
     {
-        if (!hasBeenLaunched && !gamemanager.isDragging)
+        if (!hasBeenLaunched && !spgamemanager.isDragging)
         {
             LaunchBall();
         }
@@ -59,7 +58,7 @@ public class Invincible_Skill : MonoBehaviour
     }
     void LaunchBall()
     {
-        Vector2 launchForce = GameManager.shotDirection * (GameManager.shotDistance * 1.4f);
+        Vector2 launchForce = SPGameManager.shotDirection * (SPGameManager.shotDistance * 1.4f);
         rb.AddForce(launchForce, ForceMode2D.Impulse);
 
         rb.drag = dragAmount;
@@ -110,7 +109,9 @@ public class Invincible_Skill : MonoBehaviour
         if (!collision.collider.CompareTag(WallTag))
         {
             Destroy(collision.gameObject);
+            spgamemanager.RemoveBall();
             Destroy(gameObject);
+            spgamemanager.RemoveBall();
         }
         this.iscolliding = true;
 

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Invincible_Skill : MonoBehaviour
+public class SBlackHole_Skill : MonoBehaviour
 {
-    GameManager gamemanager;
+    SPGameManager spgamemanager;
     Rigidbody2D rb;
     BGMControl bGMControl;
+    Vector2 lastVelocity;
+    float deceleration = 2f;
     public float increase = 4f;
     private bool iscolliding = false;
     public bool hasExpanded = false;
@@ -23,12 +25,16 @@ public class Invincible_Skill : MonoBehaviour
     private Vector3 initialScale; // 초기 공 크기
     private Vector3 targetScale; // 목표 크기
 
+    private const string GojungTag = "Gojung";
     private const string WallTag = "Wall";
+    private const string EnemyTag = "EnemyCenter";
+
     private void Start()
     {
-        gamemanager = FindObjectOfType<GameManager>();
-        bGMControl = FindObjectOfType<BGMControl>();
+        spgamemanager = FindAnyObjectByType<SPGameManager>();
+        bGMControl = FindAnyObjectByType<BGMControl>();
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(DestroyObjectDelayed(Random.Range(15f, 25f)));
 
         rb.drag = 0f;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -44,7 +50,7 @@ public class Invincible_Skill : MonoBehaviour
 
     private void Update()
     {
-        if (!hasBeenLaunched && !gamemanager.isDragging)
+        if (!hasBeenLaunched && !spgamemanager.isDragging)
         {
             LaunchBall();
         }
@@ -59,7 +65,8 @@ public class Invincible_Skill : MonoBehaviour
     }
     void LaunchBall()
     {
-        Vector2 launchForce = GameManager.shotDirection * (GameManager.shotDistance * 1.4f);
+        Debug.Log("공을 발사합니다");
+        Vector2 launchForce = SPGameManager.shotDirection * (SPGameManager.shotDistance * 1.4f);
         rb.AddForce(launchForce, ForceMode2D.Impulse);
 
         rb.drag = dragAmount;
@@ -107,10 +114,10 @@ public class Invincible_Skill : MonoBehaviour
             transform.localScale = transform.localScale; // 현재 크기에서 멈춤
             DestroyRigidbody(); // Rigidbody 제거
         }
-        if (!collision.collider.CompareTag(WallTag))
+        if ((!collision.collider.CompareTag(GojungTag) || !collision.collider.CompareTag(WallTag) || !collision.collider.CompareTag(EnemyTag) && rb == null))
         {
+            spgamemanager.RemoveBall();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
         }
         this.iscolliding = true;
 
@@ -126,5 +133,11 @@ public class Invincible_Skill : MonoBehaviour
             Destroy(rb);
             rb = null;
         }
+    }
+    IEnumerator DestroyObjectDelayed(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        spgamemanager.RemoveBall();
+        Destroy(gameObject);
     }
 }

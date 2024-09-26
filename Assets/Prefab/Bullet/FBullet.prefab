@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9064484237639423054}
   - component: {fileID: -7786083963113639213}
   - component: {fileID: 8902692739011709270}
-  - component: {fileID: -2514870233142282123}
+  - component: {fileID: -5753149090805712929}
   m_Layer: 0
   m_Name: FBullet
   m_TagString: EnemyBall
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-2514870233142282123
+--- !u!114 &-5753149090805712929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a8f60e7812ef641850ab145e313649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increase: 6
+  increase: 4
   hasExpanded: 0
-  fontsize: 2.5
+  fontsize: 2
   BallMinHP: 1
   BallMaxHP: 6
+  bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
