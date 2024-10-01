@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6673648727021905016}
   - component: {fileID: 6149351060656387227}
   - component: {fileID: 3545643870736959786}
-  - component: {fileID: 8499513776025552950}
+  - component: {fileID: 2578928768417014476}
   m_Layer: 0
   m_Name: SPTwiceF
   m_TagString: P1ball
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8499513776025552950
+--- !u!114 &2578928768417014476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6531571181281681212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06d2439b9dc87d489fa8781b77e221a, type: 3}
+  m_Script: {fileID: 11500000, guid: 94013f6aea897d649ace6245033a64b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increase: 6
-  hasExpanded: 0
+  isExpanding: 0
+  bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
   fontsize: 4
+  PlusScale: 10

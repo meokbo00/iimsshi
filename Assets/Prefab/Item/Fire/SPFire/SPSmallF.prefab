@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5737754953969088535}
   - component: {fileID: 1795320892363571000}
   - component: {fileID: 2597677752770792113}
-  - component: {fileID: 7232923181551149508}
+  - component: {fileID: 3959053119505488497}
   m_Layer: 0
   m_Name: SPSmallF
   m_TagString: P1ball
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7232923181551149508
+--- !u!114 &3959053119505488497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4801704420069890048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06d2439b9dc87d489fa8781b77e221a, type: 3}
+  m_Script: {fileID: 11500000, guid: 94013f6aea897d649ace6245033a64b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increase: 6
-  hasExpanded: 0
+  isExpanding: 0
+  bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
   fontsize: 1
+  PlusScale: 65

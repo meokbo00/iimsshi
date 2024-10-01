@@ -26,7 +26,7 @@ public class ChDeadzone : MonoBehaviour
             switch (collision.gameObject.name)
             {
                 case "SPEndlessF(Clone)":
-                    Endless_Skill endless_Skill = collision.GetComponent<Endless_Skill>();
+                    SEndless_Skill endless_Skill = collision.GetComponent<SEndless_Skill>();
                     this.isExpand = true;
                     break;
                 case "SPBlackHoleF(Clone)":

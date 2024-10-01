@@ -523,8 +523,8 @@ MonoBehaviour:
   isHide: 0
   MaxHP: 5
   MinHP: 3
-  MaxFireTime: 5
-  MinFireTime: 3
+  MaxFireTime: 10
+  MinFireTime: 7
   MaxAngle: 60
   MinAngle: -60
   fontsize: 5
