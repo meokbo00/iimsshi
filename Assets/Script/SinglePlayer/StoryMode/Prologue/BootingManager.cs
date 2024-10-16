@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class BootingManager : MonoBehaviour
 {
-    public GameObject videoPlayerObject; // Video Player°¡ ºÎÂøµÈ °ÔÀÓ ¿ÀºêÁ§Æ®¸¦ ÀÎ½ºÆåÅÍ¿¡¼­ ¼³Á¤
+    public GameObject videoPlayerObject; // Video Playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private VideoPlayer videoPlayer;
 
@@ -31,7 +31,7 @@ public class BootingManager : MonoBehaviour
 
     private void OnVideoEnd(VideoPlayer vp)
     {
-        // ¿µ»óÀÌ ³¡³ª¸é È£ÃâµÇ´Â ÄÝ¹é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ý¹ï¿½
         StartCoroutine(LoadPrologueAfterDelay(3f));
     }
 

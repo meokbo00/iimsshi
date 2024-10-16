@@ -5,8 +5,6 @@ using UnityEngine;
 public class StageBallController : MonoBehaviour
 {
     Rigidbody2D rb;
-    Vector2 lastVelocity;
-    float deceleration = 2f;
     public GameObject StageStart;
     private StageGameManager stageGameManager;
     private StageBallManager stageBallManager;
@@ -18,8 +16,6 @@ public class StageBallController : MonoBehaviour
     bool isStopped = false; // 공이 완전히 멈췄는지 여부
     private float decelerationThreshold = 0.4f;
     public PhysicsMaterial2D bouncyMaterial;
-
-
 
     private float randomX;
     private float randomY;
@@ -90,51 +86,6 @@ public class StageBallController : MonoBehaviour
             textManager.GiveMeTextId(1);
             Debug.Log("대화창이 활성화 되었습니다");
             hasbeenout = true;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        stageGameManager = FindAnyObjectByType<StageGameManager>();
-        if (collision.gameObject.tag == "StageDeadZone")
-        {
-            rb.velocity = Vector2.zero;
-        }
-
-        switch (collision.gameObject.name)
-        {
-            case "B":
-                if (stageGameManager.StageClearID < 6)
-                {
-                    transform.Translate(0, 470, 0);
-                }
-                transform.Translate(0, 170, 0);
-                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-                break;
-            case "T":
-                if (stageGameManager.StageClearID < 6)
-                {
-                    transform.Translate(0, -470, 0);
-                }
-                transform.Translate(0, -170, 0);
-                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-                break;
-            case "L":
-                if (stageGameManager.StageClearID < 6)
-                {
-                    transform.Translate(460, 0, 0);
-                }
-                transform.Translate(165, 0, 0);
-                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-                break;
-            case "R":
-                if (stageGameManager.StageClearID < 6)
-                {
-                    transform.Translate(-460, 0, 0);
-                }
-                transform.Translate(-165, 0, 0);
-                Debug.Log("빠져나가지 못하도록 위치 조절합니다");
-                break;
         }
     }
 }

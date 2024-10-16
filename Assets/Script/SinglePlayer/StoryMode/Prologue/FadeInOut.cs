@@ -22,6 +22,7 @@ public class FadeInOut : MonoBehaviour
         }
 
         SceneManager.LoadScene("Start Scene");
+        
     }
 
     IEnumerator FadeEffect(Image image)
