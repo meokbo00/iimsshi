@@ -16,6 +16,7 @@ public class Ch1_2Story : MonoBehaviour
     RemainTime remainTime;
     public Image fadeImage;
     public GameObject isplaybgm;
+    TextManager textManager;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Ch1_2Story : MonoBehaviour
         showText = FindObjectOfType<ShowText>();
         fadeImage = Fadeinout.GetComponent<Image>();
         stageGameManager = FindObjectOfType<StageGameManager>();
-        TextManager textManager = FindObjectOfType<TextManager>();
+        textManager = FindObjectOfType<TextManager>();
         stageBallController = FindObjectOfType<StageBallController>();
 
         Color color = fadeImage.color;
@@ -57,19 +58,20 @@ public class Ch1_2Story : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        showText = FindObjectOfType<ShowText>();
 
-        if (showText != null && stageGameManager.StageClearID == 6f)
+        if (stageGameManager.StageClearID == 6f)
         {
+            showText = FindObjectOfType<ShowText>();
+
             if (showText.logTextIndex > 38)
             {
                 stageBallController.enabled = true;
                 Fadeinout.SetActive(false);
                 isplaybgm.SetActive(false);
             }
-            if (showText.logTextIndex == 48)
+            if (showText.logTextIndex == 47)
             {
                 StartCoroutine(FadeIn());
             }
@@ -84,15 +86,19 @@ public class Ch1_2Story : MonoBehaviour
 
         while (color.a < 1f)
         {
-            color.a += Time.deltaTime / 5; // 2�ʿ� ���� ���̵� ��
+            color.a += Time.deltaTime / 5; 
             fadeImage.color = color;
             yield return null;
         }
 
-        // ���İ��� 1�� �Ǹ� 3�� ���
         yield return new WaitForSeconds(3f);
-
-        // "Main Stage"�� �� ��ȯ
-        SceneManager.LoadScene("Main Stage");
+        if(!stageGameManager.isenglish)
+        {
+            SceneManager.LoadScene("Main Stage");
+        }
+        else
+        {
+            SceneManager.LoadScene("EMain Stage");
+        }
     }
 }

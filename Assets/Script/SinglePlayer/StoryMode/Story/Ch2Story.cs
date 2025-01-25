@@ -62,28 +62,34 @@ public class Ch2Story : MonoBehaviour
                 break;
             case 66:
                 navigation.SetActive(false);
+                textManager.GiveMeTextId(11);
                 break;
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        showText = FindObjectOfType<ShowText>();
-        if (showText != null && stageGameManager.StageClearID == 6)
+        if (stageGameManager.StageClearID == 6)
         {
+            showText = FindObjectOfType<ShowText>();
             if (showText.logTextIndex == 3)
             {
                 Fadein.SetActive(false);
             }
             if (showText.logTextIndex == 4)
             {
-                StartCoroutine(ChangeCameraSize(150, 4, 5f)); // 2�ʿ� ���� ī�޶� ������ ����
+                StartCoroutine(ChangeCameraSize(150, 4, 5f)); 
             }
             if (showText.logTextIndex == 36)
             {
                 stageBallController.enabled = true;
             }
         }
+        //if (stageGameManager.StageClearID == 66 && showText.logTextIndex == 3)
+        //{
+        //    stageGameManager.StageClearID = 67;
+        //    stageGameManager.SaveStageClearID();
+        //}
     }
 
     IEnumerator ChangeCameraSize(float fromSize, float toSize, float duration)

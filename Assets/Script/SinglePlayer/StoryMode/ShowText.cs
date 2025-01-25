@@ -21,14 +21,13 @@ public class ShowText : MonoBehaviour
 {
     public TMP_Text chatting;
     public GameObject ChatBox;
-    public TextAsset JsonFile;
+    public TextAsset KJsonFile;
     private List<Chat> chats;
     private int currentChatIndex = 0;
     private int currentTextIndex = 0;
     private bool isTyping = false;
     private Coroutine typingCoroutine;
     private int chatIdToDisplay = -1;
-
     public int logTextIndex = 0; // 로그용 변수 추가
 
     public UnityEvent<int> OnChatComplete = new UnityEvent<int>();
@@ -36,19 +35,24 @@ public class ShowText : MonoBehaviour
     void Awake()
     {
         ChatBox.SetActive(true);
-        if (JsonFile != null)
+
+        // 무조건 KJsonFile 사용
+        TextAsset selectedJsonFile = KJsonFile;
+
+        if (selectedJsonFile != null)
         {
             try
             {
-                var json = JsonFile.text;
+                var json = selectedJsonFile.text;
                 chats = JsonConvert.DeserializeObject<List<Chat>>(json);
             }
             catch (JsonReaderException e)
             {
-                Debug.LogError("Failed to parse JSON: " + e.Message);
+                Debug.LogError("JSON 파싱 실패: " + e.Message);
             }
         }
     }
+
 
     void OnEnable()
     {

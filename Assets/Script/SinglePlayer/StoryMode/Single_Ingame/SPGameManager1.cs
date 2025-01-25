@@ -18,7 +18,7 @@ public class SPGameManager : MonoBehaviour
     public static Vector3 shotDirection;
     public int chooseStagenum;
     private int totalBalls = 0;
-    private int totalEnemies;
+    public int totalEnemies;
 
 
     private void Start()
@@ -99,30 +99,61 @@ public class SPGameManager : MonoBehaviour
     {
         if (totalBalls > 16)
         {
-            SceneManager.LoadScene("Fail");
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            if (currentSceneName == "Story-InGame")
+            {
+                SceneManager.LoadScene("Fail");
+            }
+            else if (currentSceneName == "EndlessInGame")
+            {
+                SceneManager.LoadScene("ELFail");
+            }
         }
     }
+
     public void RemoveEnemy()
     {
         totalEnemies--;
         if (totalEnemies <= 0)
         {
-            StageClear();
+            string currentSceneName = SceneManager.GetActiveScene().name;
+
+            if (currentSceneName == "Story-InGame")
+            {
+                StoryStageClear();
+            }
+            else if (currentSceneName == "EndlessInGame")
+            {
+                EndlessStageClear();
+            }
         }
     }
 
-    private void StageClear()
+
+    private void StoryStageClear()
     {
-        if (gameManager.StageClearID == StageState.chooseStage && gameManager.StageClearID != 5)
+        if (gameManager.StageClearID == StageState.chooseStage && gameManager.StageClearID != 65)
         {
             gameManager.StageClearID += 1;
             gameManager.SaveStageClearID();
         }
-        if (gameManager.StageClearID == 5)
-        {
-            gameManager.StageClearID += 0.5f;
-            gameManager.SaveStageClearID();
-        }
+        
         SceneManager.LoadScene("Clear");
+    }
+
+    private void EndlessStageClear()
+    {
+        gameManager.ELnum += 1;
+        gameManager.ELlevel += 0.4f;
+        if(gameManager.ELnum >= 25)
+        {
+            gameManager.ELRound += 1;
+            gameManager.ELnum = 1;
+            gameManager.ELlevel = 2;
+        }
+        gameManager.SaveELlevelAndELnum();
+
+        SceneManager.LoadScene("ELClear");
     }
 }

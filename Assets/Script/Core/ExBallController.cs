@@ -24,6 +24,7 @@ public class ExBallController : MonoBehaviour
     private TextMeshPro textMesh;
     private const string GojungTag = "Gojung";
     private const string WallTag = "Wall";
+    private Vector3 velocity = Vector3.zero;
 
     public int fontsize;
     public int PlusScale;
@@ -62,25 +63,26 @@ public class ExBallController : MonoBehaviour
 
     void Update()
     {
-        if (!hasBeenLaunched && !spgamemanager.isDragging)
-        {
-            LaunchBall();
-        }
-
-        if (hasBeenLaunched && !isStopped)
-        {
-            SlowDownBall();
-        }
-
         if (isExpanding)
         {
             ExpandBall(); 
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!hasBeenLaunched && !spgamemanager.isDragging)
+        {
+            LaunchBall();
+        }
+        if (hasBeenLaunched && !isStopped)
+        {
+            SlowDownBall();
+        }
+    }
     void LaunchBall()
     {
-        Vector2 launchForce = SPGameManager.shotDirection * (SPGameManager.shotDistance*1.4f);
+        Vector2 launchForce = SPGameManager.shotDirection * (SPGameManager.shotDistance*1.45f);
         rb.AddForce(launchForce, ForceMode2D.Impulse);
 
         rb.drag = dragAmount;
@@ -101,18 +103,19 @@ public class ExBallController : MonoBehaviour
 
     void StartExpansion()
     {
-        bGMControl.SoundEffectPlay(1);
+        if (bGMControl.SoundEffectSwitch)
+        {
+            bGMControl.SoundEffectPlay(1);
+        }
         targetScale = initialScale * PlusScale; 
         isExpanding = true;
     }
 
     void ExpandBall()
     {
-        if (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * expandSpeed);
-        }
-        else
+        transform.localScale = Vector3.SmoothDamp(transform.localScale, targetScale, ref velocity, expandSpeed);
+
+        if (Vector3.Distance(transform.localScale, targetScale) < 0.01f)
         {
             transform.localScale = targetScale; // 목표 크기에 도달하면 팽창 완료
             isExpanding = false; // 팽창 중단
@@ -121,7 +124,7 @@ public class ExBallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!isExpanding)
+        if(!isExpanding && bGMControl.SoundEffectSwitch)
         {
             bGMControl.SoundEffectPlay(0);
         }

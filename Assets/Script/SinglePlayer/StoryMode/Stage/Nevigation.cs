@@ -10,25 +10,29 @@ public class Navigation : MonoBehaviour
     public GameObject Left;
     public GameObject Right;
 
+    private Vector3 lastClearherePosition;
+
     void Start()
     {
         mainPlayerObject = GameObject.Find("Main Player");
-        if (mainPlayerObject == null)
-        {
-            Debug.LogError("Main Player ¿ÀºêÁ§Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
-        }
+        clearhereObject = GameObject.Find("MainClearhere(Clone)");
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        // Clearhere ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì§€ ëª»í–ˆì„ ê²½ìš° í•œ ë²ˆë§Œ ì°¾ê¸° ì‹œë„
         if (clearhereObject == null)
         {
-            clearhereObject = GameObject.Find("Clearhere(Clone)");
+            clearhereObject = GameObject.Find("MainClearhere(Clone)");
+            if (clearhereObject != null)
+            {
+                lastClearherePosition = clearhereObject.transform.position;
+                UpdateActivation();
+            }
         }
-
-        if (clearhereObject != null)
+        else
         {
-            UpdateActivation();
+                UpdateActivation();
         }
     }
 
@@ -46,6 +50,5 @@ public class Navigation : MonoBehaviour
         Bottom.SetActive(isBottom);
         Left.SetActive(isLeft);
         Right.SetActive(isRight);
-
     }
 }

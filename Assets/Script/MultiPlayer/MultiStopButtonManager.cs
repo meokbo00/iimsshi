@@ -66,9 +66,13 @@ public class MultiStopButtonManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Story-InGame");
             }
-            else
+            if (SceneManager.GetActiveScene().name == "Main Scene")
             {
                 SceneManager.LoadScene("Main Scene");
+            }
+            if (SceneManager.GetActiveScene().name == "EndlessInGame")
+            {
+                SceneManager.LoadScene("EndlessInGame");
             }
         });
 
@@ -87,11 +91,25 @@ public class MultiStopButtonManager : MonoBehaviour
 
                     if (stageGameManager.StageClearID < 6)
                     {
-                        SceneManager.LoadScene("Stage");
+                        if (!stageGameManager.isenglish)
+                        {
+                            SceneManager.LoadScene("Stage");
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("EStage");
+                        }
                     }
-                    else if(stageGameManager.StageClearID >= 6)
+                    else if (stageGameManager.StageClearID >= 6)
                     {
-                        SceneManager.LoadScene("Main Stage");
+                        if (!stageGameManager.isenglish)
+                        {
+                            SceneManager.LoadScene("Main Stage");
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("EMain Stage");
+                        }
                     }
                 });
             }

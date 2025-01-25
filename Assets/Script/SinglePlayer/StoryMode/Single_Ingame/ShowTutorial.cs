@@ -16,13 +16,21 @@ public class ShowTutorial : MonoBehaviour
     {
         stageGameManager = FindObjectOfType<StageGameManager>();
 
-        if (stageGameManager.StageClearID == 1)
+        if (stageGameManager.StageClearID == 1 && !stageGameManager.firstTutorialShown)
         {
             ShowTutorialImages(FirstTutorial);
+            stageGameManager.firstTutorialShown = true;
+            stageGameManager.firstTutosave();
         }
-        else if (stageGameManager.StageClearID == 7)
+        else if (stageGameManager.StageClearID == 7 && !stageGameManager.secondTutorialShown)
         {
             ShowTutorialImages(SecondTutorial);
+            stageGameManager.secondTutorialShown = true;
+            stageGameManager.secendtutosave();
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 
@@ -69,6 +77,7 @@ public class ShowTutorial : MonoBehaviour
             foreach (GameObject tutorial in instantiatedImages)
             {
                 tutorial.SetActive(false);
+                gameObject.SetActive(false);
             }
             stageGameManager.ResumeGame(); // 게임 재개
         }

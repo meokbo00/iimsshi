@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//획득한 아이템을 아이템 인벤에 저장하는 스크립트
 
 public class ShowP1ItemIcon : MonoBehaviour
 {
     public GameObject[] P1IconPlaces;
     public GameObject[] P1Icon;
-    public AudioSource fullItemAudio;
 
     public void PrintDestroyedObjectTag(string objecttag)
     {
@@ -20,6 +18,7 @@ public class ShowP1ItemIcon : MonoBehaviour
             case "Item_Twice":nextIcon = P1Icon[2];break;
             case "Item_Endless":nextIcon = P1Icon[3];break;
             case "Item_Invincible": nextIcon = P1Icon[4];break;
+            case "Item_BlackHole": nextIcon = P1Icon[5]; break;
         }
         if (nextIcon != null)
         {
@@ -31,8 +30,6 @@ public class ShowP1ItemIcon : MonoBehaviour
                     return;
                 }
             }
-            fullItemAudio = GetComponent<AudioSource>();
-            fullItemAudio.Play();
         }
     }
 }

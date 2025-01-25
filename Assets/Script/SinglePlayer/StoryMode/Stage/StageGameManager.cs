@@ -1,31 +1,75 @@
-using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class StageGameManager : MonoBehaviour
 {
     public static StageGameManager instance = null;
-    public float StageClearID;
-    public bool isending = false;
+    public int StageClearID;
+    public int ELRound;
+    public int ELnum;
+    public float ELlevel;
 
+    public bool firstTutorialShown;
+    public bool secondTutorialShown;
+    public bool isending = false;
+    public bool isenglish = false;
+
+
+    private int ELnumIDCache;
+    private float ELlevelIDCache;
+    private int ELRoundIDCache;
+    private int stageClearIDCache; // PlayerPrefs 값을 캐싱
+    private bool isEndingCache;
+    private bool firstTutorialShownCache;
+    private bool secondTutorialShownCache;
+    private bool isenglishCache;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadStageClearID();
-            LoadIsEnding();
+
+            ELRoundIDCache = PlayerPrefs.GetInt("ELRound", 1);
+            ELnumIDCache = PlayerPrefs.GetInt("ELnum", 1);
+            ELlevelIDCache = PlayerPrefs.GetFloat("ELlevel", 2);
+            stageClearIDCache = PlayerPrefs.GetInt("StageClearID", 0);
+            isEndingCache = PlayerPrefs.GetInt("IsEnding", 0) == 1;
+            firstTutorialShownCache = PlayerPrefs.GetInt("FirstTutorialShown", 0) == 1;
+            secondTutorialShownCache = PlayerPrefs.GetInt("SecondTutorialShown", 0) == 1;
+            isenglishCache = PlayerPrefs.GetInt("isenglish", 0) == 1;
+
+            ELRound = ELRoundIDCache;
+            ELnum = ELnumIDCache;
+            ELlevel = ELlevelIDCache;
+            StageClearID = stageClearIDCache;
+            isending = isEndingCache;
+            firstTutorialShown = firstTutorialShownCache;
+            secondTutorialShown = secondTutorialShownCache;
+            isenglish = isenglishCache;
         }
         else
         {
-            if (instance != this)
-                Destroy(this.gameObject);
+            Destroy(gameObject); // 중복 방지
         }
     }
+
+
+    //초기화용 메서드
+
+    //private void Start()
+    //{
+    //    ELnum = 1;
+    //    ELlevel = 2;
+    //    ELRound = 1;
+    //    SaveELlevelAndELnum();
+    //    StageClearID = 0;
+    //    isending = false;
+    //    SaveStageClearID();
+    //    SaveIsEnding();
+    //    notfirstTutosave();
+    //    notsecendtutosave();
+    //}
+
 
     public void PauseGame()
     {
@@ -39,29 +83,86 @@ public class StageGameManager : MonoBehaviour
 
     public void SaveStageClearID()
     {
-        PlayerPrefs.SetFloat("StageClearID", StageClearID);
-        PlayerPrefs.Save();
-    }
-
-    public void SaveIsEnding()
-    {
-        PlayerPrefs.SetInt("IsEnding", isending ? 1 : 0);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadStageClearID()
-    {
-        if (PlayerPrefs.HasKey("StageClearID"))
+        if (stageClearIDCache != StageClearID)  // 값이 변경된 경우에만 저장
         {
-            StageClearID = PlayerPrefs.GetFloat("StageClearID");
+            PlayerPrefs.SetInt("StageClearID", StageClearID);
+            PlayerPrefs.Save();
+            stageClearIDCache = StageClearID;  // 캐시 업데이트
         }
     }
-
-    private void LoadIsEnding()
+    public void SaveELlevelAndELnum()
     {
-        if (PlayerPrefs.HasKey("IsEnding"))
+        if (ELRoundIDCache != ELRound)
         {
-            isending = PlayerPrefs.GetInt("IsEnding") == 1;
+            PlayerPrefs.SetInt("ELRound", ELRound);
+            PlayerPrefs.Save();
+            ELRoundIDCache = ELRound;
+        }
+        if (ELnumIDCache != ELnum)
+        {
+            PlayerPrefs.SetInt("ELnum", ELnum);
+            PlayerPrefs.Save();
+            ELnumIDCache = ELnum;
+        }
+        if (ELlevelIDCache != ELlevel)  // 값이 변경된 경우에만 저장
+        {
+            PlayerPrefs.SetFloat("ELlevel", ELlevel);
+            PlayerPrefs.Save();
+            ELlevelIDCache = ELlevel;
+        }
+    }
+    public void firstTutosave()
+    {
+        if (firstTutorialShownCache != firstTutorialShown)
+        {
+            PlayerPrefs.SetInt("FirstTutorialShown", 1); // 첫 번째 튜토리얼을 본 것으로 저장
+            PlayerPrefs.Save();
+            firstTutorialShownCache = firstTutorialShown;
+        }
+    }
+    public void secendtutosave()
+    {
+        if (secondTutorialShownCache != secondTutorialShown)
+        {
+            PlayerPrefs.SetInt("SecondTutorialShown", 1); // 두 번째 튜토리얼을 본 것으로 저장
+            PlayerPrefs.Save();
+            secondTutorialShownCache = secondTutorialShown;
+        }
+    }
+    public void notfirstTutosave()
+    {
+        if (firstTutorialShownCache != firstTutorialShown)
+        {
+            PlayerPrefs.SetInt("FirstTutorialShown", 0);
+            PlayerPrefs.Save();
+            firstTutorialShownCache = firstTutorialShown;
+        }
+    }
+    public void notsecendtutosave()
+    {
+        if (secondTutorialShownCache != secondTutorialShown)
+        {
+            PlayerPrefs.SetInt("SecondTutorialShown", 0);
+            PlayerPrefs.Save();
+            secondTutorialShownCache = secondTutorialShown;
+        }
+    }
+    public void SaveIsisenglish()
+    {
+        if (isenglishCache != isenglish)  // 값이 변경된 경우에만 저장
+        {
+            PlayerPrefs.SetInt("isenglish", isenglish ? 1 : 0);
+            PlayerPrefs.Save();
+            isenglishCache = isenglish;  // 캐시 업데이트
+        }
+    }
+    public void SaveIsEnding()
+    {
+        if (isEndingCache != isending)  // 값이 변경된 경우에만 저장
+        {
+            PlayerPrefs.SetInt("IsEnding", isending ? 1 : 0);
+            PlayerPrefs.Save();
+            isEndingCache = isending;  // 캐시 업데이트
         }
     }
 }

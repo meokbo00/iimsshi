@@ -1,31 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // UnityEngine.UI를 사용하여 Button을 포함합니다.
-using TMPro; // TextMeshPro를 포함합니다.
+using UnityEngine.UI;
 
 public class FinalPrologueManager : MonoBehaviour
 {
     public GameObject[] images;
-    public Button transitionButton; // TMP 버튼은 일반 Button과 함께 사용됩니다.
+    public GameObject[] Eimages;
+    public Button transitionButton;
 
     private Coroutine deactivateButtonCoroutine;
+    private CanvasGroup[] canvasGroups;
+    StageGameManager stageGameManager;
 
     void Start()
     {
-        foreach (GameObject image in images)
+        stageGameManager = FindAnyObjectByType<StageGameManager>();
+        // 언어에 맞는 이미지를 선택하기 위해 currentImages 배열을 설정합니다.
+        GameObject[] currentImages = stageGameManager.isenglish ? Eimages : images;
+
+        canvasGroups = new CanvasGroup[currentImages.Length];
+
+        // 선택한 배열에 대해 CanvasGroup을 초기화합니다.
+        for (int i = 0; i < currentImages.Length; i++)
         {
-            CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
-            if (canvasGroup == null)
-            {
-                canvasGroup = image.AddComponent<CanvasGroup>();
-            }
-            canvasGroup.alpha = 0f;
+            canvasGroups[i] = currentImages[i].GetComponent<CanvasGroup>() ?? currentImages[i].AddComponent<CanvasGroup>();
+            canvasGroups[i].alpha = 0f;
         }
 
-        transitionButton.gameObject.SetActive(false); // 시작할 때 버튼 비활성화
-
+        transitionButton.gameObject.SetActive(false); // 시작 시 버튼 비활성화
+        transitionButton.onClick.AddListener(OnButtonClick); // 버튼 클릭 이벤트 추가
         StartCoroutine(ShowImagesSequentially());
     }
 
@@ -39,63 +43,62 @@ public class FinalPrologueManager : MonoBehaviour
 
     IEnumerator ShowImagesSequentially()
     {
-        float waitTime = 4.5f;
+        float waitTime = 3.7f;
 
-        foreach (GameObject image in images)
+        // 현재 언어에 맞는 이미지 배열을 선택합니다.
+        GameObject[] currentImages = stageGameManager.isenglish ? Eimages : images;
+
+        foreach (GameObject image in currentImages)
         {
-            yield return StartCoroutine(FadeIn(image));
+            yield return StartCoroutine(Fade(image, true, 2f)); // 페이드 인
             yield return new WaitForSeconds(waitTime); // 대기 시간 설정
-            yield return StartCoroutine(FadeOut(image));
+            yield return StartCoroutine(Fade(image, false, 1f)); // 페이드 아웃
         }
 
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Stage");
+        // 언어에 따라 다른 씬을 로드합니다.
+        if (!stageGameManager.isenglish)
+        {
+            SceneManager.LoadScene("Stage");
+        }
+        else
+        {
+            SceneManager.LoadScene("EStage");
+        }
     }
 
-    IEnumerator FadeIn(GameObject image)
+    IEnumerator Fade(GameObject image, bool fadeIn, float duration)
     {
         CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
-        float duration = 2f;
-        float elapsed = 0f;
-
         image.SetActive(true);
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Clamp01(elapsed / duration);
-            yield return null;
-        }
-        canvasGroup.alpha = 1f;
-    }
-
-    IEnumerator FadeOut(GameObject image)
-    {
-        CanvasGroup canvasGroup = image.GetComponent<CanvasGroup>();
-        float duration = 1f;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Clamp01(1f - (elapsed / duration));
+            elapsed += Time.unscaledDeltaTime;
+            canvasGroup.alpha = Mathf.Clamp01(fadeIn ? (elapsed / duration) : (1f - (elapsed / duration)));
             yield return null;
         }
-        canvasGroup.alpha = 0f;
 
-        image.SetActive(false);
+        canvasGroup.alpha = fadeIn ? 1f : 0f;
+
+        if (!fadeIn)
+        {
+            image.SetActive(false); // 페이드 아웃 후 비활성화
+        }
     }
 
     void ActivateButton()
     {
-        transitionButton.gameObject.SetActive(true); // 버튼 활성화
-        transitionButton.onClick.AddListener(OnButtonClick); // 버튼 클릭 시 이벤트 추가
-
-        if (deactivateButtonCoroutine != null)
+        if (!transitionButton.gameObject.activeSelf) // 이미 활성화되어 있는지 확인
         {
-            StopCoroutine(deactivateButtonCoroutine);
+            transitionButton.gameObject.SetActive(true); // 버튼 활성화
+            if (deactivateButtonCoroutine != null)
+            {
+                StopCoroutine(deactivateButtonCoroutine);
+            }
+            deactivateButtonCoroutine = StartCoroutine(DeactivateButtonAfterDelay());
         }
-        deactivateButtonCoroutine = StartCoroutine(DeactivateButtonAfterDelay());
     }
 
     IEnumerator DeactivateButtonAfterDelay()
@@ -110,6 +113,14 @@ public class FinalPrologueManager : MonoBehaviour
 
     void OnButtonClick()
     {
-        SceneManager.LoadScene("Stage"); // "Stage" 씬으로 전환
+        // 버튼 클릭 시 언어에 맞는 씬 로드
+        if (!stageGameManager.isenglish)
+        {
+            SceneManager.LoadScene("Stage");
+        }
+        else
+        {
+            SceneManager.LoadScene("EStage");
+        }
     }
 }

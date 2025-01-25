@@ -2,30 +2,61 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SinglePlayerSetting : MonoBehaviour
 {
     public GameObject SinglePlaySetting;
-    public Image FadeIn;
-    public Button X;
+    public GameObject isreallyendless;
+    public GameObject neworcontinue;
+    public CanvasGroup fadeCanvasGroup; // CanvasGroup 추가
+    public Button ELYes;
+    public Button ELNo;
+    public Button Back;
+    public Button Back3;
     public Button NewBtn;
     public Button ContinueBtn;
+    public Button StoryBtn;
+    public Button StoryBtn2;
+
     public Button ChallengeBtn;
+    public Button ChallengeBtn2;
+
     public Button EndlessBtn;
+    public Button EndlessBtn2;
+
+    public Button Back2;
+
 
     public GameObject reallynew;
     public Button reallyYes;
     public Button reallyNo;
-    private bool fadeInComplete = false;
-
     void Start()
     {
         StageGameManager stageGameManager = FindObjectOfType<StageGameManager>();
-        this.X.onClick.AddListener(() =>
+        Back2.onClick.AddListener(() =>
+        {
+            neworcontinue.SetActive(false);
+        });
+        StoryBtn.onClick.AddListener(() =>
+        {
+            neworcontinue.SetActive(true);
+        });
+        StoryBtn2.onClick.AddListener(() =>
+        {
+            neworcontinue.SetActive(true);
+        });
+        Back.onClick.AddListener(() =>
         {
             SinglePlaySetting.SetActive(false);
+            neworcontinue.SetActive(false);
         });
-        this.NewBtn.onClick.AddListener(() =>
+        Back3.onClick.AddListener(() =>
+        {
+            SinglePlaySetting.SetActive(false);
+            neworcontinue.SetActive(false);
+        });
+        NewBtn.onClick.AddListener(() =>
         {
             if (stageGameManager.StageClearID > 1)
             {
@@ -33,68 +64,110 @@ public class SinglePlayerSetting : MonoBehaviour
             }
             else
             {
-                ResetStageClearIDAndLoadScene(stageGameManager, "Prologue");
+                ResetStageClearIDAndLoadScene(stageGameManager, "Prologue1.5");
             }
         });
-        this.ContinueBtn.onClick.AddListener(() =>
+        ContinueBtn.onClick.AddListener(() =>
         {
-            if(stageGameManager.StageClearID == 1)
+            if (stageGameManager.StageClearID == 1)
             {
                 return;
             }
             else if (stageGameManager.StageClearID <= 6.5f && stageGameManager.StageClearID >= 2)
             {
-                StartCoroutine(FadeInAndLoadScene("Stage"));
+                if (!stageGameManager.isenglish)
+                {
+                    StartFadeIn("Stage");
+                }
+                else
+                {
+                    StartFadeIn("EStage");
+                }
             }
             else if (stageGameManager.StageClearID >= 7)
             {
-                StartCoroutine(FadeInAndLoadScene("Main Stage"));
+                if (!stageGameManager.isenglish)
+                {
+                    StartFadeIn("Main Stage");
+                }
+                else
+                {
+                    StartFadeIn("EMain Stage");
+                }
             }
         });
-        this.ChallengeBtn.onClick.AddListener(() =>
+        ChallengeBtn.onClick.AddListener(() =>
         {
-            StartCoroutine(FadeInAndLoadScene("ChallengeScene"));
+            StartFadeIn("ChallengeScene");
         });
-        this.EndlessBtn.onClick.AddListener(() =>
+        ChallengeBtn2.onClick.AddListener(() =>
         {
-            // 여기에 Endless 버튼에 대한 동작을 추가합니다.
+            StartFadeIn("ChallengeScene");
         });
-        this.reallyNo.onClick.AddListener(() =>
+        EndlessBtn.onClick.AddListener(() =>
+        {
+            if ((stageGameManager.StageClearID == 0) || (stageGameManager.StageClearID == 1))
+            {
+                isreallyendless.SetActive(true);
+            }
+            else
+            {
+                StartFadeIn("EndlessInGame");
+            }
+        });
+        EndlessBtn2.onClick.AddListener(() =>
+        {
+            if ((stageGameManager.StageClearID == 0) || (stageGameManager.StageClearID == 1))
+            {
+                isreallyendless.SetActive(true);
+            }
+            else
+            {
+                StartFadeIn("EndlessInGame");
+            }
+        });
+        ELYes.onClick.AddListener(() =>
+        {
+            StartFadeIn("EndlessInGame");
+        });
+        ELNo.onClick.AddListener(() =>
+        {
+            isreallyendless.SetActive(false);
+        });
+        reallyNo.onClick.AddListener(() =>
         {
             reallynew.SetActive(false);
         });
-        this.reallyYes.onClick.AddListener(() =>
+        reallyYes.onClick.AddListener(() =>
         {
-            ResetStageClearIDAndLoadScene(stageGameManager, "Prologue");
+            ResetStageClearIDAndLoadScene(stageGameManager, "Prologue1.5");
         });
     }
 
     void ResetStageClearIDAndLoadScene(StageGameManager stageGameManager, string sceneName)
     {
+        stageGameManager.firstTutorialShown = false;
+        stageGameManager.secondTutorialShown = false;
         stageGameManager.StageClearID = 1;
         stageGameManager.isending = false;
         PlayerPrefs.SetFloat("StageClearID", stageGameManager.StageClearID);
         PlayerPrefs.SetInt("isending", stageGameManager.isending ? 1 : 0);
         stageGameManager.SaveIsEnding();
         stageGameManager.SaveStageClearID();
-        StartCoroutine(FadeInAndLoadScene(sceneName));
+        stageGameManager.notfirstTutosave();
+        stageGameManager.notsecendtutosave();
+        StartFadeIn(sceneName);
     }
 
-    IEnumerator FadeInAndLoadScene(string sceneName)
+    void StartFadeIn(string sceneName)
     {
-        FadeIn.gameObject.SetActive(true);
-        Color originalColor = FadeIn.color;
-        while (FadeIn.color.a < 1)
-        {
-            float newAlpha = FadeIn.color.a + Time.deltaTime / 3;
-            FadeIn.color = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
-            yield return null;
-        }
-        fadeInComplete = true;
-        if (fadeInComplete)
-        {
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene(sceneName);
-        }
+        fadeCanvasGroup.alpha = 0; // 초기 알파값을 0으로 설정
+        fadeCanvasGroup.gameObject.SetActive(true); // CanvasGroup 활성화
+        fadeCanvasGroup.DOFade(1, 3f) // 3초 동안 알파값을 1로 애니메이션
+            .SetUpdate(true) // TimeScale 영향을 받지 않도록 설정
+            .OnComplete(() =>
+            {
+                SceneManager.LoadScene(sceneName); // 페이드 인 완료 후 씬 로드
+            });
     }
 }

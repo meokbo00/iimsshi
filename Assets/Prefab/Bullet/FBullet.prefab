@@ -110,7 +110,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -167,3 +167,5 @@ MonoBehaviour:
   BallMinHP: 1
   BallMaxHP: 6
   bouncyMaterial: {fileID: 6200000, guid: 43641f4149fa2474d85f99016b4819d5, type: 2}
+  isExpanding: 0
+  PlusScale: 15

@@ -21,6 +21,7 @@ public class SInvincible_Skill : MonoBehaviour
     private float expandSpeed = 1f; // 팽창 속도
     private Vector3 initialScale; // 초기 공 크기
     private Vector3 targetScale; // 목표 크기
+    private Vector3 velocity = Vector3.zero;
 
     private const string WallTag = "Wall";
     private void Start()
@@ -77,39 +78,51 @@ public class SInvincible_Skill : MonoBehaviour
     }
     void StartExpansion()
     {
-        bGMControl.SoundEffectPlay(1);
+        if (bGMControl.SoundEffectSwitch)
+        {
+            bGMControl.SoundEffectPlay(1);
+        }
         targetScale = initialScale * 10;
         isExpanding = true;
     }
     void ExpandBall()
     {
-        if (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
-        {
-            hasExpanded = true;
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * expandSpeed);
-        }
-        else
+        transform.localScale = Vector3.SmoothDamp(transform.localScale, targetScale, ref velocity, expandSpeed);
+
+        if (Vector3.Distance(transform.localScale, targetScale) < 0.01f)
         {
             transform.localScale = targetScale; // 목표 크기에 도달하면 팽창 완료
             isExpanding = false; // 팽창 중단
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (!isExpanding)
+        if (!isExpanding && bGMControl.SoundEffectSwitch)
         {
             bGMControl.SoundEffectPlay(0);
         }
-        if (!collision.collider.isTrigger && isExpanding)
+        if (!coll.collider.isTrigger && isExpanding)
         {
             isExpanding = false; // 팽창 중단
             transform.localScale = transform.localScale; // 현재 크기에서 멈춤
             DestroyRigidbody(); // Rigidbody 제거
         }
-        if (!collision.collider.CompareTag(WallTag))
+        if (!coll.collider.CompareTag(WallTag))
         {
-            Destroy(collision.gameObject);
-            spgamemanager.RemoveBall();
+            if (coll.collider.tag == "EnemyBall" || coll.collider.tag == "P1ball")
+            {
+                spgamemanager.RemoveBall();
+                Destroy(coll.gameObject);
+            }
+            else if (coll.collider.tag == "EnemyCenter")
+            {
+                spgamemanager.RemoveEnemy();
+                Destroy(coll.gameObject);
+            }
+            else
+            {
+                Destroy(coll.gameObject);
+            }
             Destroy(gameObject);
             spgamemanager.RemoveBall();
         }

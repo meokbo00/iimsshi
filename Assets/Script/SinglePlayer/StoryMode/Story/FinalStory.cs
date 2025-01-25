@@ -28,9 +28,9 @@ public class FinalStory : MonoBehaviour
 
     void Update()
     {
-        showText = FindObjectOfType<ShowText>();
-        if (showText != null && gameManager.StageClearID == 66)
+        if (gameManager.StageClearID == 66)
         {
+            showText = FindObjectOfType<ShowText>();
             if (showText.logTextIndex == 9)
             {
                 StartCoroutine(FadeOut(fadeinImage, 3f));
@@ -81,6 +81,13 @@ public class FinalStory : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         // Load the Ending scene
-        SceneManager.LoadScene("Ending");
+        if (!gameManager.isenglish)
+        {
+            SceneManager.LoadScene("Ending");
+        }
+        else
+        {
+            SceneManager.LoadScene("EEnding");
+        }
     }
 }
